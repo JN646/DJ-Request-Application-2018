@@ -1,0 +1,11 @@
+/* Custom CSS File */
+.song_block {
+  height: 250px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+#mainWin {
+  background-color: #333;
+}
