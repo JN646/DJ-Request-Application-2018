@@ -1,4 +1,10 @@
 /* Custom CSS File */
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+
+* {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
 .song_block {
   height: 18rem;
   margin: 10px;
@@ -13,7 +19,7 @@
 }
 
 .collection_block:hover {
-  border: solid 1px blue;
+  background-color: #eee;
 }
 
 #mainWin {
@@ -27,5 +33,10 @@
   background-color: #073642;
   height: 100vh;
   overflow-y: auto;
+  color: #fdf6e3;
+}
+
+#topBar {
+  background-color: #000;
   color: #fdf6e3;
 }
