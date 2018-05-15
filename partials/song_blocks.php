@@ -2,11 +2,12 @@
 for ($x = 0; $x <= 10; $x++) {
  ?>
 
-<div class="col-md-3">
-  <div class="col-md-12 border song_block text-center">
-    <h3>Song Block</h3>
-  </div>
-</div>
+ <div class="card song_block" style="width: 18rem;">
+   <img class="card-img-top" src="img/img.svg" alt="Card image cap">
+   <div class="card-body">
+     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   </div>
+ </div>
 
 <?php
 }

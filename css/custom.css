@@ -1,11 +1,31 @@
 /* Custom CSS File */
 .song_block {
-  height: 250px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: 18rem;
+  margin: 10px;
   background-color: white;
+  color: black;
+}
+
+.collection_block {
+  margin: 10px;
+  background-color: white;
+  color: black;
+}
+
+.collection_block:hover {
+  border: solid 1px blue;
 }
 
 #mainWin {
-  background-color: #333;
+  background-color: #002b36;
+  height: 100vh;
+  overflow-y: auto;
+  color: #fdf6e3;
+}
+
+#collectionWin {
+  background-color: #073642;
+  height: 100vh;
+  overflow-y: auto;
+  color: #fdf6e3;
 }

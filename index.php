@@ -9,13 +9,15 @@
       <div class="row">
 
         <!-- Small Side -->
-        <div class="col-md-2 border">
-          <h2>Sidebar</h2>
+        <div id='collectionWin' class="col-md-2">
+          <?php
+            // Include Blocks
+            include 'partials/collection_blocks.php';
+          ?>
         </div>
 
         <!-- Main Window -->
-        <div id='mainWin' class="col-md-10 border">
-          <h2>Main Window</h2>
+        <div id='mainWin' class="col-md-10">
 
           <div class="row">
             <?php
