@@ -6,15 +6,30 @@
 </form>
 
 <?php
-for ($x = 0; $x <= 4; $x++) {
- ?>
+  // Attempt select query execution
+  $sql = "SELECT * FROM collections";
+
+  if($result = mysqli_query($mysqli, $sql)){
+    if(mysqli_num_rows($result) > 0){
+      while($row = mysqli_fetch_array($result)){
+?>
 
  <div class="card collection_block">
    <div class="card-body">
-     <p class="card-text">Card 1</p>
+     <?php echo "<p class='card-text'>" . $row['collection_name'] . "</p>"; ?>
    </div>
  </div>
 
-<?php
-}
- ?>
+ <?php
+       }
+       // Free result set
+       mysqli_free_result($result);
+     } else{
+
+       // Nothing Found
+       echo "<h3 class='text-center'>No artists were found.</h3>";
+     }
+   } else{
+     QueryError($query, $mysqli);
+   }
+  ?>
