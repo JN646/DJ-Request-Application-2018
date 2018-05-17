@@ -3,9 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>DJ App</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/fontawesome-all.css">
-    <?php require_once "config/DBConfig.php"; ?>
+
+    <!-- Database Link -->
+    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBVar.php");?>
+    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");?>
+
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="<?php echo $environment; ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo $environment; ?>css/custom.css">
+    <link rel="stylesheet" href="<?php echo $environment; ?>css/fontawesome-all.css">
+
   </head>
   <body>
