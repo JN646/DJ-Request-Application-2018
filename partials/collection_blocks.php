@@ -1,8 +1,8 @@
 <h3>Collection</h3>
 
-<form class="" action="index.html" method="post">
-  <input type="text" name="" value="">
-  <button type="button" name="button">Search</button>
+<form class="form-inline" action="index.html" method="post">
+  <input class='form-control' type="text" name="" value="">
+  <button class='form-control btn btn-primary' type="button" name="button">Search</button>
 </form>
 
 <?php
@@ -12,24 +12,36 @@
   if ($result = mysqli_query($mysqli, $sql)) {
       if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_array($result)) {
-              ?>
+            $CollectionName = $row['collection_name'];
+?>
 
-             <div class="card collection_block">
-               <div class="card-body">
-                 <?php echo "<p class='card-text'>" . $row['collection_name'] . "</p>"; ?>
-               </div>
-             </div>
+              <!-- Generate a Collection Block -->
+              <div id="" class="card collection_block">
+                <div class="card-body">
+                  <?php
 
- <?php
+                    // Check to see if the collection has a name.
+                    if ($CollectionName !== '') {
+
+                      // Collection Name.
+                      echo "<p class='card-text'>" . $CollectionName . "</p>";
+                    } else {
+                      // Unknown Name.
+                      echo "<p class='card-text'>Unknown Name</p>";
+                    }
+                    ?>
+                </div>
+              </div>
+<?php
           }
           // Free result set
           mysqli_free_result($result);
       } else {
 
        // Nothing Found
-          echo "<h3 class='text-center'>No artists were found.</h3>";
+          echo "<h3 class='text-center'>No collections were found.</h3>";
       }
   } else {
       QueryError($query, $mysqli);
   }
-  ?>
+?>

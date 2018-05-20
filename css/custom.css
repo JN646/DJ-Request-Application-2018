@@ -69,3 +69,16 @@
 i#requestButton:hover {
   color: orange;
 }
+
+/* Genre Colours */
+.colourRock {
+  border: solid 3px red;
+}
+
+.colourPop {
+  border: solid 3px green;
+}
+
+.colourRap {
+  border: solid 3px yellow;
+}
