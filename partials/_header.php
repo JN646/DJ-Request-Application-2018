@@ -5,7 +5,6 @@
     <title>DJ App</title>
 
     <!-- Database Link -->
-    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBVar.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");?>
 
