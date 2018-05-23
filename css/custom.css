@@ -68,6 +68,7 @@
 /* Icons */
 i#requestButton:hover {
   color: orange;
+  cursor: pointer;
 }
 
 /* Genre Colours */
@@ -81,4 +82,8 @@ i#requestButton:hover {
 
 .colourRap {
   border: solid 3px yellow;
+}
+
+.colourDance {
+  border: solid 3px pink;
 }
