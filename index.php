@@ -2,28 +2,6 @@
   // Include Header
   include 'partials/_header.php';
 ?>
-    <!-- Start Clock -->
-    <body onload="startTime()">
-
-    <!-- Container -->
-    <div class="container-fluid">
-
-      <!-- Top Bar -->
-      <div class='row' id='topBar'>
-          <div class="col-md-4">
-            <p>DJ Request System</p>
-          </div>
-          <div class="col-md-4">
-            <p></p>
-          </div>
-          <div class="col-md-4">
-            <p class="text-right">
-              <span id="txt"></span>
-              <span><?php is_connected(); ?></span>
-            </p>
-          </div>
-      </div>
-
       <!-- Row -->
       <div class="row">
 

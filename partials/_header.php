@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>DJ App</title>
+    <title>DJ Application</title>
 
     <!-- Database Link -->
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");?>
@@ -15,3 +15,25 @@
 
   </head>
   <body>
+
+    <!-- Start Clock -->
+    <body onload="startTime()">
+
+    <!-- Container -->
+    <div class="container-fluid">
+
+      <!-- Top Bar -->
+      <div class='row' id='topBar'>
+          <div class="col-md-4">
+            <p><i class="fas fa-headphones"></i> DJ Request System</p>
+          </div>
+          <div class="col-md-4">
+            <p></p>
+          </div>
+          <div class="col-md-4">
+            <p class="text-right">
+              <span id="txt"></span>
+              <span><?php is_connected(); ?></span>
+            </p>
+          </div>
+      </div>

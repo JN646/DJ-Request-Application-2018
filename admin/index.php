@@ -2,25 +2,6 @@
   // Include Header
   include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php");
 ?>
-    <!-- Start Clock -->
-    <body onload="startTime()">
-
-    <!-- Container -->
-    <div class="container-fluid">
-
-      <!-- Top Bar -->
-      <div class='row' id='topBar'>
-          <div class="col-md-4">
-            <p>DJ Request System</p>
-          </div>
-          <div class="col-md-4">
-            <p></p>
-          </div>
-          <div class="col-md-4">
-            <p id="txt" class="text-right"></p>
-          </div>
-      </div>
-
       <!-- Row -->
       <div class="row">
 

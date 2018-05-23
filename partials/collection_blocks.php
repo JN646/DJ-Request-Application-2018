@@ -1,8 +1,9 @@
 <h3>Collection</h3>
 
-<form class="form-inline" action="index.html" method="post">
-  <input class='form-control' type="text" name="" value="">
-  <button class='form-control btn btn-primary' type="button" name="button">Search</button>
+<!-- Search Form -->
+<form id='searchForm' class="form-inline" action="index.html" method="post">
+  <input class='form-control' type="text" name="" value="" placeholder='Search'>
+  <button class='form-control btn btn-primary' type="button" name="button"><i class="fas fa-search"></i></button>
 </form>
 
 <?php

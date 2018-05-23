@@ -71,6 +71,11 @@ i#requestButton:hover {
   cursor: pointer;
 }
 
+/* Form Elements */
+input#searchForm {
+  color: black;
+}
+
 /* Genre Colours */
 .colourRock {
   border: solid 3px red;
