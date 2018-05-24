@@ -34,7 +34,7 @@
       <div class="col-md-3">
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
           <button type="submit" name="request" class="btn-link" style='border: 0px;'>
-            <i id='requestButton' class="far fa-thumbs-up fa-3x"></i>
+            <i id='requestButton' class="far fa-thumbs-up fa-2x"></i>
           </button>
         </form>
       </div>

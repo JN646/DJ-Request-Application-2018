@@ -36,6 +36,7 @@
 #collectionWin {
   background-color: #073642;
   height: 100vh;
+  padding-top: 10px;
   overflow-y: auto;
   color: #fdf6e3;
 }
@@ -80,19 +81,37 @@ input#searchForm {
   color: black;
 }
 
+/* Card Image */
+.cardImage {
+  background-color: #586e75;
+  height: 350px;
+}
+
 /* Genre Colours */
+.colour {
+  border-bottom: solid 5px #eee8d5;
+}
+
 .colourRock {
-  border: solid 3px red;
+  border-bottom: solid 5px #dc322f;
 }
 
 .colourPop {
-  border: solid 3px green;
+  border-bottom: solid 5px #859900;
 }
 
 .colourRap {
-  border: solid 3px yellow;
+  border-bottom: solid 5px #b58900;
 }
 
 .colourDance {
-  border: solid 3px pink;
+  border-bottom: solid 5px #d33682;
+}
+
+.colourRnB {
+  border-bottom: solid 5px #6c71c4;
+}
+
+.colourHip-Hop {
+  border: solid 3px #268bd2;
 }
