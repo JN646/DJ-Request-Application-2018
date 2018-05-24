@@ -63,15 +63,20 @@
 		<!-- Result Preview -->
 		<div class='col-md-3 border'>
 			<?php
-				echo "<p>Song Name: " . $song_name . "</p>";
-				echo "<p>Song Artist: " . $song_artist . "</p>";
-				echo "<p>Song Album: " . $song_album . "</p>";
-				echo "<p>Song Genre: " . $song_genre . "</p>";
+				echo "<p><b>Song Name: </b>" . $song_name . "</p>";
+				echo "<p><b>Song Artist: </b>" . $song_artist . "</p>";
+				echo "<p><b>Song Album: </b>" . $song_album . "</p>";
+				echo "<p><b>Song Genre: </b>" . $song_genre . "</p>";
 
 				// close connection
 				mysqli_close($mysqli);
 			 ?>
 		</div>
+
+		<br>
+
+		<p><a href="index.php">Back</a></p>
+
 	</div>
 </div>
 

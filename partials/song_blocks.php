@@ -1,6 +1,6 @@
 <?php
   // Attempt select query execution
-  $sql = "SELECT * FROM songs";
+  $sql = "SELECT DISTINCT * FROM songs ORDER BY song_name ASC";
 
   if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
