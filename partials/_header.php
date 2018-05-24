@@ -25,7 +25,10 @@
       <!-- Top Bar -->
       <div class='row' id='topBar'>
           <div class="col-md-4">
-            <p title="<?php echo 'Version ' . ApplicationVersion::get(); ?>"><i class="fas fa-headphones"></i> DJ Request System</p>
+            <p title="<?php echo 'Version ' . ApplicationVersion::get(); ?>">
+              <i class="fas fa-headphones"></i>
+              <span>DJ Request System</span>
+            </p>
           </div>
           <div class="col-md-4">
             <p></p>

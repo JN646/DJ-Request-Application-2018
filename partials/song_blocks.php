@@ -14,46 +14,47 @@
 
 <!-- Song Blocks -->
 <div class="card song_block <?php echo 'colour' . $SongGenre ?>" style="width: 18rem;">
+
+  <!-- Song Top Image -->
   <img class="card-img-top" src="img/img.svg" alt="Card image cap">
+
+  <!-- Song Body -->
   <div class="card-body">
     <div class="row">
       <div class="col-md-9">
-        <?php
-          // Checks to see if song name is blank.
-          if ($SongName !== '') {
-            // Adds song name and artist
-            echo "<h5 class='card-text'>" . $SongName . "</h5>";
-            echo "<h6 class='card-text'>" . $SongArtist . "</h6>";
-          } else {
-            // Adds Unkown Song text.
-            echo "<h5 class='card-text'>Unknown Song</h5>";
-            echo "<h6 class='card-text'>" . $SongArtist . "</h6>";
-          }
 
-        ?>
+        <!-- Song Name -->
+        <?php echo "<h5 class='card-text'>" . $SongName . "</h5>"; ?>
+
+        <!-- Song Artist -->
+        <?php echo "<h6 class='card-text'>" . $SongArtist . "</h6>"; ?>
       </div>
+
+      <!-- Request Button -->
       <div class="col-md-3">
-        <a id='requestLink' href="#">
-          <i id='requestButton' class="far fa-thumbs-up fa-3x"></i>
-        </a>
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+          <button type="submit" name="request" class="btn-link" style='border: 0px;'>
+            <i id='requestButton' class="far fa-thumbs-up fa-3x"></i>
+          </button>
+        </form>
       </div>
+
     </div>
   </div>
 </div>
 
 <?php
   // Set variables on submit
-  if(isset($_POST['submit'])) {
-      $SongID = $_POST['id'];
+  if(isset($_POST['request'])) {
 
-      // Add songs to database.
-      $sql = "INSERT INTO requests (song_id) VALUES ('$songID')";
-
-      if(mysqli_query($mysqli,$sql)) {
-          echo "<p class='alert alert-success'>Added</p>";
-        } else {
-          echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
-        }
+      // // Add songs to database.
+      // $sql = "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$SongName', '$SongArtist', '$SongGenre')";
+      //
+      // if(mysqli_query($mysqli,$sql)) {
+      //     echo "<p class='alert alert-success'>Added</p>";
+      //   } else {
+      //     echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
+      //   }
   }
 
       }
