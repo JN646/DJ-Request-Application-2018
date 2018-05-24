@@ -37,6 +37,8 @@
             } else {
               echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
             }
+              // close connection
+              mysqli_close($mysqli);
       }
       ?>
 
@@ -67,10 +69,7 @@
       </form>
 
       <br>
-        <?php
-          // close connection
-          mysqli_close($mysqli);
-         ?>
+
     </div>
     <div class="modal-footer">
 
