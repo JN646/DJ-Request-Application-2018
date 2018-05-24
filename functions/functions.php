@@ -1,15 +1,13 @@
 <?php
 
 //  Get GITHUB Version.
-class ApplicationVersion
-{
+class ApplicationVersion {
     // Define version numbering
     const MAJOR = 0;
     const MINOR = 0;
     const PATCH = 0;
 
-    public static function get()
-    {
+    public static function get() {
         // Prepare git information to form version number.
         $commitHash = trim(exec('git log --pretty="%h" -n1 HEAD'));
 
@@ -25,8 +23,7 @@ class ApplicationVersion
 }
 
 // Check to see if Online.
-function is_connected()
-{
+function is_connected() {
     $connected = @fsockopen("www.google.co.uk", 80);
                                         //website, port  (try 80 or 443)
     if ($connected){
@@ -42,5 +39,15 @@ function is_connected()
      } else {
        echo "<i class='fas fa-ban' title='Not Connected'></i>";
      }
+}
+
+function GenreArray() {
+  // Genre Array.
+  $genreList = ['Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap'];
+
+  // Loop Through Genre Array.
+  for ($i=0; $i < count($genreList); $i++) {
+    echo "<option value='" . $genreList[$i] ."'>" . $genreList[$i] ."</option>";
+  }
 }
  ?>

@@ -60,11 +60,7 @@
         <!-- Song Genre -->
         <label for="">Song Genre</label>
         <select class="form-control" name="genre">
-          <option value="Other">Other</option>
-          <option value="Pop">Pop</option>
-          <option value="Rock">Rock</option>
-          <option value="RnB">RnB</option>
-          <option value="Hip-Hop">Hip-Hop</option>
+          <?php GenreArray(); ?>
         </select>
       </form>
 
