@@ -1,6 +1,4 @@
 <!-- Block 1 -->
 <div class="card collection_block">
-  <div class="card-body">
-    <a href="<?php echo $environment; ?>admin/add_song.php"><p class='card-text'>Add Song</p></a>
-  </div>
+  <button type="button" class="btn btn-link" data-toggle="modal" data-target="#addsongModal">Add Song</button>
 </div>
