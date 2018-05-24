@@ -47,7 +47,13 @@
 			<input class="form-control" type="text" name="album"><br>
 
 			<label for="">Song Genre</label>
-			<input class="form-control" type="text" name="genre"><br>
+			<select class="form-control" name="genre">
+				<option value="Other">Other</option>
+			  <option value="Pop">Pop</option>
+			  <option value="Rock">Rock</option>
+			  <option value="RnB">RnB</option>
+			  <option value="Hip-Hop">Hip-Hop</option>
+			</select>
 
 			<input class="btn btn-primary" type="submit" name="submit" value="Add"><br>
 		</form>

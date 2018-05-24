@@ -6,6 +6,7 @@
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
         // Sets variables
+        $SongID = $row['song_id'];
         $SongName = $row['song_name'];
         $SongArtist = $row['song_artist'];
         $SongGenre = $row['song_genre'];
@@ -32,13 +33,29 @@
         ?>
       </div>
       <div class="col-md-3">
-        <i id='requestButton' class="far fa-thumbs-up fa-3x"></i>
+        <a id='requestLink' href="#">
+          <i id='requestButton' class="far fa-thumbs-up fa-3x"></i>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
 <?php
+  // Set variables on submit
+  if(isset($_POST['submit'])) {
+      $SongID = $_POST['id'];
+
+      // Add songs to database.
+      $sql = "INSERT INTO requests (song_id) VALUES ('$songID')";
+
+      if(mysqli_query($mysqli,$sql)) {
+          echo "<p class='alert alert-success'>Added</p>";
+        } else {
+          echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
+        }
+  }
+
       }
       // Free result set
       mysqli_free_result($result);

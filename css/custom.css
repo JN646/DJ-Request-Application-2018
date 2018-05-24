@@ -68,7 +68,11 @@
 /* Icons */
 i#requestButton:hover {
   color: orange;
-  cursor: pointer;
+  transition: 1s all;
+}
+
+i#requestLink {
+  color: black;
 }
 
 /* Form Elements */
