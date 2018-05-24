@@ -10,6 +10,8 @@
       <p>Use this form to add new songs to the database. Ensure that all of the fields are correct prior to pressing submit.</p>
 
       <?php
+      // SONG FUNCTION: ADD SONG
+      // PROCESS DATA AND ADD TO DATABASE.
 
       // Set Null values
       $song_name = NULL;
@@ -19,6 +21,8 @@
 
       // Set variables on submit
       if(isset($_POST['submit'])) {
+
+          // Assign variables to input.
           $song_name = $_POST['name'];
           $song_artist = $_POST['artist'];
           $song_album = $_POST['album'];
@@ -27,6 +31,7 @@
           // Add songs to database.
           $sql = "INSERT INTO songs (song_name, song_artist, song_album, song_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')";
 
+          // Apply import.
           if(mysqli_query($mysqli,$sql)) {
               echo "<p class='alert alert-success'>Added</p>";
             } else {
@@ -36,16 +41,21 @@
       ?>
 
       <!-- Entry Form -->
-      <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="form-group">
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" class="form-group">
+
+        <!-- Song Name -->
         <label for="">Song Name</label>
         <input class="form-control" type="text" name="name"><br>
 
+        <!-- Song Artist -->
         <label for="">Song Artist</label>
         <input class="form-control" type="text" name="artist"><br>
 
+        <!-- Song Album -->
         <label for="">Song Album</label>
         <input class="form-control" type="text" name="album"><br>
 
+        <!-- Song Genre -->
         <label for="">Song Genre</label>
         <select class="form-control" name="genre">
           <option value="Other">Other</option>
@@ -63,6 +73,8 @@
          ?>
     </div>
     <div class="modal-footer">
+
+      <!-- Close and Submit Buttons -->
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button type="submit" name="submit" value="Add" class="btn btn-primary">Save</button>
     </div>
