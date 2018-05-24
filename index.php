@@ -1,9 +1,6 @@
 <?php
   // Include Header
   include 'partials/_header.php';
-
-  // App Running Debug.
-  $appRunning = 1;
 ?>
       <!-- Row -->
       <div class="row">

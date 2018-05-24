@@ -18,4 +18,10 @@ Make a backup of this file as changes can have catastrophic results.
 define("LOCAL", "http://localhost/dj-app2/"); //local URL
 define("WEB", "http://192.168.1.72:80/dj-app2/"); //website URL
 $environment = LOCAL; //change to WEB if you're live
+
+// App Running Debug.
+$appRunning = 1;
+
+// CoverArt Mode.
+$coverArtMode = 1;
 ?>

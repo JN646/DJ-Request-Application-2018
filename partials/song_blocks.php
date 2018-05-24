@@ -16,7 +16,9 @@
 <div class="card song_block <?php echo 'colour' . $SongGenre ?>" style="width: 18rem;">
 
   <!-- Song Top Image -->
-  <img class="card-img-top" src="img/img.svg" alt="Card image cap">
+  <?php if ($coverArtMode == 1) { ?>
+    <img class="card-img-top" src="img/img.svg" alt="Card image cap">
+  <?php } ?>
 
   <!-- Song Body -->
   <div class="card-body">
