@@ -33,6 +33,10 @@
   <?php include 'add_song.php'; ?>
 </div>
 
+<div class="modal fade" id="listsongModal" tabindex="-1" role="dialog" aria-labelledby="listModalLabel" aria-hidden="true">
+  <?php include 'list_songs.php'; ?>
+</div>
+
 <?php
   // Include Footer
   include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php");

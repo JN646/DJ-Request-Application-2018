@@ -10,7 +10,6 @@ if ($mysqli->connect_error) {
 
 /*
 This file loads all of the global variables for the application. When you install the system, ensure you go through this file and make sure all of the correct variables and details have been added to this file.
-
 Make a backup of this file as changes can have catastrophic results.
  */
 
