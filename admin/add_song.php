@@ -10,36 +10,9 @@
       <p>Use this form to add new songs to the database. Ensure that all of the fields are correct prior to pressing submit.</p>
 
       <?php
-      // SONG FUNCTION: ADD SONG
-      // PROCESS DATA AND ADD TO DATABASE.
-
-      // Set Null values
-      $song_name = NULL;
-      $song_artist = NULL;
-      $song_album = NULL;
-      $song_genre = NULL;
-
-      // Set variables on submit
-      if(isset($_POST['submit'])) {
-
-          // Assign variables to input.
-          $song_name = $_POST['name'];
-          $song_artist = $_POST['artist'];
-          $song_album = $_POST['album'];
-          $song_genre = $_POST['genre'];
-
-          // Add songs to database.
-          $sql = "INSERT INTO songs (song_name, song_artist, song_album, song_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')";
-
-          // Apply import.
-          if(mysqli_query($mysqli,$sql)) {
-              echo "<p class='alert alert-success'>Added</p>";
-            } else {
-              echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
-            }
-              // close connection
-              mysqli_close($mysqli);
-      }
+        if(isset($_POST['submit'])) {
+          AddSong($mysqli);
+        }
       ?>
 
       <!-- Entry Form -->

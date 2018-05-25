@@ -27,7 +27,7 @@ class ApplicationVersion {
 // CHECK ONLINE
 function is_connected() {
     $connected = @fsockopen("www.google.co.uk", 80);
-                                        //website, port  (try 80 or 443)
+
     if ($connected){
         $is_conn = true; //action when connected
         fclose($connected);
@@ -41,6 +41,27 @@ function is_connected() {
      } else {
        echo "<i class='fas fa-ban' title='Not Connected'></i>";
      }
+}
+
+// ADD SONG
+function AddSong($mysqli) {
+  // Assign variables to input.
+  $song_name = $_POST['name'];
+  $song_artist = $_POST['artist'];
+  $song_album = $_POST['album'];
+  $song_genre = $_POST['genre'];
+
+  // Add songs to database.
+  $sql = "INSERT INTO songs (song_name, song_artist, song_album, song_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')";
+
+  // Apply import.
+  if(mysqli_query($mysqli,$sql)) {
+      echo "<p class='alert alert-success'>Added</p>";
+    } else {
+      echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
+    }
+      // close connection
+      mysqli_close($mysqli);
 }
 
 // GENRE ARRAY
