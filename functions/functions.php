@@ -1,6 +1,8 @@
 <?php
+// PHP FUNCTION FILE.
+// Keep all functions where possible in this file. Try and keep the code organised and easy to read.
 
-//  Get GITHUB Version.
+// GET VERSION NUMBER
 class ApplicationVersion {
     // Define version numbering
     const MAJOR = 0;
@@ -22,7 +24,7 @@ class ApplicationVersion {
     // Usage: echo 'MyApplication ' . ApplicationVersion::get();
 }
 
-// Check to see if Online.
+// CHECK ONLINE
 function is_connected() {
     $connected = @fsockopen("www.google.co.uk", 80);
                                         //website, port  (try 80 or 443)
@@ -41,6 +43,7 @@ function is_connected() {
      }
 }
 
+// GENRE ARRAY
 function GenreArray() {
   // Genre Array.
   $genreList = ['Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap'];
@@ -51,6 +54,7 @@ function GenreArray() {
   }
 }
 
+// LIST SONGS
 function ListSongs($mysqli) {
   // Attempt select query execution
   $sql = "SELECT * FROM songs ORDER BY song_name ASC";
@@ -80,16 +84,64 @@ function ListSongs($mysqli) {
           // Free result set
           mysqli_free_result($result);
       } else{
-
           // Error Message
           echo "<p>No songs were found.</p>";
       }
   } else{
-      // SQL Error
-      echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+      SQLError($mysqli);
   }
 
   // Close connection
   mysqli_close($mysqli);
+}
+
+// REQUEST PAGE
+function RequestList($mysqli) {
+  // Attempt select query execution
+  $sql = "SELECT * FROM requests WHERE request_active = 1 ORDER BY request_time ASC";
+  if($result = mysqli_query($mysqli, $sql)){
+      if(mysqli_num_rows($result) > 0){
+        ?>
+          <table id='table_search' class='table table-hover'>
+              <tr>
+                  <th class='text-center'>ID</th>
+                  <th class='text-center'>Song Name</th>
+                  <th class='text-center'>Song Artist</th>
+                  <th class='text-center'>Song Album</th>
+                  <th class='text-center'>Clear</th>
+              </tr>
+      <?php
+          while($row = mysqli_fetch_array($result)){
+            $RequestID = $row['request_id'];
+
+              echo "<tr>";
+                  echo "<td class='text-center'>" . $row['request_id'] . "</td>";
+                  echo "<td class='text-center'>" . $row['request_s_name'] . "</td>";
+                  echo "<td class='text-center'>" . $row['request_s_artist'] . "</td>";
+                  echo "<td class='text-center'>" . $row['request_s_album'] . "</td>";
+                  echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?" . $RequestID . "'>Clear</a></td>";
+              echo "</tr>";
+          }
+          echo "</table>";
+          // Free result set
+          mysqli_free_result($result);
+      } else{
+          echo "No active requests were found.";
+      }
+  } else{
+    SQLError($mysqli);
+  }
+
+  // Close connection
+  mysqli_close($mysqli);
+
+  if (isset($_GET[$RequestID])) {
+    echo "The record " . $RequestID . " Made Inactive";
+  }
+}
+
+// GLOBAL FUNCTIONS
+function SQLError($mysqli) {
+  echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
 }
  ?>
