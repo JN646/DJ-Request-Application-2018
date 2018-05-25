@@ -117,30 +117,30 @@ input#searchForm {
 }
 
 /* Genre Colours */
-.colour {
+.colourCell {
   background-color: #eee8d5;
 }
 
-.colourRock {
+.colourCellRock {
   background-color: #dc322f;
 }
 
-.colourPop {
+.colourCellPop {
   background-color: #859900;
 }
 
-.colourRap {
+.colourCellRap {
   background-color: #b58900;
 }
 
-.colourDance {
+.colourCellDance {
   background-color: #d33682;
 }
 
-.colourRnB {
+.colourCellRnB {
   background-color: #6c71c4;
 }
 
-.colourHip-Hop {
+.colourCellHip-Hop {
   background-color: #268bd2;
 }
