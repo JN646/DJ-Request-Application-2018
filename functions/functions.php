@@ -243,6 +243,27 @@ function CollectionBlocks($mysqli) {
   }
 }
 
+// CHECK SONG YEAR
+function CheckDate($SongDate) {
+
+  // Check if there is a song date.
+  if ($SongDate !== "") {
+
+    // Does the song date fit between the two dates.
+    if ($SongDate > 1910 && $SongDate < 2020) {
+
+      // Return the song date.
+      return $SongDate;
+
+      // Else.
+    } else {
+
+      // Invalid date.
+      echo "Invalid Date";
+    }
+  }
+}
+
 // GLOBAL FUNCTIONS
 function SQLError($mysqli) {
   echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);

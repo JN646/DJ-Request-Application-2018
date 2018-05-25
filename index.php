@@ -8,6 +8,7 @@
         <!-- Small Side -->
         <div id='collectionWin' class="col-md-2">
 
+          <!-- Is the app running? -->
           <?php if ($appRunning == 1) { ?>
             <h3>Collection</h3>
 
@@ -17,6 +18,7 @@
               <button class='form-control btn btn-outline-success' type="button" name="button"><i class="fas fa-search"></i></button>
             </form>
 
+            <!-- Add Collection Blocks -->
             <?php CollectionBlocks($mysqli) ?>
           <?php } ?>
 
