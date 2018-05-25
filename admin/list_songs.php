@@ -18,21 +18,23 @@ include("../config/DBConfig.php");
       $sql = "SELECT * FROM songs";
       if($result = mysqli_query($mysqli, $sql)){
           if(mysqli_num_rows($result) > 0){
-              echo "<table id='table_search' class='table table-bordered'>";
-                  echo "<tr>";
-                      echo "<th class='text-center'>ID</th>";
-                      echo "<th class='text-center'>Song Name</th>";
-                      echo "<th class='text-center'>Song Artist</th>";
-                      echo "<th class='text-center'>Song Album</th>";
-                      echo "<th class='text-center'>Song Genre</th>";
-                  echo "</tr>";
+            ?>
+              <table id='table_search' class='table table-bordered'>
+                  <tr>
+                      <th class='text-center'>ID</th>
+                      <th class='text-center'>Song Name</th>
+                      <th class='text-center'>Song Artist</th>
+                      <th class='text-center'>Song Album</th>
+                      <th class='text-center'>Song Genre</th>
+                  </tr>
+          <?php
               while($row = mysqli_fetch_array($result)){
                   echo "<tr>";
                       echo "<td class='text-center'>" . $row['song_id'] . "</td>";
                       echo "<td>" . $row['song_name'] . "</td>";
                       echo "<td>" . $row['song_artist'] . "</td>";
                       echo "<td>" . $row['song_album'] . "</td>";
-                      echo "<td>" . $row['song_genre'] . "</td>";
+                      echo "<td class='colour" . $row['song_genre'] . "'>" . $row['song_genre'] . "</td>";
                   echo "</tr>";
               }
               echo "</table>";

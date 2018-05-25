@@ -115,3 +115,32 @@ input#searchForm {
 .colourHip-Hop {
   border: solid 3px #268bd2;
 }
+
+/* Genre Colours */
+.colour {
+  background-color: #eee8d5;
+}
+
+.colourRock {
+  background-color: #dc322f;
+}
+
+.colourPop {
+  background-color: #859900;
+}
+
+.colourRap {
+  background-color: #b58900;
+}
+
+.colourDance {
+  background-color: #d33682;
+}
+
+.colourRnB {
+  background-color: #6c71c4;
+}
+
+.colourHip-Hop {
+  background-color: #268bd2;
+}
