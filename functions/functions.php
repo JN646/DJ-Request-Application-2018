@@ -43,6 +43,17 @@ function is_connected() {
      }
 }
 
+// GENRE ARRAY
+function GenreArray() {
+  // Genre Array.
+  $genreList = ['Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap'];
+
+  // Loop Through Genre Array.
+  for ($i=0; $i < count($genreList); $i++) {
+    echo "<option value='" . $genreList[$i] ."'>" . $genreList[$i] ."</option>";
+  }
+}
+
 // ADD SONG
 function AddSong($mysqli) {
   // Assign variables to input.
@@ -62,17 +73,6 @@ function AddSong($mysqli) {
     }
       // close connection
       mysqli_close($mysqli);
-}
-
-// GENRE ARRAY
-function GenreArray() {
-  // Genre Array.
-  $genreList = ['Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap'];
-
-  // Loop Through Genre Array.
-  for ($i=0; $i < count($genreList); $i++) {
-    echo "<option value='" . $genreList[$i] ."'>" . $genreList[$i] ."</option>";
-  }
 }
 
 // LIST SONGS
@@ -164,17 +164,18 @@ function RequestList($mysqli) {
   }
 }
 
+// DATE PURIFIER
 function nicetime($date)
 {
     if(empty($date)) {
         return "No date provided";
     }
 
-    $periods         = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
-    $lengths         = array("60","60","24","7","4.35","12","10");
+    $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
+    $lengths = array("60","60","24","7","4.35","12","10");
 
-    $now             = time();
-    $unix_date         = strtotime($date);
+    $now = time();
+    $unix_date = strtotime($date);
 
        // check validity of date
     if(empty($unix_date)) {
@@ -183,12 +184,12 @@ function nicetime($date)
 
     // is it future date or past date
     if($now > $unix_date) {
-        $difference     = $now - $unix_date;
-        $tense         = "ago";
+        $difference = $now - $unix_date;
+        $tense = "ago";
 
     } else {
-        $difference     = $unix_date - $now;
-        $tense         = "from now";
+        $difference = $unix_date - $now;
+        $tense = "from now";
     }
 
     for($j = 0; $difference >= $lengths[$j] && $j < count($lengths)-1; $j++) {
@@ -202,6 +203,44 @@ function nicetime($date)
     }
 
     return "$difference $periods[$j] {$tense}";
+}
+
+// COLLECTION Blocks
+function CollectionBlocks($mysqli) {
+  // Attempt select query execution
+  $sql = "SELECT * FROM collections";
+
+  if ($result = mysqli_query($mysqli, $sql)) {
+      if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_array($result)) {
+            $CollectionName = $row['collection_name'];
+  ?>
+
+              <!-- Generate a Collection Block -->
+              <div id="" class="card collection_block">
+                <div class="card-body">
+                  <?php
+                    // Check to see if the collection has a name.
+                    if ($CollectionName !== '') {
+                      echo "<p class='card-text'>" . $CollectionName . "</p>";
+                    } else {
+                      echo "<p class='card-text'>Unknown Name</p>";
+                    }
+                    ?>
+                </div>
+              </div>
+  <?php
+          }
+          // Free result set
+          mysqli_free_result($result);
+      } else {
+
+       // Nothing Found
+          echo "<h3 class='text-center'>No collections were found.</h3>";
+      }
+  } else {
+    SQLError($mysqli);
+  }
 }
 
 // GLOBAL FUNCTIONS

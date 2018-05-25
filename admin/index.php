@@ -7,20 +7,19 @@
 
         <!-- Small Side -->
         <div id='collectionWin' class="col-md-2">
-          <?php
-            // Include Blocks
-            include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/action_blocks.php");
-          ?>
+          <div class="card collection_block">
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#addsongModal">Add Song</button>
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#listsongModal">List Songs</button>
+          </div>
         </div>
 
         <!-- Main Window -->
         <div id='mainWin' class="col-md-10">
 
           <div class="row">
-            <?php
-              // Include Blocks
-              include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/feed_blocks.php");
-            ?>
+            <div class="col-md-12">
+              <?php RequestList($mysqli) ?>
+            </div>
           </div>
 
         </div>
