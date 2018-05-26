@@ -30,6 +30,10 @@
                 <h5>Views</h5>
               </div>
               <ul class="nav flex-column">
+                <li>
+                  <span><a class="nav-link font-button plus" style="cursor: pointer;">A+</a></span>
+                  <span><a class="nav-link font-button minus" style="cursor: pointer;">A-</a></span>
+                </li>
           			<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/index.php"><i class="fas fa-music"></i> Coming Soon</a></li>
           		</ul>
 
@@ -59,6 +63,24 @@
 <div class="modal fade" id="listsongModal" tabindex="-1" role="dialog" aria-labelledby="listModalLabel" aria-hidden="true">
   <?php include 'list_songs.php'; ?>
 </div>
+
+<script type="text/javascript">
+  // Size changing
+  $(function () {
+    $(".font-button").bind("click", function () {
+      var size = parseInt($('table').css("font-size"));
+      if ($(this).hasClass("plus")) {
+        size = size + 2;
+      } else {
+        size = size - 2;
+        if (size <= 10) {
+          size = 10;
+        }
+      }
+      $('table').css("font-size", size);
+    });
+  });
+</script>
 
 <?php
   // Include Footer
