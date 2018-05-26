@@ -165,8 +165,7 @@ function RequestList($mysqli) {
 }
 
 // DATE PURIFIER
-function nicetime($date)
-{
+function nicetime($date) {
     if(empty($date)) {
         return "No date provided";
     }
@@ -240,27 +239,6 @@ function CollectionBlocks($mysqli) {
       }
   } else {
     SQLError($mysqli);
-  }
-}
-
-// CHECK SONG YEAR
-function CheckDate($SongDate) {
-
-  // Check if there is a song date.
-  if ($SongDate !== "") {
-
-    // Does the song date fit between the two dates.
-    if ($SongDate > 1910 && $SongDate < 2020) {
-
-      // Return the song date.
-      return $SongDate;
-
-      // Else.
-    } else {
-
-      // Invalid date.
-      echo "Invalid Date";
-    }
   }
 }
 
