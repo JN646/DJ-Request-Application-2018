@@ -123,7 +123,7 @@ function RequestList($mysqli) {
   if($result = mysqli_query($mysqli, $sql)){
       if(mysqli_num_rows($result) > 0){
         ?>
-          <table id='table_search' class='table table-hover'>
+          <table id='myTable2' style='font-size: 120%;' class='table table-hover'>
               <tr>
                   <th class='text-center'>ID</th>
                   <th class='text-center'>Song Name</th>

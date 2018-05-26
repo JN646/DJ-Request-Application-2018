@@ -77,6 +77,10 @@
     background: #555;
 }
 
+/* Nav Links */
+.nav-link-small {
+}
+
 /* Icons */
 i#requestButton:hover {
   color: orange;
