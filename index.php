@@ -8,13 +8,19 @@
         <!-- Small Side -->
         <div id='collectionWin' class="col-md-2">
 
-          <?php
-          // If Application is Running.
-          if ($appRunning == 1) {
-            // Include Blocks
-            include 'partials/collection_blocks.php';
-          }
-          ?>
+          <!-- Is the app running? -->
+          <?php if ($appRunning == 1) { ?>
+            <h3>Collection</h3>
+
+            <!-- Search Form -->
+            <form id='searchForm' class="form-inline" action="index.html" method="post">
+              <input class='form-control' type="text" name="" value="" placeholder='Search'>
+              <button class='form-control btn btn-outline-success' type="button" name="button"><i class="fas fa-search"></i></button>
+            </form>
+
+            <!-- Add Collection Blocks -->
+            <?php CollectionBlocks($mysqli) ?>
+          <?php } ?>
 
         </div>
 
@@ -23,15 +29,7 @@
 
           <!-- Row -->
           <div class="row">
-
-            <?php
-            // If Application is Running.
-            if ($appRunning == 1) {
-              // Include Blocks
-              include 'partials/song_blocks.php';
-            }
-            ?>
-
+            <?php if ($appRunning == 1) { include 'partials/song_blocks.php'; } ?>
           </div>
 
         </div>

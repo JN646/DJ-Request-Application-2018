@@ -46,6 +46,17 @@
   color: #fdf6e3;
 }
 
+#footerBar {
+  background-color: #000;
+  color: #fdf6e3;
+  display: block;
+}
+
+.footerLink {
+  float: left;
+  margin: 10px;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -114,4 +125,33 @@ input#searchForm {
 
 .colourHip-Hop {
   border: solid 3px #268bd2;
+}
+
+/* Genre Colours */
+.colourCell {
+  background-color: #eee8d5;
+}
+
+.colourCellRock {
+  background-color: #dc322f;
+}
+
+.colourCellPop {
+  background-color: #859900;
+}
+
+.colourCellRap {
+  background-color: #b58900;
+}
+
+.colourCellDance {
+  background-color: #d33682;
+}
+
+.colourCellRnB {
+  background-color: #6c71c4;
+}
+
+.colourCellHip-Hop {
+  background-color: #268bd2;
 }
