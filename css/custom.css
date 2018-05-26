@@ -46,6 +46,17 @@
   color: #fdf6e3;
 }
 
+#footerBar {
+  background-color: #000;
+  color: #fdf6e3;
+  display: block;
+}
+
+.footerLink {
+  float: left;
+  margin-left: 10px;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;

@@ -1,3 +1,10 @@
+    <div class="row">
+      <div id='footerBar' class="col-md-12">
+        <p class='footerLink'><a href="<?php echo $environment; ?>admin/index.php">Admin</a></p>
+        <p class='footerLink'><a href="<?php echo $environment; ?>index.php">Home</a></p>
+      </div>
+    </div>
+
     <!-- Custom JS -->
     <script src="<?php echo $environment; ?>functions/functions.js"></script>
 
