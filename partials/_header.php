@@ -6,7 +6,12 @@
 
     <!-- Database Link -->
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");?>
+
+    <!-- Function Files -->
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");?>
+    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_songs.php");?>
+    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_requests.php");?>
+    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_collections.php");?>
 
     <!-- CSS Links -->
     <link rel="stylesheet" href="<?php echo $environment; ?>css/bootstrap.min.css">
