@@ -1,27 +1,6 @@
 <?php
 // SONG FUNCITONS
 
-// ADD SONG
-function AddSong($mysqli) {
-  // Assign variables to input.
-  $song_name = $_POST['name'];
-  $song_artist = $_POST['artist'];
-  $song_album = $_POST['album'];
-  $song_genre = $_POST['genre'];
-
-  // Add songs to database.
-  $sql = "INSERT INTO songs (song_name, song_artist, song_album, song_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')";
-
-  // Apply import.
-  if(mysqli_query($mysqli,$sql)) {
-      echo "<p class='alert alert-success'>Added</p>";
-    } else {
-      SQLError($mysqli);
-    }
-      // close connection
-      mysqli_close($mysqli);
-}
-
 // LIST SONGS
 function ListSongs($mysqli) {
   // Attempt select query execution
@@ -62,7 +41,4 @@ function ListSongs($mysqli) {
   // Close connection
   mysqli_close($mysqli);
 }
-
-
-
  ?>
