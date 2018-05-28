@@ -90,14 +90,14 @@
                     <a href="../admin/list_manager.php?edit=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>
                   </td>
                   <td class='text-center'>
-                    <a href="../CRUD/server.php?del=<?php echo $row['id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
+                    <a href="../functions/server.php?del=<?php echo $row['id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
                   </td>
                 </tr>
               <?php } ?>
             </table>
 
             <!-- New Content -->
-            <form method="post" class="form-group col-md-4 border" action="../CRUD/server.php" >
+            <form method="post" class="form-group col-md-4 border" action="../functions/server.php" >
 
               <input type="hidden" name="id" value="<?php echo $id; ?>">
 
@@ -131,15 +131,6 @@
 
       </div>
     </div>
-
-<!-- Modal -->
-<div class="modal fade" id="addsongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <?php include 'add_song.php'; ?>
-</div>
-
-<div class="modal fade" id="listsongModal" tabindex="-1" role="dialog" aria-labelledby="listModalLabel" aria-hidden="true">
-  <?php include 'list_songs.php'; ?>
-</div>
 
 <script type="text/javascript">
   // Size changing
