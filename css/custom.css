@@ -41,6 +41,11 @@
   color: #fdf6e3;
 }
 
+#CRUDWindow {
+  height: 100vh;
+  overflow-y: auto;
+}
+
 #topBar {
   background-color: #000;
   color: #fdf6e3;

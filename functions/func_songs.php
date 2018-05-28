@@ -16,7 +16,7 @@ function AddSong($mysqli) {
   if(mysqli_query($mysqli,$sql)) {
       echo "<p class='alert alert-success'>Added</p>";
     } else {
-      echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
+      SQLError($mysqli);
     }
       // close connection
       mysqli_close($mysqli);
@@ -26,8 +26,8 @@ function AddSong($mysqli) {
 function ListSongs($mysqli) {
   // Attempt select query execution
   $sql = "SELECT * FROM songs ORDER BY song_name ASC";
-  if($result = mysqli_query($mysqli, $sql)){
-      if(mysqli_num_rows($result) > 0){
+  if($result = mysqli_query($mysqli, $sql)) {
+      if(mysqli_num_rows($result) > 0) {
         ?>
           <table id='table_search' class='table table-bordered'>
               <tr>
@@ -38,7 +38,7 @@ function ListSongs($mysqli) {
                   <th class='text-center'>Song Genre</th>
               </tr>
       <?php
-          while($row = mysqli_fetch_array($result)){
+          while($row = mysqli_fetch_array($result)) {
               echo "<tr>";
                   echo "<td class='text-center'>" . $row['song_id'] . "</td>";
                   echo "<td>" . $row['song_name'] . "</td>";
@@ -51,11 +51,11 @@ function ListSongs($mysqli) {
 
           // Free result set
           mysqli_free_result($result);
-      } else{
+      } else {
           // Error Message
           echo "<p>No songs were found.</p>";
       }
-  } else{
+  } else {
       SQLError($mysqli);
   }
 

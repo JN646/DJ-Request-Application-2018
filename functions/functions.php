@@ -94,7 +94,7 @@ function nicetime($date) {
 }
 
 // GLOBAL FUNCTIONS
-function SQLError($mysqli) {
+function SQLError($sql, $mysqli) {
   echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
 }
  ?>

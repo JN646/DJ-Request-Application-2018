@@ -49,19 +49,20 @@
   // Set variables on submit
   if(isset($_POST['request'])) {
 
-      // // Add songs to database.
-      // $sql = "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$SongName', '$SongArtist', '$SongGenre')";
-      //
-      // if(mysqli_query($mysqli,$sql)) {
-      //     echo "<p class='alert alert-success'>Added</p>";
-      //   } else {
-      //     echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
-      //   }
+      // Add songs to database.
+      $sql = "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$SongName', '$SongArtist', '$SongGenre')";
+
+      if(mysqli_query($mysqli,$sql)) {
+          echo "<p class='alert alert-success'>Added</p>";
+        } else {
+          SQLError($sql, $mysqli);
+        }
   }
 
       }
       // Free result set
       mysqli_free_result($result);
+
     } else{
 
       // Nothing Found
