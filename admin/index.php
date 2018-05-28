@@ -1,7 +1,4 @@
-<?php
-  // Include Header
-  include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php");
-?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php"); ?>
       <!-- Row -->
       <div class="row">
 
@@ -9,17 +6,7 @@
         <div id='collectionWin' class="col-md-2">
 
           <!-- Actions -->
-          <div class="card collection_block">
-          	<div class="card">
-          		<div class="card-header text-center">
-          			<h5>Actions</h5>
-          		</div>
-          		<ul class="nav flex-column">
-                <li><button type="button" class="btn btn-link nav-item text-left" data-toggle="modal" data-target="#addsongModal"><i class="fas fa-plus"></i> Add Song</button></li>
-                <li><button type="button" class="btn btn-link nav-item text-left" data-toggle="modal" data-target="#listsongModal"><i class="fas fa-list-ul"></i> List Songs</button></li>
-          		</ul>
-          	</div>
-          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_action_blocks.php"); ?>
 
             <br>
 
@@ -54,15 +41,6 @@
 
       </div>
     </div>
-
-<!-- Modal -->
-<div class="modal fade" id="addsongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <?php include 'add_song.php'; ?>
-</div>
-
-<div class="modal fade" id="listsongModal" tabindex="-1" role="dialog" aria-labelledby="listModalLabel" aria-hidden="true">
-  <?php include 'list_songs.php'; ?>
-</div>
 
 <script type="text/javascript">
   // Size changing

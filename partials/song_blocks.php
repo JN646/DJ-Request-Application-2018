@@ -1,15 +1,15 @@
 <?php
   // Attempt select query execution
-  $sql = "SELECT DISTINCT * FROM songs ORDER BY song_name ASC";
+  $sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
 
   if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
         // Sets variables
-        $SongID = $row['song_id'];
-        $SongName = $row['song_name'];
-        $SongArtist = $row['song_artist'];
-        $SongGenre = $row['song_genre'];
+        $SongID = $row['id'];
+        $SongName = $row['name'];
+        $SongArtist = $row['artist'];
+        $SongGenre = $row['genre'];
 ?>
 
 <!-- Song Blocks -->
