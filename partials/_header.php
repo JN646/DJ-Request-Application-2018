@@ -11,7 +11,6 @@
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/server.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_songs.php");?>
-    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_requests.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_collections.php");?>
 
     <!-- CSS Links -->
