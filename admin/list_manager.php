@@ -45,8 +45,9 @@
                 if (count($record) == 1 ) {
                   $n = mysqli_fetch_array($record);
                   $name = $n['name'];
-                  $address = $n['artist'];
+                  $artist = $n['artist'];
                   $genre = $n['genre'];
+                  $year = $n['year'];
                 }
 
               }
@@ -67,7 +68,7 @@
                 </div>
               <?php endif ?>
 
-            <?php $results = mysqli_query($db, "SELECT * FROM crud"); ?>
+            <?php $results = mysqli_query($db, "SELECT * FROM crud ORDER BY name ASC"); ?>
 
             <!-- Result Table -->
             <table class='table'>
@@ -76,6 +77,7 @@
                   <th class='text-center'>Name</th>
                   <th class='text-center'>Artist</th>
                   <th class='text-center'>Genre</th>
+                  <th class='text-center'>Year</th>
                   <th colspan="2" class='text-center'>Action</th>
                 </tr>
               </thead>
@@ -85,7 +87,8 @@
                 <tr>
                   <td><?php echo $row['name']; ?></td>
                   <td><?php echo $row['artist']; ?></td>
-                  <td class='text-center'><?php echo $row['genre']; ?></td>
+                  <td class='text-center'><span class='colourCell<?php echo $row['genre']; ?>'><?php echo $row['genre']; ?></span></td>
+                  <td class='text-center'><?php echo $row['year']; ?></td>
                   <td class='text-center'>
                     <a href="../admin/list_manager.php?edit=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>
                   </td>

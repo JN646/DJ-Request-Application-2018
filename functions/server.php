@@ -15,7 +15,7 @@
         $artist = $_POST['artist'];
         $genre = $_POST['genre'];
 
-        mysqli_query($db, "INSERT INTO crud (name, artist) VALUES ('$name', '$artist')");
+        mysqli_query($db, "INSERT INTO crud (name, artist, genre) VALUES ('$name', '$artist', '$genre')");
         $_SESSION['message'] = "Song saved";
         header('location: ../admin/list_manager.php');
     }
@@ -33,13 +33,13 @@
     }
 
 
-// Delete Records
-if (isset($_GET['del'])) {
-    $id = $_GET['del'];
-    mysqli_query($db, "DELETE FROM crud WHERE id=$id");
-    $_SESSION['message'] = "Song deleted!";
-    header('location: ../admin/list_manager.php');
-}
+  // Delete Records
+  if (isset($_GET['del'])) {
+      $id = $_GET['del'];
+      mysqli_query($db, "DELETE FROM crud WHERE id=$id");
+      $_SESSION['message'] = "Song deleted!";
+      header('location: ../admin/list_manager.php');
+  }
 
 // Request Records
     if (isset($_POST['request'])) {
@@ -47,9 +47,9 @@ if (isset($_GET['del'])) {
 
         mysqli_query($db, "UPDATE crud SET active='1' WHERE id=$id");
         $_SESSION['message'] = "Request updated!";
-        echo $id;
         header('location: index.php');
     }
 
     // Get Results
     $results = mysqli_query($db, "SELECT * FROM crud");
+  ?>
