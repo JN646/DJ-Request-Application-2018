@@ -1,15 +1,15 @@
 <?php
   // Attempt select query execution
-  $sql = "SELECT DISTINCT * FROM songs ORDER BY song_name ASC";
+  $sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
 
   if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
         // Sets variables
-        $SongID = $row['song_id'];
-        $SongName = $row['song_name'];
-        $SongArtist = $row['song_artist'];
-        $SongGenre = $row['song_genre'];
+        $SongID = $row['id'];
+        $SongName = $row['name'];
+        $SongArtist = $row['artist'];
+        $SongGenre = $row['genre'];
 ?>
 
 <!-- Song Blocks -->
@@ -49,19 +49,20 @@
   // Set variables on submit
   if(isset($_POST['request'])) {
 
-      // // Add songs to database.
-      // $sql = "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$SongName', '$SongArtist', '$SongGenre')";
-      //
-      // if(mysqli_query($mysqli,$sql)) {
-      //     echo "<p class='alert alert-success'>Added</p>";
-      //   } else {
-      //     echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
-      //   }
+      // Add songs to database.
+      $sql = "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$SongName', '$SongArtist', '$SongGenre')";
+
+      if(mysqli_query($mysqli,$sql)) {
+          echo "<p class='alert alert-success'>Added</p>";
+        } else {
+          SQLError($sql, $mysqli);
+        }
   }
 
       }
       // Free result set
       mysqli_free_result($result);
+
     } else{
 
       // Nothing Found

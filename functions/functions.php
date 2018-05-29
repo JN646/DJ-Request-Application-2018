@@ -28,10 +28,10 @@ class ApplicationVersion {
 function is_connected() {
     $connected = @fsockopen("www.google.co.uk", 80);
 
-    if ($connected){
+    if ($connected) {
         $is_conn = true; //action when connected
         fclose($connected);
-    }else{
+    } else {
         $is_conn = false; //action in connection failure
     }
 
@@ -54,116 +54,6 @@ function GenreArray() {
   }
 }
 
-// ADD SONG
-function AddSong($mysqli) {
-  // Assign variables to input.
-  $song_name = $_POST['name'];
-  $song_artist = $_POST['artist'];
-  $song_album = $_POST['album'];
-  $song_genre = $_POST['genre'];
-
-  // Add songs to database.
-  $sql = "INSERT INTO songs (song_name, song_artist, song_album, song_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')";
-
-  // Apply import.
-  if(mysqli_query($mysqli,$sql)) {
-      echo "<p class='alert alert-success'>Added</p>";
-    } else {
-      echo "<p class-'alert alert-danger'>Error: " . $sql . "<br>" . mysqli_error($mysqli) . "</p>";
-    }
-      // close connection
-      mysqli_close($mysqli);
-}
-
-// LIST SONGS
-function ListSongs($mysqli) {
-  // Attempt select query execution
-  $sql = "SELECT * FROM songs ORDER BY song_name ASC";
-  if($result = mysqli_query($mysqli, $sql)){
-      if(mysqli_num_rows($result) > 0){
-        ?>
-          <table id='table_search' class='table table-bordered'>
-              <tr>
-                  <th class='text-center'>ID</th>
-                  <th class='text-center'>Song Name</th>
-                  <th class='text-center'>Song Artist</th>
-                  <th class='text-center'>Song Album</th>
-                  <th class='text-center'>Song Genre</th>
-              </tr>
-      <?php
-          while($row = mysqli_fetch_array($result)){
-              echo "<tr>";
-                  echo "<td class='text-center'>" . $row['song_id'] . "</td>";
-                  echo "<td>" . $row['song_name'] . "</td>";
-                  echo "<td>" . $row['song_artist'] . "</td>";
-                  echo "<td>" . $row['song_album'] . "</td>";
-                  echo "<td class='colourCell" . $row['song_genre'] . "'>" . $row['song_genre'] . "</td>";
-              echo "</tr>";
-          }
-          echo "</table>";
-
-          // Free result set
-          mysqli_free_result($result);
-      } else{
-          // Error Message
-          echo "<p>No songs were found.</p>";
-      }
-  } else{
-      SQLError($mysqli);
-  }
-
-  // Close connection
-  mysqli_close($mysqli);
-}
-
-// REQUEST PAGE
-function RequestList($mysqli) {
-  // Attempt select query execution
-  $sql = "SELECT * FROM requests WHERE request_active = 1 ORDER BY request_time ASC";
-  if($result = mysqli_query($mysqli, $sql)){
-      if(mysqli_num_rows($result) > 0){
-        ?>
-          <table id='table_search' class='table table-hover'>
-              <tr>
-                  <th class='text-center'>ID</th>
-                  <th class='text-center'>Song Name</th>
-                  <th class='text-center'>Song Artist</th>
-                  <th class='text-center'>Song Album</th>
-                  <th class='text-center'>Time</th>
-                  <th class='text-center'>Clear</th>
-              </tr>
-      <?php
-          while($row = mysqli_fetch_array($result)){
-            $RequestID = $row['request_id'];
-            $Time = $row['request_time'];
-
-              echo "<tr>";
-                  echo "<td class='text-center'>" . $row['request_id'] . "</td>";
-                  echo "<td class='text-center'>" . $row['request_s_name'] . "</td>";
-                  echo "<td class='text-center'>" . $row['request_s_artist'] . "</td>";
-                  echo "<td class='text-center'>" . $row['request_s_album'] . "</td>";
-                  echo "<td class='text-center'>" . nicetime($Time) . "</td>";
-                  echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?" . $RequestID . "'>Clear</a></td>";
-              echo "</tr>";
-          }
-          echo "</table>";
-          // Free result set
-          mysqli_free_result($result);
-      } else{
-          echo "No active requests were found.";
-      }
-  } else{
-    SQLError($mysqli);
-  }
-
-  // Close connection
-  mysqli_close($mysqli);
-
-  if (isset($_GET[$RequestID])) {
-    echo "The record " . $RequestID . " Made Inactive";
-  }
-}
-
 // DATE PURIFIER
 function nicetime($date) {
     if(empty($date)) {
@@ -172,7 +62,6 @@ function nicetime($date) {
 
     $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
     $lengths = array("60","60","24","7","4.35","12","10");
-
     $now = time();
     $unix_date = strtotime($date);
 
@@ -204,46 +93,8 @@ function nicetime($date) {
     return "$difference $periods[$j] {$tense}";
 }
 
-// COLLECTION Blocks
-function CollectionBlocks($mysqli) {
-  // Attempt select query execution
-  $sql = "SELECT * FROM collections";
-
-  if ($result = mysqli_query($mysqli, $sql)) {
-      if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_array($result)) {
-            $CollectionName = $row['collection_name'];
-  ?>
-
-              <!-- Generate a Collection Block -->
-              <div id="" class="card collection_block">
-                <div class="card-body">
-                  <?php
-                    // Check to see if the collection has a name.
-                    if ($CollectionName !== '') {
-                      echo "<p class='card-text'>" . $CollectionName . "</p>";
-                    } else {
-                      echo "<p class='card-text'>Unknown Name</p>";
-                    }
-                    ?>
-                </div>
-              </div>
-  <?php
-          }
-          // Free result set
-          mysqli_free_result($result);
-      } else {
-
-       // Nothing Found
-          echo "<h3 class='text-center'>No collections were found.</h3>";
-      }
-  } else {
-    SQLError($mysqli);
-  }
-}
-
 // GLOBAL FUNCTIONS
-function SQLError($mysqli) {
+function SQLError($sql, $mysqli) {
   echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
 }
  ?>
