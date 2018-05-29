@@ -29,7 +29,7 @@
 
           <!-- Row -->
           <div class="row">
-            <?php if ($appRunning == 1) { include 'partials/song_blocks.php'; } ?>
+            <?php if ($appRunning == 1) { include 'partials/_song_blocks.php'; } ?>
           </div>
 
         </div>
