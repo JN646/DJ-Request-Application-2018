@@ -1,7 +1,4 @@
-<?php
-  // Include Header
-  include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php");
-?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php"); ?>
       <!-- Row -->
       <div class="row">
 
@@ -9,17 +6,7 @@
         <div id='collectionWin' class="col-md-2">
 
           <!-- Actions -->
-          <div class="card collection_block">
-          	<div class="card">
-          		<div class="card-header text-center">
-          			<h5>Actions</h5>
-          		</div>
-          		<ul class="nav flex-column">
-                <li><button type="button" class="btn btn-link nav-item text-left" data-toggle="modal" data-target="#addsongModal"><i class="fas fa-plus"></i> Add Song</button></li>
-                <li><button type="button" class="btn btn-link nav-item text-left" data-toggle="modal" data-target="#listsongModal"><i class="fas fa-list-ul"></i> List Songs</button></li>
-          		</ul>
-          	</div>
-          </div>
+          <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_action_blocks.php"); ?>
 
             <br>
 
@@ -30,6 +17,10 @@
                 <h5>Views</h5>
               </div>
               <ul class="nav flex-column">
+                <li>
+                  <span><a class="nav-link-small font-button plus" style="cursor: pointer;">A+</a></span>
+                  <span><a class="nav-link-small font-button minus" style="cursor: pointer;">A-</a></span>
+                </li>
           			<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/index.php"><i class="fas fa-music"></i> Coming Soon</a></li>
           		</ul>
 
@@ -42,7 +33,7 @@
 
           <div class="row">
             <div class="col-md-12">
-              <?php RequestList($mysqli) ?>
+              <?php Include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_requests.php") ?>
             </div>
           </div>
 
@@ -51,14 +42,23 @@
       </div>
     </div>
 
-<!-- Modal -->
-<div class="modal fade" id="addsongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <?php include 'add_song.php'; ?>
-</div>
-
-<div class="modal fade" id="listsongModal" tabindex="-1" role="dialog" aria-labelledby="listModalLabel" aria-hidden="true">
-  <?php include 'list_songs.php'; ?>
-</div>
+<script type="text/javascript">
+  // Size changing
+  $(function () {
+    $(".font-button").bind("click", function () {
+      var size = parseInt($('table').css("font-size"));
+      if ($(this).hasClass("plus")) {
+        size = size + 2;
+      } else {
+        size = size - 2;
+        if (size <= 10) {
+          size = 10;
+        }
+      }
+      $('table').css("font-size", size);
+    });
+  });
+</script>
 
 <?php
   // Include Footer
