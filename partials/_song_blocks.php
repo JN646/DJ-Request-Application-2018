@@ -34,11 +34,7 @@
 
       <!-- Request Button -->
       <div class="col-md-3">
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-          <button type="submit" name="request" class="btn-link" style='border: 0px;'>
-            <i id='requestButton' class="far fa-thumbs-up fa-2x"></i>
-          </button>
-        </form>
+        <a href="index.php?request=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-thumbs-up fa-2x"></i></a>
       </div>
 
     </div>

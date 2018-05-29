@@ -41,5 +41,15 @@ if (isset($_GET['del'])) {
     header('location: ../admin/list_manager.php');
 }
 
+// Request Records
+    if (isset($_POST['request'])) {
+        $id = $_POST['id'];
+
+        mysqli_query($db, "UPDATE crud SET active='1' WHERE id=$id");
+        $_SESSION['message'] = "Request updated!";
+        echo $id;
+        header('location: index.php');
+    }
+
     // Get Results
     $results = mysqli_query($db, "SELECT * FROM crud");
