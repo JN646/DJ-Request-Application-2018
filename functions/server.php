@@ -9,7 +9,6 @@
 	$id = 0;
 	$update = false;
 
-
 // Add Records
 	if (isset($_POST['save'])) {
 		$name = $_POST['name'];

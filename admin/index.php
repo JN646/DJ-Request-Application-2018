@@ -33,7 +33,7 @@
 
           <div class="row">
             <div class="col-md-12">
-              <?php RequestList($mysqli) ?>
+              <?php Include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_requests.php") ?>
             </div>
           </div>
 
