@@ -1,4 +1,10 @@
 <?php
+
+if (empty($CollectionIDTitle)) {
+  // $CollectionIDTitle is empty.
+  $CollectionIDTitle = "Songs";
+}
+
 // COLLECTION Blocks
 function CollectionBlocks($mysqli)
 {
@@ -8,21 +14,19 @@ function CollectionBlocks($mysqli)
     if ($result = mysqli_query($mysqli, $sql)) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_array($result)) {
-                $CollectionName = $row['collection_name']; ?>
+                $CollectionID = $row['collection_id'];
+                $CollectionName = $row['collection_name'];
+                ?>
+
               <!-- Generate a Collection Block -->
               <div id="" class="card collection_block">
-                <div class="card-body">
-                  <?php
-                    // Check to see if the collection has a name.
-                    if ($CollectionName !== '') {
-                        echo "<p class='card-text'>" . $CollectionName . "</p>";
-                    } else {
-                        echo "<p class='card-text'>Unknown Name</p>";
-                    } ?>
-                </div>
+                <a href='index.php?collection=<?php echo $row['collection_id']; ?>'>
+                  <div class="card-body">
+                    <p class='card-text'><?php echo $CollectionName ?></p>
+                  </div>
+                </a>
               </div>
-  <?php
-            }
+  <?php }
             // Free result set
             mysqli_free_result($result);
         } else {
@@ -33,5 +37,4 @@ function CollectionBlocks($mysqli)
     } else {
         SQLError($mysqli);
     }
-}
- ?>
+} ?>

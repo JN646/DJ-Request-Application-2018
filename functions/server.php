@@ -52,4 +52,9 @@
 
     // Get Results
     $results = mysqli_query($db, "SELECT * FROM crud");
+
+    // Collection Values
+    if (isset($_GET['collection'])) {
+      $CollectionIDTitle = $_GET['collection'];
+    }
   ?>

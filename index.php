@@ -27,6 +27,11 @@
         <!-- Main Window -->
         <div id='mainWin' class="col-md-10">
 
+          <!-- Collection Name -->
+          <div class="row">
+            <h1><?php echo $CollectionIDTitle ?></h1>
+          </div>
+
           <!-- Row -->
           <div class="row">
             <?php if ($appRunning == 1) { include 'partials/_song_blocks.php'; } ?>
