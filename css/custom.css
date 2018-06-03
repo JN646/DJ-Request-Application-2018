@@ -5,6 +5,14 @@
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+a {
+  color: #d33682;
+}
+
+a:hover {
+  color: #dc332f;
+}
+
 .song_block {
   height: 18rem;
   margin: 10px;
@@ -23,7 +31,7 @@
   transition: 0.5s all;
 }
 
-.collection_block a:link, .collection_block a {
+.collection_block a:link, .collection_block a, .collection_block a:visited {
     color: white;
 }
 
@@ -34,7 +42,7 @@
   transition: 0.5s all;
 }
 
-.action_block a:link, .collection_block a {
+.action_block a:link, .action_block a, .action_block a:visited {
     color: black;
 }
 

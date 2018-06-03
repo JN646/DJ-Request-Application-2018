@@ -4,7 +4,7 @@ $sql = "SELECT * FROM requests WHERE request_active = 1 ORDER BY request_time AS
 if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
       ?>
-      
+
       <!-- Draw Table -->
         <table id='myTable2' style='font-size: 120%;' class='table table-hover'>
             <tr>
@@ -28,7 +28,7 @@ if($result = mysqli_query($mysqli, $sql)){
                 echo "<td class='text-center'>" . $row['request_s_artist'] . "</td>";
                 echo "<td class='text-center'>" . $row['request_s_album'] . "</td>";
                 echo "<td class='text-center'>" . nicetime($Time) . "</td>";
-                echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?" . $RequestID . "'>Clear</a></td>";
+                echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?" . $RequestID . "'><i class='fas fa-check'></i></a></td>";
             echo "</tr>";
         }
         echo "</table>";
