@@ -1,5 +1,5 @@
-# DJ-App2
-The second revision of the DJ Application.
+# DJ Request Application 2018
+The second revision of the DJ Application, new for 2018.
 
 This new version of the application will be much more lightweight and will serve all of the clients from one singular page.
 
