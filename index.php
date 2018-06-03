@@ -10,10 +10,10 @@
             <h3>Collection</h3>
 
             <!-- Search Form -->
-            <form id='searchForm' class="form-inline" action="index.html" method="post">
-              <input class='form-control' type="text" name="" value="" placeholder='Search'>
-              <button class='form-control btn btn-outline-success' type="button" name="button"><i class="fas fa-search"></i></button>
-            </form>
+            <form class="form-inline my-2 my-lg-0" action="<?php echo $environment; ?>songs/search_song.php" method="get">
+        			<input class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
+        			<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit"><i class="fas fa-search"></i></button>
+        		</form>
 
             <!-- Add Collection Blocks -->
             <?php include 'partials/_collections.php'; ?>
