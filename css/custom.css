@@ -18,12 +18,18 @@
 
 .collection_block {
   margin: 10px;
-  background-color: white;
-  color: black;
+  background-color: #002b36;
+  color: white;
+  transition: 0.5s all;
+}
+
+.collection_block a:link, .collection_block a {
+    color: white;
 }
 
 .collection_block:hover {
-  background-color: #eee;
+  background-color: #657b83;
+  transition: 0.5s all;
 }
 
 #mainWin {
