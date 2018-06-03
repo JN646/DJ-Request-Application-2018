@@ -7,6 +7,7 @@
         $SongID = $row['id'];
         $SongName = $row['name'];
         $SongArtist = $row['artist'];
+        $SongAlbum = $row['album'];
         $SongGenre = $row['genre'];
 ?>
 
@@ -28,6 +29,7 @@
 
         <!-- Song Artist -->
         <?php echo "<h6 class='card-text'>" . $SongArtist . "</h6>"; ?>
+
       </div>
 
       <!-- Request Button -->

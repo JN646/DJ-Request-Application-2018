@@ -12,6 +12,9 @@
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_songs.php");?>
 
+    <!-- Libraries -->
+    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");?>
+
     <!-- CSS Links -->
     <link rel="stylesheet" href="<?php echo $environment; ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $environment; ?>css/custom.css">
