@@ -56,5 +56,6 @@
     // Collection Values
     if (isset($_GET['collection'])) {
       $CollectionIDTitle = $_GET['collection'];
+      $CollectionID = $_GET['collection'];      
     }
   ?>

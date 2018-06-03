@@ -1,9 +1,12 @@
 <?php
+// Get collection ID from URL.
+$collectionIDNum = $_GET['collection'];
 
-if (empty($CollectionIDTitle)) {
-  // $CollectionIDTitle is empty.
-  $CollectionIDTitle = "Songs";
-}
+// Get Collection Name from ID.
+$collecionNameSQL = "SELECT DISTINCT * FROM collections WHERE collection_id = $collectionIDNum";
+$collectionResult = mysqli_query($mysqli, $collecionNameSQL);
+$rs = mysqli_fetch_array($collectionResult);
+$collection_name = $rs['collection_name'];
 
 // Attempt select query execution
 $sql = "SELECT * FROM collections";

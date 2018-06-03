@@ -1,6 +1,7 @@
 <?php
-  // Attempt select query execution
-  $sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
+$collectionIDNum = $_GET['collection'];
+
+  $sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
 
   if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){

@@ -29,7 +29,7 @@
 
           <!-- Collection Name -->
           <div class="row">
-            <h1><?php echo $CollectionIDTitle ?></h1>
+            <h1><?php echo $collection_name ?></h1>
           </div>
 
           <!-- Row -->
