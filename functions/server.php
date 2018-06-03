@@ -3,12 +3,8 @@
     $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 
     // initialize variables
-    $name = "";
-    $artist = "";
-    $genre = "";
-    $year = "";
-    $collectionID = 0;
-    $id = 0;
+    $name = $artist = $genre = $year = "";
+    $collectionID = $id = 0;
     $update = false;
 
     // Other Variables
@@ -17,11 +13,11 @@
 
 // Add Records
   if (isset($_POST['save'])) {
-      $name = $_POST['name'];
-      $artist = $_POST['artist'];
-      $genre = $_POST['genre'];
-      $year = $_POST['year'];
-      $collectionID = $_POST['collec_id'];
+      $name = test_input($_POST['name']);
+      $artist = test_input($_POST['artist']);
+      $genre = test_input($_POST['genre']);
+      $year = test_input($_POST['year']);
+      $collectionID = test_input($_POST['collec_id']);
 
       mysqli_query($db, "INSERT INTO crud (name, artist, genre) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')");
       $_SESSION['message'] = "Song saved";
@@ -30,10 +26,10 @@
 
 // Update Records
   if (isset($_POST['update'])) {
-      $id = $_POST['id'];
-      $name = $_POST['name'];
-      $artist = $_POST['artist'];
-      $genre = $_POST['genre'];
+      $id = test_input($_POST['id']);
+      $name = test_input($_POST['name']);
+      $artist = test_input($_POST['artist']);
+      $genre = test_input($_POST['genre']);
 
       mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', genre='$genre', collec_id='$collectionID', year='$year
         ' WHERE id=$id");

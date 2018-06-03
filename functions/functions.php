@@ -102,3 +102,11 @@ function SQLError($sql, $mysqli)
 {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
 }
+
+// CLEAN Database
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
