@@ -85,4 +85,15 @@ if (isset($_GET['collection'])) {
   //  Set Collection SQL.
   $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
 }
+
+// Checks to see if collection exists in URL.
+if (isset($_GET['search_val'])) {
+  // Get Collection Name
+  $search_val = $_GET['search_val'];
+  // Set Search SQL.
+  $songblock_sql = "SELECT DISTINCT * FROM crud WHERE name = $search_val ORDER BY name ASC";
+} else {
+  //  Set Search SQL.
+  $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
+}
   ?>

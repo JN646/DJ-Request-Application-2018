@@ -8,8 +8,6 @@
         $SongName = $row['name'];
         $SongArtist = $row['artist'];
         $SongGenre = $row['genre'];
-
-        CheckContents($SongName, $SongArtist, $SongGenre);
 ?>
 
 <!-- Song Blocks -->

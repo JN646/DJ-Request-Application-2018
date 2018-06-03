@@ -10,9 +10,9 @@
             <h3>Collection</h3>
 
             <!-- Search Form -->
-            <form class="form-inline my-2 my-lg-0" action="<?php echo $environment; ?>songs/search_song.php" method="get">
+            <form class="form-inline my-2 my-lg-0" action="index.php" method="get">
         			<input class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
-        			<button class="btn btn-outline-success my-2 my-sm-0" name="SearchButton" value="search" type="submit"><i class="fas fa-search"></i></button>
+        			<button class="btn btn-outline-success my-2 my-sm-0" value="search" type="submit"><i class="fas fa-search"></i></button>
         		</form>
 
             <!-- Add Collection Blocks -->
