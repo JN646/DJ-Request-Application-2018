@@ -19,7 +19,7 @@
             </form>
 
             <!-- Add Collection Blocks -->
-            <?php CollectionBlocks($mysqli) ?>
+            <?php include 'partials/_collections.php'; ?>
           <?php } ?>
 
         </div>
@@ -40,8 +40,4 @@
         </div>
       </div>
     </div>
-
-<?php
-  // Include Footer
-  include 'partials/_footer.php';
-?>
+<?php include 'partials/_footer.php'; ?>
