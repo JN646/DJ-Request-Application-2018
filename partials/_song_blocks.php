@@ -1,11 +1,9 @@
 <?php
-$collectionIDNum = $_GET['collection'];
 
-  $sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
-
-  if($result = mysqli_query($mysqli, $sql)){
+  if($result = mysqli_query($mysqli, $songblock_sql)){
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
+
         // Sets variables
         $SongID = $row['id'];
         $SongName = $row['name'];

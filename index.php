@@ -1,7 +1,4 @@
-<?php
-  // Include Header
-  include 'partials/_header.php';
-?>
+<?php include 'partials/_header.php'; ?>
       <!-- Row -->
       <div class="row">
 
