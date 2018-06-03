@@ -27,6 +27,17 @@
     color: white;
 }
 
+.action_block {
+  margin: 10px;
+  background-color: #002b36;
+  color: black;
+  transition: 0.5s all;
+}
+
+.action_block a:link, .collection_block a {
+    color: black;
+}
+
 .collection_block:hover {
   background-color: #657b83;
   transition: 0.5s all;

@@ -39,7 +39,7 @@
           <div class="col-md-4">
             <p title="<?php echo 'Version ' . ApplicationVersion::get(); ?>">
               <i class="fas fa-headphones"></i>
-              <span>DJ Request System</span>
+              <span>DJRS 2018</span>
             </p>
           </div>
           <div class="col-md-4">
