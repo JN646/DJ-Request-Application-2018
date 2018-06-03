@@ -65,7 +65,7 @@ $collectionIDNum = $_GET['collection'];
     } else{
 
       // Nothing Found
-      echo "<h3 class='text-center'>No songs were found.</h3>";
+      echo "<h3 class='text-center'>No " . $collection_name . " were found.</h3>";
     }
   } else{
     QueryError($query, $mysqli);
