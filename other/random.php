@@ -16,11 +16,8 @@
   <body>
 <?php
 // Create Variable.
-$min = "";
-$max = "";
-$result = "";
+$min = $max = $result = "";
 $resultArray = ['Song 1', 'Song 2', 'Song 3', 'Song 4', 'Song 5', 'Apples', 'Pears', 'Lemons', 'Lorem', 'ipsum', 'dolar', 'sit', 'amet'];
-$resultPrevious = [];
 
 // Get Values from Inputs.
 $min = test_input($_POST['min']);
@@ -68,7 +65,6 @@ $song_count = count($resultArray);
 
       // Result Output
       $resultOutput = $resultArray[$result];
-      array_push($resultPrevious, $resultOutput);
     } else {
       // Init Variable.
       $result = "";
@@ -76,37 +72,18 @@ $song_count = count($resultArray);
       // Error Message.
       echo "Values are not numbers.";
     }
-
-    function GetPrevious() {
-      // Previous results.
-      for ($i=0; $i < count($resultPrevious); $i++) {
-
-        // Output Array.
-        echo $resultPrevious[$i];
-        echo "<br>";
-      }
-    }
   }
    ?>
 
   <h2><?php echo $resultArray[$result] ?></h2>
 
   <?php
-
-    if (!empty($resultArray) && !empty($results)) {
-      // print previous results.
-      GetPrevious();
-    } else {
-      echo "No Previous Results to Show.";
-    }
-
     function ArrayLoop($resultArray) {
       // Loop Through Array.
       for ($i=0; $i < count($resultArray); $i++) {
           echo "<option value='" . $i ."'>" . $i ."</option>";
       }
     }
-
    ?>
 </div>
 
