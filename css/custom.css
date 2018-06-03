@@ -1,6 +1,6 @@
 /* Custom CSS File */
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
 
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
 * {
   font-family: 'IBM Plex Sans', sans-serif;
 }
@@ -63,30 +63,35 @@
 }
 
 /* width */
+
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 /* Handle on hover */
+
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 /* Nav Links */
-.nav-link-small {
-}
+
+.nav-link-small {}
 
 /* Icons */
+
 i#requestButton:hover {
   color: orange;
   transition: 1s all;
@@ -97,17 +102,20 @@ i#requestLink {
 }
 
 /* Form Elements */
+
 input#searchForm {
   color: black;
 }
 
 /* Card Image */
+
 .cardImage {
   background-color: #586e75;
   height: 350px;
 }
 
 /* Genre Colours */
+
 .colour {
   border-bottom: solid 5px #eee8d5;
 }
@@ -137,30 +145,31 @@ input#searchForm {
 }
 
 /* Genre Colours */
+
 .colourCell {
-  background-color: #eee8d5;
+  color: #eee8d5;
 }
 
 .colourCellRock {
-  background-color: #dc322f;
+  color: #dc322f;
 }
 
 .colourCellPop {
-  background-color: #859900;
+  color: #859900;
 }
 
 .colourCellRap {
-  background-color: #b58900;
+  color: #b58900;
 }
 
 .colourCellDance {
-  background-color: #d33682;
+  color: #d33682;
 }
 
 .colourCellRnB {
-  background-color: #6c71c4;
+  color: #6c71c4;
 }
 
 .colourCellHip-Hop {
-  background-color: #268bd2;
+  color: #268bd2;
 }

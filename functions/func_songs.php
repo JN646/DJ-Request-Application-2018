@@ -21,3 +21,22 @@
     <?php } ?>
   </table>
 <?php } ?>
+
+<?php
+function CheckContents($SongName, $SongArtist, $SongGenre) {
+  // Empty Song Name
+  if (empty($SongName)) {
+    $SongName = "Unknown Name";
+  }
+
+  // Empty Artist
+  if (empty($SongArtist)) {
+    $SongArtist = "Unknown Artist";
+  }
+
+  // Empty Genre
+  if (empty($SongGenre)) {
+    $SongGenre = "Unknown Genre";
+  }
+}
+ ?>

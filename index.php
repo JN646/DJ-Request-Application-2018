@@ -19,7 +19,7 @@
             </form>
 
             <!-- Add Collection Blocks -->
-            <?php CollectionBlocks($mysqli) ?>
+            <?php include 'partials/_collections.php'; ?>
           <?php } ?>
 
         </div>
@@ -27,16 +27,17 @@
         <!-- Main Window -->
         <div id='mainWin' class="col-md-10">
 
+          <!-- Collection Name -->
+          <div class="row">
+            <h1><?php echo $collection_name ?></h1>
+          </div>
+
           <!-- Row -->
           <div class="row">
-            <?php if ($appRunning == 1) { include 'partials/song_blocks.php'; } ?>
+            <?php if ($appRunning == 1) { include 'partials/_song_blocks.php'; } ?>
           </div>
 
         </div>
       </div>
     </div>
-
-<?php
-  // Include Footer
-  include 'partials/_footer.php';
-?>
+<?php include 'partials/_footer.php'; ?>

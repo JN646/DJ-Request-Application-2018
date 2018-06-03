@@ -1,6 +1,7 @@
 <?php
-  // Attempt select query execution
-  $sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
+$collectionIDNum = $_GET['collection'];
+
+  $sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
 
   if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
@@ -10,6 +11,8 @@
         $SongName = $row['name'];
         $SongArtist = $row['artist'];
         $SongGenre = $row['genre'];
+
+        CheckContents($SongName, $SongArtist, $SongGenre);
 ?>
 
 <!-- Song Blocks -->
@@ -34,11 +37,7 @@
 
       <!-- Request Button -->
       <div class="col-md-3">
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-          <button type="submit" name="request" class="btn-link" style='border: 0px;'>
-            <i id='requestButton' class="far fa-thumbs-up fa-2x"></i>
-          </button>
-        </form>
+        <a href="index.php?request=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-thumbs-up fa-2x"></i></a>
       </div>
 
     </div>
@@ -66,7 +65,7 @@
     } else{
 
       // Nothing Found
-      echo "<h3 class='text-center'>No songs were found.</h3>";
+      echo "<h3 class='text-center'>No " . $collection_name . " were found.</h3>";
     }
   } else{
     QueryError($query, $mysqli);
