@@ -83,43 +83,54 @@
               </table>
             </div>
 
-            <!-- New Content -->
-            <!-- Submit Buttons -->
-            <?php if ($update == true): ?>
-              <h2>Update</h2>
-            <?php else: ?>
-              <h2>Add New</h2>
-            <?php endif ?>
+            <br>
+            <br>
 
+            <!-- New Content -->
             <form method="post" class="form-group col-md-4 border" action="../functions/server.php" >
+              <!-- Form Header -->
+              <?php if ($update == true): ?>
+                <h2>Update</h2>
+              <?php else: ?>
+                <h2>Add New</h2>
+              <?php endif ?>
 
               <input type="hidden" name="id" value="<?php echo $id; ?>">
 
+              <!-- Name -->
               <div class="form-group">
                 <label>Name</label><br>
                 <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
               </div>
+
+              <!-- Artist -->
               <div class="form-group">
                 <label>Artist</label><br>
                 <input type="text" class="form-control" name="artist" value="<?php echo $artist; ?>">
               </div>
+
+              <!-- Genre -->
               <div class="form-group">
                 <label>Genre</label><br>
                 <select class="form-control" name="genre">
                   <?php GenreArray() ?>
                 </select>
               </div>
+
+              <!-- Year -->
               <div class="form-group">
                 <label>Year</label><br>
                 <input type="text" class="form-control" name="year" value="<?php echo $year; ?>">
               </div>
+
+              <!-- Colelction ID -->
               <div class="form-group">
                 <label>Collection ID</label><br>
                 <input type="text" class="form-control" name="collection" value="<?php echo $collectionID; ?>">
               </div>
-              <div class="form-group">
 
-                <!-- Submit Buttons -->
+              <!-- Submit Buttons -->
+              <div class="form-group">
                 <?php if ($update == true): ?>
                   <button class="btn btn-primary" type="submit" name="update">Update</button>
                 <?php else: ?>
