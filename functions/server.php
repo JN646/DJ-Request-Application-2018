@@ -11,6 +11,14 @@
     $collectionIDNum = 0;
     $collection_name = "";
 
+    // CLEAN Database
+    function test_input($data) {
+      $data = trim($data);
+      $data = stripslashes($data);
+      $data = htmlspecialchars($data);
+      return $data;
+    }
+
 // Add Records
   if (isset($_POST['save'])) {
       $name = test_input($_POST['name']);
