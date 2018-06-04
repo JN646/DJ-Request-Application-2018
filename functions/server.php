@@ -19,6 +19,21 @@
       return $data;
     }
 
+    // Collection ID ARRAY - NOT WORKING
+    function CollectionArray()
+    {
+        $collecionSQL = "SELECT DISTINCT * FROM collections";
+        $collectionResult = mysqli_query($mysqli, $collecionSQL);
+        $rs = mysqli_fetch_array($collectionResult);
+        $collection_id = $rs['collection_id'];
+        $collection_name = $rs['collection_name'];
+
+        // Loop Through Collection Array.
+        for ($i=0; $i < count($collection_id); $i++) {
+            echo "<option value='" . $collection_id ."'>" . $collection_name ."</option>";
+        }
+    }
+
 // Add Records
   if (isset($_POST['save'])) {
       $name = test_input($_POST['name']);

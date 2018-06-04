@@ -37,6 +37,8 @@
 
             <!-- Head -->
             <h1>Song Management</h1>
+            <p>Use this screen to add and edit songs in your library.</p>
+            <br>
 
               <!-- Message Blocks -->
               <?php if (isset($_SESSION['message'])): ?>
@@ -52,7 +54,7 @@
 
             <!-- Result Table -->
             <div class="ResultTable">
-              <table class='table'>
+              <table class='table table-bordered'>
                 <thead>
                   <tr>
                     <th class='text-center'>Name</th>
@@ -112,7 +114,7 @@
               <!-- Genre -->
               <div class="form-group">
                 <label>Genre</label><br>
-                <select class="form-control" name="genre">
+                <select class="form-control" name="genre" value="<?php echo $genre; ?>">
                   <?php GenreArray() ?>
                 </select>
               </div>
@@ -127,6 +129,9 @@
               <div class="form-group">
                 <label>Collection ID</label><br>
                 <input type="text" class="form-control" name="collection" value="<?php echo $collectionID; ?>">
+                <!-- <select class="form-control" name="collection" value="<?php echo $collection; ?>">
+                  <?php //CollectionArray() ?>
+                </select> -->
               </div>
 
               <!-- Submit Buttons -->
