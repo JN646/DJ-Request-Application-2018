@@ -1,8 +1,10 @@
 <?php
     session_start();
+
+    // Connect to DB.
     $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 
-    // initialize variables
+    // initialise variables
     $name = $artist = $genre = $year = "";
     $collectionID = $id = 0;
     $update = false;
@@ -107,6 +109,35 @@ if (isset($_GET['collection'])) {
   $collectionIDNum = 0;
   //  Set Collection SQL.
   $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
+}
+
+// Request Song
+if (isset($_GET['request_song'])) {
+  // Get song ID.
+  $song_request_ID_number = $_GET['request_song'];
+
+  // Select song from database.
+  $songrequestSQL = "SELECT * FROM crud WHERE id = $song_request_ID_number";
+  $songrequestResult = mysqli_query($mysqli, $songrequestSQL);
+
+  // Get Results.
+  $sr = mysqli_fetch_array($songrequestResult);
+
+  // Set Variables
+  $song_name = $sr['name'];
+  $song_artist = $sr['artist'];
+  $song_genre = $sr['genre'];
+  $song_year = $sr['year'];
+
+  // Insert into database
+  $song_insert = mysqli_query($db, "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$song_name', '$song_artist', '$song_genre')");
+
+  if($song_insert == false) {
+    echo "ERROR: Could not able to execute $song_insert. " . mysqli_error($db);
+  }
+
+  // Reload Page
+  header('location: index.php');
 }
 
 // Checks to see if collection exists in URL.

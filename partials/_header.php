@@ -10,7 +10,6 @@
     <!-- Function Files -->
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/server.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");?>
-    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_songs.php");?>
 
     <!-- Libraries -->
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");?>

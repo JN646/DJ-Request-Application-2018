@@ -34,7 +34,7 @@
 
       <!-- Request Button -->
       <div class="col-md-3">
-        <a href="index.php?request=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-thumbs-up fa-2x"></i></a>
+        <a href="index.php?request_song=<?php echo $row['id']; ?>" class="" ><i class="far fa-thumbs-up fa-2x"></i></a>
       </div>
 
     </div>
