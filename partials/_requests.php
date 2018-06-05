@@ -28,7 +28,7 @@ if($result = mysqli_query($mysqli, $sql)){
                 echo "<td class='text-center'>" . $row['request_s_artist'] . "</td>";
                 echo "<td class='text-center'>" . $row['request_s_album'] . "</td>";
                 echo "<td class='text-center'>" . nicetime($Time) . "</td>";
-                echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?" . $RequestID . "'><i class='fas fa-check'></i></a></td>";
+                echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?clear_song=" . $RequestID . "'><i class='fas fa-check'></i></a></td>";
             echo "</tr>";
         }
         echo "</table>";

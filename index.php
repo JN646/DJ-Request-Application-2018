@@ -26,6 +26,17 @@
 
           <!-- Collection Name -->
           <div class="row">
+
+            <!-- Message Blocks -->
+            <?php if (isset($_SESSION['message'])): ?>
+              <div class="msg">
+                <?php
+                  echo $_SESSION['message'];
+                  unset($_SESSION['message']);
+                ?>
+              </div>
+            <?php endif ?>
+
             <h1><?php echo $collection_name ?></h1>
           </div>
 
