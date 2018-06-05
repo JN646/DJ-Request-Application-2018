@@ -1,4 +1,7 @@
 <?php
+// DJ APPLICATION SERVER FILE.
+
+    // Start Session
     session_start();
 
     // Connect to DB.
@@ -14,11 +17,12 @@
     $collection_name = "";
 
     // CLEAN Database
-    function test_input($data) {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
+    function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 
     // Collection ID ARRAY - NOT WORKING
@@ -85,69 +89,60 @@ $results = mysqli_query($db, "SELECT * FROM crud");
 
 // Collection Values
   if (isset($_GET['collection'])) {
-    $CollectionIDTitle = $_GET['collection'];
-    $CollectionID = $_GET['collection'];
+      $CollectionIDTitle = $_GET['collection'];
+      $CollectionID = $_GET['collection'];
 
-    // Get collection ID from URL.
-    $collectionIDNum = $_GET['collection'];
+      // Get collection ID from URL.
+      $collectionIDNum = $_GET['collection'];
 
-    // Get Collection Name from ID.
-    $collecionNameSQL = "SELECT DISTINCT * FROM collections WHERE collection_id = $collectionIDNum";
-    $collectionResult = mysqli_query($mysqli, $collecionNameSQL);
-    $rs = mysqli_fetch_array($collectionResult);
-    $collection_name = $rs['collection_name'];
+      // Get Collection Name from ID.
+      $collecionNameSQL = "SELECT DISTINCT * FROM collections WHERE collection_id = $collectionIDNum";
+      $collectionResult = mysqli_query($mysqli, $collecionNameSQL);
+      $rs = mysqli_fetch_array($collectionResult);
+      $collection_name = $rs['collection_name'];
   }
 
 // Checks to see if collection exists in URL.
 if (isset($_GET['collection'])) {
-  // Get Collection Name
-  $collectionIDNum = $_GET['collection'];
-  // Set Collection SQL.
-  $songblock_sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
+    // Get Collection Name
+    $collectionIDNum = $_GET['collection'];
+    // Set Collection SQL.
+    $songblock_sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
 } else {
-  // Set Collection ID to 0.
-  $collectionIDNum = 0;
-  //  Set Collection SQL.
-  $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
+    // Set Collection ID to 0.
+    $collectionIDNum = 0;
+    //  Set Collection SQL.
+    $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
 }
 
 // Request Song
 if (isset($_GET['request_song'])) {
-  // Get song ID.
-  $song_request_ID_number = $_GET['request_song'];
+    // Get song ID.
+    $song_request_ID_number = $_GET['request_song'];
 
-  // Select song from database.
-  $songrequestSQL = "SELECT * FROM crud WHERE id = $song_request_ID_number";
-  $songrequestResult = mysqli_query($mysqli, $songrequestSQL);
+    // Select song from database.
+    $songrequestSQL = "SELECT * FROM crud WHERE id = $song_request_ID_number";
+    $songrequestResult = mysqli_query($mysqli, $songrequestSQL);
 
-  // Get Results.
-  $sr = mysqli_fetch_array($songrequestResult);
+    // Get Results.
+    $sr = mysqli_fetch_array($songrequestResult);
 
-  // Set Variables
-  $song_name = $sr['name'];
-  $song_artist = $sr['artist'];
-  $song_genre = $sr['genre'];
-  $song_year = $sr['year'];
+    // Set Variables
+    $song_name = $sr['name'];
+    $song_artist = $sr['artist'];
+    $song_genre = $sr['genre'];
+    $song_year = $sr['year'];
 
-  // Insert into database
-  $song_insert = mysqli_query($db, "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$song_name', '$song_artist', '$song_genre')");
+    // Insert into database
+    $song_insert = mysqli_query($db, "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$song_name', '$song_artist', '$song_genre')");
 
-  if($song_insert == false) {
-    echo "ERROR: Could not able to execute $song_insert. " . mysqli_error($db);
-  }
+    if ($song_insert == false) {
+        echo "ERROR: Could not able to execute $song_insert. " . mysqli_error($db);
+    }
 
-  // Reload Page
-  header('location: index.php');
+    // Display Message
+    $_SESSION['message'] = "Request Sent!";
+
+    // Reload Page
+    header('location: index.php');
 }
-
-// Checks to see if collection exists in URL.
-// if (isset($_GET['search_val'])) {
-//   // Get Collection Name
-//   $search_val = $_GET['search_val'];
-//   // Set Search SQL.
-//   $songblock_sql = "SELECT DISTINCT * FROM crud WHERE name = $search_val ORDER BY name ASC";
-// } else {
-//   //  Set Search SQL.
-//   $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
-// }
-  ?>
