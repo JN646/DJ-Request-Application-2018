@@ -160,3 +160,11 @@ if (isset($_GET['clear_song'])) {
     // Reload Page
     header('location: index.php');
 }
+
+// Search
+if (isset($_GET['search_val'])) {
+    $SongSearchVal = $_GET['search_val'];
+
+    // Song Search SQL
+    $songblock_sql = "SELECT * FROM crud WHERE name LIKE '%$SongSearchVal%' OR artist LIKE '%$SongSearchVal%' OR year LIKE '%$SongSearchVal%' OR genre LIKE '%$SongSearchVal%' ";
+}
