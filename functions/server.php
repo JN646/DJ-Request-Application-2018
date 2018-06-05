@@ -156,5 +156,5 @@ if (isset($_GET['clear_song'])) {
     echo $song_request_ID_number;
 
     // Reload Page
-    // header('location: index.php');
+    header('location: index.php');
 }
