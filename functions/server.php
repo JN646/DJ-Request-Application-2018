@@ -48,7 +48,7 @@ if (isset($_POST['save'])) {
     $year = test_input($_POST['year']);
     $collectionID = test_input($_POST['collec_id']);
 
-    mysqli_query($db, "INSERT INTO crud (name, artist, genre) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')");
+    mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')");
     $_SESSION['message'] = "Song saved";
     header('location: ../admin/list_manager.php');
 }
@@ -59,6 +59,8 @@ if (isset($_POST['update'])) {
     $name = test_input($_POST['name']);
     $artist = test_input($_POST['artist']);
     $genre = test_input($_POST['genre']);
+    $year = test_input($_POST['year']);
+    $collectionID = test_input($_POST['collec_id']);
 
     mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', genre='$genre', collec_id='$collectionID', year='$year
       ' WHERE id=$id");
