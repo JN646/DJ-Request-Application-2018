@@ -10,7 +10,9 @@
     <!-- Function Files -->
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/server.php");?>
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");?>
-    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/func_songs.php");?>
+
+    <!-- Libraries -->
+    <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");?>
 
     <!-- CSS Links -->
     <link rel="stylesheet" href="<?php echo $environment; ?>css/bootstrap.min.css">
@@ -36,7 +38,7 @@
           <div class="col-md-4">
             <p title="<?php echo 'Version ' . ApplicationVersion::get(); ?>">
               <i class="fas fa-headphones"></i>
-              <span>DJ Request System</span>
+              <span>DJRS 2018</span>
             </p>
           </div>
           <div class="col-md-4">

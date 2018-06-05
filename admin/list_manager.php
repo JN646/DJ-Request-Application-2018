@@ -1,7 +1,4 @@
-<?php
-  // Include Header
-  include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php");
-?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php"); ?>
       <!-- Row -->
       <div class="row">
 
@@ -12,23 +9,6 @@
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_action_blocks.php"); ?>
 
             <br>
-
-            <!-- Views -->
-          <div class="card collection_block">
-            <div class="card">
-              <div class="card-header text-center">
-                <h5>Views</h5>
-              </div>
-              <ul class="nav flex-column">
-                <li>
-                  <span><a class="nav-link-small font-button plus" style="cursor: pointer;">A+</a></span>
-                  <span><a class="nav-link-small font-button minus" style="cursor: pointer;">A-</a></span>
-                </li>
-          			<li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/index.php"><i class="fas fa-music"></i> Coming Soon</a></li>
-          		</ul>
-
-            </div>
-          </div>
         </div>
 
         <!-- Main Window -->
@@ -48,8 +28,8 @@
                   $artist = $n['artist'];
                   $genre = $n['genre'];
                   $year = $n['year'];
+                  $collectionID = $n['collec_id'];
                 }
-
               }
             ?>
 
@@ -57,6 +37,8 @@
 
             <!-- Head -->
             <h1>Song Management</h1>
+            <p>Use this screen to add and edit songs in your library.</p>
+            <br>
 
               <!-- Message Blocks -->
               <?php if (isset($_SESSION['message'])): ?>
@@ -71,58 +53,93 @@
             <?php $results = mysqli_query($db, "SELECT * FROM crud ORDER BY name ASC"); ?>
 
             <!-- Result Table -->
-            <table class='table'>
-              <thead>
-                <tr>
-                  <th class='text-center'>Name</th>
-                  <th class='text-center'>Artist</th>
-                  <th class='text-center'>Genre</th>
-                  <th class='text-center'>Year</th>
-                  <th colspan="2" class='text-center'>Action</th>
-                </tr>
-              </thead>
+            <div class="ResultTable">
+              <table class='table table-bordered'>
+                <thead>
+                  <tr>
+                    <th class='text-center'>Name</th>
+                    <th class='text-center'>Artist</th>
+                    <th class='text-center'>Genre</th>
+                    <th class='text-center'>Year</th>
+                    <th class='text-center'>Collection</th>
+                    <th colspan="2" class='text-center'>Action</th>
+                  </tr>
+                </thead>
 
-              <!-- Get Results -->
-              <?php while ($row = mysqli_fetch_array($results)) { ?>
-                <tr>
-                  <td><?php echo $row['name']; ?></td>
-                  <td><?php echo $row['artist']; ?></td>
-                  <td class='text-center'><span class='colourCell<?php echo $row['genre']; ?>'><?php echo $row['genre']; ?></span></td>
-                  <td class='text-center'><?php echo $row['year']; ?></td>
-                  <td class='text-center'>
-                    <a href="../admin/list_manager.php?edit=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>
-                  </td>
-                  <td class='text-center'>
-                    <a href="../functions/server.php?del=<?php echo $row['id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
-                  </td>
-                </tr>
-              <?php } ?>
-            </table>
+                <!-- Get Results -->
+                <?php while ($row = mysqli_fetch_array($results)) { ?>
+                  <tr>
+                    <td><?php echo $row['name']; ?></td>
+                    <td><?php echo $row['artist']; ?></td>
+                    <td class='text-center'><span class='colourCell<?php echo $row['genre']; ?>'><?php echo $row['genre']; ?></span></td>
+                    <td class='text-center'><?php echo $row['year']; ?></td>
+                    <td class='text-center'><?php echo $row['collec_id']; ?></td>
+                    <td class='text-center'>
+                      <a href="../admin/list_manager.php?edit=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>
+                    </td>
+                    <td class='text-center'>
+                      <a href="../functions/server.php?del=<?php echo $row['id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                <?php } ?>
+              </table>
+            </div>
+
+            <br>
+            <br>
 
             <!-- New Content -->
             <form method="post" class="form-group col-md-4 border" action="../functions/server.php" >
+              <!-- Form Header -->
+              <?php if ($update == true): ?>
+                <h2>Update</h2>
+              <?php else: ?>
+                <h2>Add New</h2>
+              <?php endif ?>
 
               <input type="hidden" name="id" value="<?php echo $id; ?>">
 
+              <!-- Name -->
               <div class="form-group">
                 <label>Name</label><br>
                 <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
               </div>
+
+              <!-- Artist -->
               <div class="form-group">
                 <label>Artist</label><br>
                 <input type="text" class="form-control" name="artist" value="<?php echo $artist; ?>">
               </div>
+
+              <!-- Genre -->
               <div class="form-group">
                 <label>Genre</label><br>
-                <input type="text" class="form-control" name="genre" value="<?php echo $genre; ?>">
+                <select class="form-control" name="genre" value="<?php echo $genre; ?>">
+                  <?php GenreArray() ?>
+                </select>
               </div>
-              <div class="form-group">
 
-                <!-- Submit Buttons -->
+              <!-- Year -->
+              <div class="form-group">
+                <label>Year</label><br>
+                <input type="text" class="form-control" name="year" value="<?php echo $year; ?>">
+              </div>
+
+              <!-- Colelction ID -->
+              <div class="form-group">
+                <label>Collection ID</label><br>
+                <input type="text" class="form-control" name="collection" value="<?php echo $collectionID; ?>">
+                <!-- <select class="form-control" name="collection" value="<?php echo $collection; ?>">
+                  <?php //CollectionArray() ?>
+                </select> -->
+              </div>
+
+              <!-- Submit Buttons -->
+              <div class="form-group">
                 <?php if ($update == true): ?>
-                  <button class="btn btn-primary" type="submit" name="update" style="background: #556B2F;" >update</button>
+                  <button class="btn btn-primary" type="submit" name="update">Update</button>
                 <?php else: ?>
-                  <button class="btn btn-primary" type="submit" name="save" >Save</button>
+                  <button class="btn btn-success" type="submit" name="save" >Save</button>
                 <?php endif ?>
               </div>
             </form>
@@ -153,7 +170,4 @@
   });
 </script>
 
-<?php
-  // Include Footer
-  include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php");
-?>
+<?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php"); ?>

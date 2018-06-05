@@ -5,6 +5,14 @@
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+a {
+  color: #d33682;
+}
+
+a:hover {
+  color: #dc332f;
+}
+
 .song_block {
   height: 18rem;
   margin: 10px;
@@ -18,12 +26,29 @@
 
 .collection_block {
   margin: 10px;
-  background-color: white;
+  background-color: #002b36;
+  color: white;
+  transition: 0.5s all;
+}
+
+.collection_block a:link, .collection_block a, .collection_block a:visited {
+    color: white;
+}
+
+.action_block {
+  margin: 10px;
+  background-color: #002b36;
   color: black;
+  transition: 0.5s all;
+}
+
+.action_block a:link, .action_block a, .action_block a:visited {
+    color: black;
 }
 
 .collection_block:hover {
-  background-color: #eee;
+  background-color: #657b83;
+  transition: 0.5s all;
 }
 
 #mainWin {
@@ -55,6 +80,11 @@
   background-color: #000;
   color: #fdf6e3;
   display: block;
+}
+
+.ResultTable {
+  height: 20vw;
+  overflow-y: scroll;
 }
 
 .footerLink {

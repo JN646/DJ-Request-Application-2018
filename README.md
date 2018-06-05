@@ -6,12 +6,11 @@ This new version of the application will be much more lightweight and will serve
 ## Core Features
 The core concepts of this application is:
 * To provide a grid list of songs.
+* CRUD records.
 * To provide organisation of songs in to collections.
 * To allow songs to be requested.
-* To allow the DJ to see a live scrolling view of the requested songs.
+* To allow the DJ to see a list of requested songs.
 
 ## Additional Features
 In addition to the core concepts listed above, this application will be able to:
-* Add and upload new songs to the database.
-* CRUD records.
 * Ability to lock the applications when not in use.

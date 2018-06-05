@@ -1,18 +1,14 @@
 <?php
-$collectionIDNum = $_GET['collection'];
-
-  $sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
-
-  if($result = mysqli_query($mysqli, $sql)){
+  if($result = mysqli_query($mysqli, $songblock_sql)){
     if(mysqli_num_rows($result) > 0){
       while($row = mysqli_fetch_array($result)){
+
         // Sets variables
         $SongID = $row['id'];
         $SongName = $row['name'];
         $SongArtist = $row['artist'];
+        $SongAlbum = $row['album'];
         $SongGenre = $row['genre'];
-
-        CheckContents($SongName, $SongArtist, $SongGenre);
 ?>
 
 <!-- Song Blocks -->
@@ -33,11 +29,12 @@ $collectionIDNum = $_GET['collection'];
 
         <!-- Song Artist -->
         <?php echo "<h6 class='card-text'>" . $SongArtist . "</h6>"; ?>
+
       </div>
 
       <!-- Request Button -->
       <div class="col-md-3">
-        <a href="index.php?request=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-thumbs-up fa-2x"></i></a>
+        <a href="index.php?request_song=<?php echo $row['id']; ?>" class="" ><i class="far fa-thumbs-up fa-2x"></i></a>
       </div>
 
     </div>

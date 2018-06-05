@@ -1,7 +1,4 @@
-<?php
-  // Include Header
-  include 'partials/_header.php';
-?>
+<?php include 'partials/_header.php'; ?>
       <!-- Row -->
       <div class="row">
 
@@ -13,10 +10,10 @@
             <h3>Collection</h3>
 
             <!-- Search Form -->
-            <form id='searchForm' class="form-inline" action="index.html" method="post">
-              <input class='form-control' type="text" name="" value="" placeholder='Search'>
-              <button class='form-control btn btn-outline-success' type="button" name="button"><i class="fas fa-search"></i></button>
-            </form>
+            <form class="form-inline my-2 my-lg-0" action="index.php" method="get">
+        			<input class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
+        			<button class="btn btn-outline-success my-2 my-sm-0" value="search" type="submit"><i class="fas fa-search"></i></button>
+        		</form>
 
             <!-- Add Collection Blocks -->
             <?php include 'partials/_collections.php'; ?>
@@ -29,6 +26,17 @@
 
           <!-- Collection Name -->
           <div class="row">
+
+            <!-- Message Blocks -->
+            <?php if (isset($_SESSION['message'])): ?>
+              <div class="msg">
+                <?php
+                  echo $_SESSION['message'];
+                  unset($_SESSION['message']);
+                ?>
+              </div>
+            <?php endif ?>
+
             <h1><?php echo $collection_name ?></h1>
           </div>
 
