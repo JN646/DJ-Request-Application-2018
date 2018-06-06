@@ -19,10 +19,10 @@
     </div>
     <ul class="nav flex-column">
       <li>
-        <span><a class="nav-link-small font-button plus" style="cursor: pointer;">A+</a></span>
-        <span><a class="nav-link-small font-button minus" style="cursor: pointer;">A-</a></span>
+        <span><a class="nav-link-small font-button plus" style="cursor: pointer;"><i class="fas fa-search-plus"></i></a></span>
+        <span><a class="nav-link-small font-button minus" style="cursor: pointer;"><i class="fas fa-search-minus"></i></a></span>
       </li>
-      <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>songs/index.php"><i class="fas fa-download"></i> Export Song List</a></li>
+      <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>functions/exportData.php"><i class="fas fa-download"></i> Export Song List</a></li>
     </ul>
   </div>
 </div>
