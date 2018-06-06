@@ -16,7 +16,11 @@
 
   <!-- Song Top Image -->
   <?php if ($coverArtMode == 1) { ?>
-    <img class="card-img-top" src="img/img.svg" alt="Card image cap">
+    <?php
+    echo "<img class='headerimage' onerror=this.src='img/img.svg' src=\"";
+      echo LastFMArtwork::getArtwork($row['artist'],$row['album'], true, "large");
+    echo "\"></a>";
+     ?>
   <?php } ?>
 
   <!-- Song Body -->

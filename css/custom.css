@@ -51,6 +51,10 @@ a:hover {
   transition: 0.5s all;
 }
 
+.headerimage {
+  width: 100%;
+}
+
 #mainWin {
   background-color: #002b36;
   height: 100vh;
