@@ -36,7 +36,7 @@
             <div id='CRUDWindow'>
 
             <!-- Head -->
-            <h1>Song Management</h1>
+            <h1>Song Management - <span class="badge badge-secondary"><?php echo countSongs($db); ?></span></h1>
             <p>Use this screen to add and edit songs in your library.</p>
             <br>
 

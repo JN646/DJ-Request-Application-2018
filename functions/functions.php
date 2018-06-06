@@ -135,6 +135,16 @@ function countRequestsInActive($db) {
   return $rows[0];
 }
 
+// Count Songs.
+function countSongs($db) {
+  // SELECT requests WHERE id = GET
+  $query = "SELECT COUNT(*) FROM crud";
+  $result = mysqli_query($db, $query);
+  $rows = mysqli_fetch_row($result);
+
+  return $rows[0];
+}
+
 // Get Collection Name.
 function getCollectionName($db, $collectionNum) {
   // Run SQL
