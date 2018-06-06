@@ -125,6 +125,25 @@ function countRequestsActive($db) {
   return $rows[0];
 }
 
+// Get Collection Name.
+function getCollectionName($db, $collectionNum) {
+  // Run SQL
+  $check = "SELECT * FROM collections WHERE collection_id = $collectionNum";
+  $result = mysqli_query($db, $check);
+  $rs = mysqli_fetch_array($result);
+
+  // Store Collection Name as Variable.
+  $collectionName = $rs['collection_name'];
+
+  // Contains No Collection Name.
+  if ($collectionName == "") {
+    $collectionName = "N/A";
+  }
+
+  // Return Value.
+  return $collectionName;
+}
+
 // GLOBAL FUNCTIONS
 function SQLError($sql, $mysqli)
 {
