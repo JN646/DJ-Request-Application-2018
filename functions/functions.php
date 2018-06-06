@@ -115,10 +115,20 @@ function isPinned($db, $RequestID) {
   }
 }
 
-// Check if Song Pinned.
+// Count if Song Active.
 function countRequestsActive($db) {
   // SELECT requests WHERE id = GET
   $query = "SELECT COUNT(*) FROM requests WHERE request_active = 1";
+  $result = mysqli_query($db, $query);
+  $rows = mysqli_fetch_row($result);
+
+  return $rows[0];
+}
+
+// Count if Song InActive.
+function countRequestsInActive($db) {
+  // SELECT requests WHERE id = GET
+  $query = "SELECT COUNT(*) FROM requests WHERE request_active = 0";
   $result = mysqli_query($db, $query);
   $rows = mysqli_fetch_row($result);
 

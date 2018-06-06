@@ -1,12 +1,14 @@
+<!-- Title -->
+<h1>Active Requests - <span class="badge badge-secondary"><?php echo countRequestsActive($db); ?></span></h1>
+
+<br>
+
 <?php
-// Attempt select query execution
-$sql = "SELECT * FROM requests WHERE request_active = 1 ORDER BY request_time ASC";
-if($result = mysqli_query($mysqli, $sql)){
+// ACTIVE RESULTS
+$activesql = "SELECT * FROM requests WHERE request_active = 1 ORDER BY request_time ASC";
+if($result = mysqli_query($mysqli, $activesql)){
     if(mysqli_num_rows($result) > 0){
       ?>
-
-      <h1>Active Requests - <span class="badge badge-secondary"><?php echo countRequestsActive($db); ?></span></h1>
-
       <!-- Draw Table -->
         <table id='myTable2' style='font-size: 120%;' class='table table-hover'>
             <tr>
@@ -46,7 +48,14 @@ if($result = mysqli_query($mysqli, $sql)){
   SQLError($mysqli);
 }
 
+?>
+<br>
+<br>
+
+<!-- Inactive Request Header -->
+<h3>Inactive Requests - <span class="badge badge-secondary"><?php echo countRequestsInActive($db); ?></span></h3>
+
+<?php
 // Close connection
 mysqli_close($mysqli);
-
  ?>
