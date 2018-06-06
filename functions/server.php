@@ -161,6 +161,39 @@ if (isset($_GET['clear_song'])) {
     header('location: index.php');
 }
 
+// Pin Song
+if (isset($_GET['pin_song'])) {
+    // Get song ID.
+    $song_request_ID_number = $_GET['pin_song'];
+
+    // SELECT requests WHERE id = GET
+  	$check = "SELECT * FROM requests WHERE request_id = $song_request_ID_number";
+
+  	// Store pin value as a variable
+  	$result = mysqli_query($db, $check);
+  	$rs = mysqli_fetch_array($result);
+
+  	$value = $rs['request_pinned'];
+  	$togpin = $value;
+
+  	//Execute the Query
+  	if(mysqli_query($db, $check))  {
+  		// Check and save as another variable
+  		if($value == 1) {
+  			$togpin = 0;
+  		}
+  		if($value == 0) {
+  			$togpin = 1;
+  		}
+  	}
+
+  	// Write variable to the database
+  	mysqli_query($db, "UPDATE requests SET request_pinned = $togpin WHERE request_id = $song_request_ID_number");
+
+    // Reload Page
+    header('location: index.php');
+}
+
 // Search
 if (isset($_GET['search_val'])) {
     $SongSearchVal = $_GET['search_val'];

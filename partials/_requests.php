@@ -5,14 +5,17 @@ if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
       ?>
 
+      <h1>Active Requests</h1>
+
       <!-- Draw Table -->
         <table id='myTable2' style='font-size: 120%;' class='table table-hover'>
             <tr>
-                <th class='text-center'>ID</th>
                 <th class='text-center'>Song Name</th>
                 <th class='text-center'>Song Artist</th>
                 <th class='text-center'>Song Album</th>
+                <th class='text-center'>Song Genres</th>
                 <th class='text-center'>Time</th>
+                <th class='text-center'>Pin</th>
                 <th class='text-center'>Clear</th>
             </tr>
     <?php
@@ -23,11 +26,12 @@ if($result = mysqli_query($mysqli, $sql)){
 
           // Draw Table.
             echo "<tr>";
-                echo "<td class='text-center'>" . $row['request_id'] . "</td>";
                 echo "<td class='text-center'>" . $row['request_s_name'] . "</td>";
                 echo "<td class='text-center'>" . $row['request_s_artist'] . "</td>";
                 echo "<td class='text-center'>" . $row['request_s_album'] . "</td>";
-                echo "<td class='text-center'>" . nicetime($Time) . "</td>";
+                echo "<td class='text-center colourCell" . $row['request_s_genre'] . "'>" . $row['request_s_genre'] . "</td>";
+                echo "<td class='text-center' title='" . $row['request_time'] . "'>" . nicetime($Time) . "</td>";
+                echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?pin_song=" . $RequestID . "'>" . isPinned($db, $RequestID) ."</a></td>";
                 echo "<td class='text-center'><a href='". $_SERVER['PHP_SELF'] . "?clear_song=" . $RequestID . "'><i class='fas fa-check'></i></a></td>";
             echo "</tr>";
         }

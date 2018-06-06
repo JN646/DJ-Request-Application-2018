@@ -97,6 +97,24 @@ function nicetime($date)
     return "$difference $periods[$j] {$tense}";
 }
 
+// Check if Song Pinned.
+function isPinned($db, $RequestID) {
+  // SELECT requests WHERE id = GET
+  $check = "SELECT * FROM requests WHERE request_id = $RequestID";
+
+  // Store pin value as a variable
+  $result = mysqli_query($db, $check);
+  $rs = mysqli_fetch_array($result);
+
+  $value = $rs['request_pinned'];
+
+  if ($value == 1) {
+    return "<i class='fas fa-thumbtack'></i>";
+  } else if ($value == 0) {
+    return "Pin";
+  }
+}
+
 // GLOBAL FUNCTIONS
 function SQLError($sql, $mysqli)
 {
