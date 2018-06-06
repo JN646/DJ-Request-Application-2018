@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 06, 2018 at 12:00 AM
+-- Generation Time: Jun 06, 2018 at 08:15 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `collections` (
   `collection_name` varchar(30) NOT NULL COMMENT 'The Collection Name',
   `collection_icon` varchar(50) DEFAULT NULL COMMENT 'FontAwesome Icon Code.',
   PRIMARY KEY (`collection_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `collections`
@@ -44,9 +44,7 @@ INSERT INTO `collections` (`collection_id`, `collection_name`, `collection_icon`
 (1, 'Top 40', ''),
 (2, '90s', ''),
 (3, '80s', ''),
-(4, '70s', ''),
-(5, 'Drinks', ''),
-(6, 'Smart Things', '');
+(4, '70s', '');
 
 -- --------------------------------------------------------
 
@@ -124,6 +122,7 @@ CREATE TABLE IF NOT EXISTS `requests` (
   `request_s_album` varchar(50) DEFAULT NULL,
   `request_s_genre` varchar(15) NOT NULL,
   `request_active` tinyint(1) NOT NULL DEFAULT '1',
+  `request_pinned` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Is the request Pinned?',
   `request_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`request_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
@@ -132,12 +131,12 @@ CREATE TABLE IF NOT EXISTS `requests` (
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`request_id`, `request_s_name`, `request_s_artist`, `request_s_album`, `request_s_genre`, `request_active`, `request_time`) VALUES
-(1, '22', 'Taylor Swift', 'RED', 'Pop', 0, '2018-05-24 14:31:40'),
-(2, 'Song 1', 'Person C', NULL, 'Pop', 1, '2018-06-05 17:22:48'),
-(5, 'Tutti Fruiti', 'Little Richard', NULL, 'Rock', 1, '2018-06-05 17:47:20'),
-(4, 'Shape Of You', 'Ed Sheeran', NULL, 'Pop', 1, '2018-06-05 17:27:46'),
-(6, 'Hot Stuff', 'Donna Summers', NULL, 'Dance', 1, '2018-06-05 17:51:31');
+INSERT INTO `requests` (`request_id`, `request_s_name`, `request_s_artist`, `request_s_album`, `request_s_genre`, `request_active`, `request_pinned`, `request_time`) VALUES
+(1, '22', 'Taylor Swift', 'RED', 'Pop', 0, 1, '2018-05-24 14:31:40'),
+(2, 'Song 1', 'Person C', NULL, 'Pop', 1, 1, '2018-06-05 17:22:48'),
+(5, 'Tutti Fruiti', 'Little Richard', NULL, 'Rock', 1, 0, '2018-06-05 17:47:20'),
+(4, 'Shape Of You', 'Ed Sheeran', NULL, 'Pop', 1, 0, '2018-06-05 17:27:46'),
+(6, 'Hot Stuff', 'Donna Summers', NULL, 'Dance', 0, 0, '2018-06-05 17:51:31');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
