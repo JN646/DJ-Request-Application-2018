@@ -7,10 +7,31 @@ $sql = "SELECT * FROM collections";
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
-          <p class='card-text'>All</p>
+          <p class='card-text'>All Songs</p>
         </div>
       </a>
     </div>
+
+    <!-- Show Drinks Block -->
+    <div id="" class="card collection_block">
+      <a href='index.php'>
+        <div class="card-body">
+          <p class='card-text'>Drinks</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Show Smart Things Block -->
+    <div id="" class="card collection_block">
+      <a href='index.php'>
+        <div class="card-body">
+          <p class='card-text'>Smart Things</p>
+        </div>
+      </a>
+    </div>
+
+<hr>
+
 <?php
 
 if ($result = mysqli_query($mysqli, $sql)) {

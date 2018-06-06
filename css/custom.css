@@ -203,3 +203,8 @@ input#searchForm {
 .colourCellHip-Hop {
   color: #268bd2;
 }
+
+/* Tools */
+.center-block {
+  margin: 0 auto;
+}
