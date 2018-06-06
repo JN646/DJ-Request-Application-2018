@@ -5,7 +5,7 @@ if($result = mysqli_query($mysqli, $sql)){
     if(mysqli_num_rows($result) > 0){
       ?>
 
-      <h1>Active Requests</h1>
+      <h1>Active Requests - <span class="badge badge-secondary"><?php echo countRequestsActive($db); ?></span></h1>
 
       <!-- Draw Table -->
         <table id='myTable2' style='font-size: 120%;' class='table table-hover'>
