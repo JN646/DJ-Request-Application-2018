@@ -91,7 +91,7 @@
             <br>
 
             <!-- New Content -->
-            <form method="post" class="form-group col-md-4 border" action="../functions/server.php" >
+            <form method="post" class="form-group col-md-12 border" action="../functions/server.php" >
               <!-- Form Header -->
               <?php if ($update == true): ?>
                 <h2>Update</h2>
@@ -101,48 +101,60 @@
 
               <input type="hidden" name="id" value="<?php echo $id; ?>">
 
-              <!-- Name -->
-              <div class="form-group">
-                <label>Name</label><br>
-                <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
-              </div>
+              <div class="row">
+                <div class="col">
+                  <!-- Name -->
+                  <div class="form-group">
+                    <label>Name</label><br>
+                    <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
+                  </div>
+                </div>
 
-              <!-- Artist -->
-              <div class="form-group">
-                <label>Artist</label><br>
-                <input type="text" class="form-control" name="artist" value="<?php echo $artist; ?>">
+                <!-- Artist -->
+                <div class="col">
+                  <div class="form-group">
+                    <label>Artist</label><br>
+                    <input type="text" class="form-control" name="artist" value="<?php echo $artist; ?>">
+                  </div>
+                </div>
               </div>
 
               <!-- Genre -->
-              <div class="form-group">
-                <label>Genre</label><br>
-                <select class="form-control" name="genre" value="<?php echo $genre; ?>">
-                  <?php GenreArray() ?>
-                </select>
+              <div class="row">
+                <div class="col">
+                  <label>Genre</label><br>
+                  <select class="form-control" name="genre" value="<?php echo $genre; ?>">
+                    <?php GenreArray() ?>
+                  </select>
+                </div>
+
+                <!-- Year -->
+                <div class="col">
+                  <label>Year</label><br>
+                  <input type="text" class="form-control" name="year" value="<?php echo $year; ?>">
+                </div>
+
+                <!-- Colelction ID -->
+                <div class="col">
+                  <label>Collection ID</label><br>
+                  <input type="text" class="form-control" name="collection" value="<?php echo $collectionID; ?>">
+                  <!-- <select class="form-control" name="collection" value="<?php echo $collection; ?>">
+                    <?php //CollectionArray() ?>
+                  </select> -->
+                </div>
               </div>
 
-              <!-- Year -->
-              <div class="form-group">
-                <label>Year</label><br>
-                <input type="text" class="form-control" name="year" value="<?php echo $year; ?>">
-              </div>
-
-              <!-- Colelction ID -->
-              <div class="form-group">
-                <label>Collection ID</label><br>
-                <input type="text" class="form-control" name="collection" value="<?php echo $collectionID; ?>">
-                <!-- <select class="form-control" name="collection" value="<?php echo $collection; ?>">
-                  <?php //CollectionArray() ?>
-                </select> -->
-              </div>
+              <br>
 
               <!-- Submit Buttons -->
-              <div class="form-group">
-                <?php if ($update == true): ?>
-                  <button class="btn btn-primary" type="submit" name="update">Update</button>
-                <?php else: ?>
-                  <button class="btn btn-success" type="submit" name="save" >Save</button>
-                <?php endif ?>
+              <div class="row">
+                <div class="col">
+                  <?php if ($update == true): ?>
+                    <button class="btn btn-primary" type="submit" name="update">Update</button>
+                  <?php else: ?>
+                    <button class="btn btn-success" type="submit" name="save" >Save</button>
+                  <?php endif ?>
+                </div>
               </div>
             </form>
 
