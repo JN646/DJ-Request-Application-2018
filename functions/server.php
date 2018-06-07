@@ -15,6 +15,7 @@ $update = false;
 // Other Variables
 $collectionIDNum = 0;
 $collection_name = "";
+$SongLimit = 25;
 
 // CLEAN Database
 function test_input($data)
@@ -108,12 +109,12 @@ if (isset($_GET['collection'])) {
     // Get Collection Name
     $collectionIDNum = $_GET['collection'];
     // Set Collection SQL.
-    $songblock_sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
+    $songblock_sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC LIMIT $SongLimit";
 } else {
     // Set Collection ID to 0.
     $collectionIDNum = 0;
     //  Set Collection SQL.
-    $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
+    $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC LIMIT $SongLimit";
 }
 
 // Request Song
@@ -199,5 +200,5 @@ if (isset($_GET['search_val'])) {
     $SongSearchVal = $_GET['search_val'];
 
     // Song Search SQL
-    $songblock_sql = "SELECT * FROM crud WHERE name LIKE '%$SongSearchVal%' OR artist LIKE '%$SongSearchVal%' OR year LIKE '%$SongSearchVal%' OR genre LIKE '%$SongSearchVal%' ";
+    $songblock_sql = "SELECT * FROM crud WHERE name LIKE '%$SongSearchVal%' OR artist LIKE '%$SongSearchVal%' OR year LIKE '%$SongSearchVal%' OR genre LIKE '%$SongSearchVal%' LIMIT $SongLimit";
 }
