@@ -164,6 +164,26 @@ function getCollectionName($db, $collectionNum) {
   return $collectionName;
 }
 
+// Name Limiter
+function NameLimiter($SongName) {
+  $name_lim = 20; //string length limit
+  if (strlen($SongName) > $name_lim) {
+    return substr($SongName, 0, $name_lim-3);
+  } else {
+    return $SongName;
+  }
+}
+
+// Artist Limiter
+function ArtistLimiter($SongArtist) {
+  $name_lim = 20; //string length limit
+  if (strlen($SongArtist) > $name_lim) {
+    return substr($SongArtist, 0, $name_lim-3);
+  } else {
+    return $SongArtist;
+  }
+}
+
 // GLOBAL FUNCTIONS
 function SQLError($sql, $mysqli)
 {

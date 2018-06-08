@@ -17,7 +17,7 @@
           <?php if ($coverArtMode == 1) { ?>
             <?php
             echo "<img class='headerimage' onerror=this.src='img/img.svg' src='img/spinner.gif' data-src=\"";
-                  echo LastFMArtwork::getArtwork($row['artist'], $row['album'], true, "large");
+                  echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
                   echo "\"></a>"; ?>
           <?php } ?>
 
@@ -27,10 +27,10 @@
               <div class="col-md-9">
 
                 <!-- Song Name -->
-                <?php echo "<h5 class='card-text'>" . $SongName . "</h5>"; ?>
+                <?php echo "<h5 class='card-text'>" . NameLimiter($SongName) . "</h5>"; ?>
 
                 <!-- Song Artist -->
-                <?php echo "<h6 class='card-text'>" . $SongArtist . "</h6>"; ?>
+                <?php echo "<h6 class='card-text'>" . NameLimiter($SongArtist) . "</h6>"; ?>
 
               </div>
 
