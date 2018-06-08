@@ -50,7 +50,7 @@ if (isset($_POST['save'])) {
     $collectionID = test_input($_POST['collec_id']);
 
     mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')");
-    $_SESSION['message'] = "Song saved";
+    $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
     header('location: ../admin/list_manager.php');
 }
 
@@ -65,7 +65,7 @@ if (isset($_POST['update'])) {
 
     mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', genre='$genre', collec_id='$collectionID', year='$year
       ' WHERE id=$id");
-    $_SESSION['message'] = "Song updated!";
+    $_SESSION['message'] = "<div class='alert alert-success'>Song updated</div>";
     header('location: ../admin/list_manager.php');
 }
 
@@ -73,7 +73,7 @@ if (isset($_POST['update'])) {
 if (isset($_GET['del'])) {
     $id = $_GET['del'];
     mysqli_query($db, "DELETE FROM crud WHERE id=$id");
-    $_SESSION['message'] = "Song deleted!";
+    $_SESSION['message'] = "<div class='alert alert-success'>Song deleted</div>";
     header('location: ../admin/list_manager.php');
 }
 
