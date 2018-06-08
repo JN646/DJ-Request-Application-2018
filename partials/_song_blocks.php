@@ -16,7 +16,7 @@
           <!-- Song Top Image -->
           <?php if ($coverArtMode == 1) { ?>
             <?php
-            echo "<img class='headerimage b-lazy' onerror=this.src='img/img.svg' data-src=\"";
+            echo "<img class='headerimage' onerror=this.src='img/img.svg' src='img/spinner.gif' data-src=\"";
                   echo LastFMArtwork::getArtwork($row['artist'], $row['album'], true, "large");
                   echo "\"></a>"; ?>
           <?php } ?>
@@ -47,3 +47,13 @@
       }
   }
          ?>
+         <script>
+         window.addEventListener('load', function(){
+             var allimages= document.getElementsByTagName('img');
+             for (var i=0; i<allimages.length; i++) {
+                 if (allimages[i].getAttribute('data-src')) {
+                     allimages[i].setAttribute('src', allimages[i].getAttribute('data-src'));
+                 }
+             }
+         }, false)
+         </script>
