@@ -30,7 +30,6 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     $results->bind_result($id, $SongName, $SongArtist, $SongGenre); //bind variables to prepared statement
 
     //Display records fetched from database.
-    echo '<ul class="">';
     while ($results->fetch()) { //fetch values
       ?>
               <!-- Song Blocks -->
@@ -67,7 +66,6 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
               </div>
               <?php
     }
-    echo '</ul>';
 
     echo '<div align="center">';
     echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
