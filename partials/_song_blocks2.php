@@ -4,7 +4,7 @@ $coverArtMode = 1;
 
 //continue only if $_POST is set and it is a Ajax request
 if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    include("config.inc.php");  //include config file
+    require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");
     //Get page number from Ajax POST
     if (isset($_POST["page"])) {
         $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
