@@ -18,10 +18,15 @@ a:hover {
   margin: 10px;
   background-color: white;
   color: black;
+  float: left;
 }
 
 .song_block:hover {
   background-color: #eee;
+}
+
+#results {
+  width: 100%;
 }
 
 .collection_block {

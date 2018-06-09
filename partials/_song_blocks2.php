@@ -67,8 +67,9 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
               <?php
     }
 
-    echo '<div align="center">';
-    echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
+    echo "</div>";
+    echo "<div class='row'>";
+      echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
     echo '</div>';
 
     exit;
