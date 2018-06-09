@@ -2,6 +2,38 @@
 // Attempt select query execution
 $sql = "SELECT * FROM collections";
 
+?>
+    <!-- Show All Block -->
+    <div id="" class="card collection_block">
+      <a href='index.php'>
+        <div class="card-body">
+          <p class='card-text'>All Songs</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Show Drinks Block -->
+    <div id="" class="card collection_block">
+      <a href='index.php'>
+        <div class="card-body">
+          <p class='card-text'>Drinks</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Show Smart Things Block -->
+    <div id="" class="card collection_block">
+      <a href='index.php'>
+        <div class="card-body">
+          <p class='card-text'>Smart Things</p>
+        </div>
+      </a>
+    </div>
+
+<hr>
+
+<?php
+
 if ($result = mysqli_query($mysqli, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {

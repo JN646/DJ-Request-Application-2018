@@ -41,8 +41,9 @@
               <span>DJRS 2018</span>
             </p>
           </div>
-          <div class="col-md-4">
-            <p></p>
+          <div class="col-md-4 text-center">
+            <p class='footerLink'><a href="<?php echo $environment; ?>admin/index.php"><i class="fas fa-unlock-alt"></i></a></p>
+            <p class='footerLink'><a href="<?php echo $environment; ?>index.php"><i class="fas fa-home"></i></a></p>
           </div>
           <div class="col-md-4">
             <p class="text-right">

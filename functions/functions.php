@@ -97,6 +97,93 @@ function nicetime($date)
     return "$difference $periods[$j] {$tense}";
 }
 
+// Check if Song Pinned.
+function isPinned($db, $RequestID) {
+  // SELECT requests WHERE id = GET
+  $check = "SELECT * FROM requests WHERE request_id = $RequestID";
+
+  // Store pin value as a variable
+  $result = mysqli_query($db, $check);
+  $rs = mysqli_fetch_array($result);
+
+  $value = $rs['request_pinned'];
+
+  if ($value == 1) {
+    return "<i class='fas fa-thumbtack'></i>";
+  } else if ($value == 0) {
+    return "Pin";
+  }
+}
+
+// Count if Song Active.
+function countRequestsActive($db) {
+  // SELECT requests WHERE id = GET
+  $query = "SELECT COUNT(*) FROM requests WHERE request_active = 1";
+  $result = mysqli_query($db, $query);
+  $rows = mysqli_fetch_row($result);
+
+  return $rows[0];
+}
+
+// Count if Song InActive.
+function countRequestsInActive($db) {
+  // SELECT requests WHERE id = GET
+  $query = "SELECT COUNT(*) FROM requests WHERE request_active = 0";
+  $result = mysqli_query($db, $query);
+  $rows = mysqli_fetch_row($result);
+
+  return $rows[0];
+}
+
+// Count Songs.
+function countSongs($db) {
+  // SELECT requests WHERE id = GET
+  $query = "SELECT COUNT(*) FROM crud";
+  $result = mysqli_query($db, $query);
+  $rows = mysqli_fetch_row($result);
+
+  return $rows[0];
+}
+
+// Get Collection Name.
+function getCollectionName($db, $collectionNum) {
+  // Run SQL
+  $check = "SELECT * FROM collections WHERE collection_id = $collectionNum";
+  $result = mysqli_query($db, $check);
+  $rs = mysqli_fetch_array($result);
+
+  // Store Collection Name as Variable.
+  $collectionName = $rs['collection_name'];
+
+  // Contains No Collection Name.
+  if ($collectionName == "") {
+    $collectionName = "N/A";
+  }
+
+  // Return Value.
+  return $collectionName;
+}
+
+// Name Limiter
+function NameLimiter($SongName) {
+  $name_lim = 20; //string length limit
+  if (strlen($SongName) > $name_lim) {
+    return substr($SongName, 0, $name_lim-3);
+  } else {
+    return $SongName;
+  }
+}
+
+// Artist Limiter
+function ArtistLimiter($SongArtist) {
+  $name_lim = 20; //string length limit
+  if (strlen($SongArtist) > $name_lim) {
+    return substr($SongArtist, 0, $name_lim-3);
+  } else {
+    return $SongArtist;
+  }
+}
+
 // GLOBAL FUNCTIONS
 function SQLError($sql, $mysqli)
 {

@@ -15,6 +15,7 @@ $update = false;
 // Other Variables
 $collectionIDNum = 0;
 $collection_name = "";
+$SongLimit = 25;
 
 // CLEAN Database
 function test_input($data)
@@ -48,8 +49,8 @@ if (isset($_POST['save'])) {
     $year = test_input($_POST['year']);
     $collectionID = test_input($_POST['collec_id']);
 
-    mysqli_query($db, "INSERT INTO crud (name, artist, genre) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')");
-    $_SESSION['message'] = "Song saved";
+    mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')");
+    $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
     header('location: ../admin/list_manager.php');
 }
 
@@ -59,10 +60,12 @@ if (isset($_POST['update'])) {
     $name = test_input($_POST['name']);
     $artist = test_input($_POST['artist']);
     $genre = test_input($_POST['genre']);
+    $year = test_input($_POST['year']);
+    $collectionID = test_input($_POST['collec_id']);
 
     mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', genre='$genre', collec_id='$collectionID', year='$year
       ' WHERE id=$id");
-    $_SESSION['message'] = "Song updated!";
+    $_SESSION['message'] = "<div class='alert alert-success'>Song updated</div>";
     header('location: ../admin/list_manager.php');
 }
 
@@ -70,7 +73,7 @@ if (isset($_POST['update'])) {
 if (isset($_GET['del'])) {
     $id = $_GET['del'];
     mysqli_query($db, "DELETE FROM crud WHERE id=$id");
-    $_SESSION['message'] = "Song deleted!";
+    $_SESSION['message'] = "<div class='alert alert-success'>Song deleted</div>";
     header('location: ../admin/list_manager.php');
 }
 
@@ -106,12 +109,12 @@ if (isset($_GET['collection'])) {
     // Get Collection Name
     $collectionIDNum = $_GET['collection'];
     // Set Collection SQL.
-    $songblock_sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC";
+    $songblock_sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC LIMIT $SongLimit";
 } else {
     // Set Collection ID to 0.
     $collectionIDNum = 0;
     //  Set Collection SQL.
-    $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC";
+    $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC LIMIT $SongLimit";
 }
 
 // Request Song
@@ -156,5 +159,46 @@ if (isset($_GET['clear_song'])) {
     echo $song_request_ID_number;
 
     // Reload Page
-    // header('location: index.php');
+    header('location: index.php');
+}
+
+// Pin Song
+if (isset($_GET['pin_song'])) {
+    // Get song ID.
+    $song_request_ID_number = $_GET['pin_song'];
+
+    // SELECT requests WHERE id = GET
+  	$check = "SELECT * FROM requests WHERE request_id = $song_request_ID_number";
+
+  	// Store pin value as a variable
+  	$result = mysqli_query($db, $check);
+  	$rs = mysqli_fetch_array($result);
+
+  	$value = $rs['request_pinned'];
+  	$togpin = $value;
+
+  	//Execute the Query
+  	if(mysqli_query($db, $check))  {
+  		// Check and save as another variable
+  		if($value == 1) {
+  			$togpin = 0;
+  		}
+  		if($value == 0) {
+  			$togpin = 1;
+  		}
+  	}
+
+  	// Write variable to the database
+  	mysqli_query($db, "UPDATE requests SET request_pinned = $togpin WHERE request_id = $song_request_ID_number");
+
+    // Reload Page
+    header('location: index.php');
+}
+
+// Search
+if (isset($_GET['search_val'])) {
+    $SongSearchVal = $_GET['search_val'];
+
+    // Song Search SQL
+    $songblock_sql = "SELECT * FROM crud WHERE name LIKE '%$SongSearchVal%' OR artist LIKE '%$SongSearchVal%' OR year LIKE '%$SongSearchVal%' OR genre LIKE '%$SongSearchVal%' LIMIT $SongLimit";
 }
