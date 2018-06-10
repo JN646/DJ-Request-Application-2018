@@ -6,6 +6,7 @@
     </div>
     <ul class="nav flex-column">
       <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/index.php"><i class="fas fa-list"></i> Requests <span class="badge badge-secondary"><?php echo countRequestsActive($db); ?></span></a></li>
+      <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/stats.php"><i class="fas fa-trophy"></i> Stats</a></li>
       <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/list_manager.php"><i class="fas fa-tachometer-alt"></i> Song Control</a></li>
     </ul>
   </div>

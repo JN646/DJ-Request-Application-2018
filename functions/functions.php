@@ -145,6 +145,26 @@ function countSongs($db) {
   return $rows[0];
 }
 
+################ Count Drinks function #########################################
+function countDrinks($db) {
+  // SELECT requests WHERE id = GET
+  $query = "SELECT COUNT(*) FROM drinks";
+  $result = mysqli_query($db, $query);
+  $rows = mysqli_fetch_row($result);
+
+  return $rows[0];
+}
+
+################ Count Smart Things function ###################################
+function countSmart($db) {
+  // SELECT requests WHERE id = GET
+  $query = "SELECT COUNT(*) FROM smart";
+  $result = mysqli_query($db, $query);
+  $rows = mysqli_fetch_row($result);
+
+  return $rows[0];
+}
+
 ################ Collection Name function ######################################
 function getCollectionName($db, $collectionNum) {
   // Run SQL
