@@ -149,10 +149,7 @@
                 <!-- Colelction ID -->
                 <div class="col">
                   <label>Collection ID</label><br>
-                  <input type="text" class="form-control" name="collection" value="<?php echo $collectionID; ?>">
-                  <!-- <select class="form-control" name="collection" value="<?php echo $collection; ?>">
-                    <?php //CollectionArray() ?>
-                  </select> -->
+                  <input type="text" class="form-control" name="collectionID" value="<?php echo $collectionID; ?>">
                 </div>
               </div>
 
@@ -168,6 +165,9 @@
                   <?php endif ?>
                 </div>
               </div>
+
+              <br>
+
             </form>
 
             </div>
@@ -176,6 +176,7 @@
         </div>
 
       </div>
+      <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php"); ?>
     </div>
 
 <script type="text/javascript">
@@ -195,5 +196,3 @@
     });
   });
 </script>
-
-<?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php"); ?>

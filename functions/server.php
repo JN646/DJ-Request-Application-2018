@@ -47,7 +47,7 @@ if (isset($_POST['save'])) {
     $artist = test_input($_POST['artist']);
     $genre = test_input($_POST['genre']);
     $year = test_input($_POST['year']);
-    $collectionID = test_input($_POST['collec_id']);
+    $collectionID = test_input($_POST['collectionID']);
 
     if(mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')")) {
       $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
@@ -66,7 +66,7 @@ if (isset($_POST['update'])) {
     $album = test_input($_POST['album']);
     $genre = test_input($_POST['genre']);
     $year = test_input($_POST['year']);
-    $collectionID = test_input($_POST['collec_id']);
+    $collectionID = test_input($_POST['collectionID']);
 
     if(mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', album='$album', genre='$genre', collec_id='$collectionID', year='$year' WHERE id='$id'")) {
       $_SESSION['message'] = "<div class='alert alert-success'>Song updated</div>";
