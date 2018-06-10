@@ -34,19 +34,19 @@
                 </div>
               <?php endif ?>
 
-              <h2>Songs</h2>
+              <h2><span><i class="fas fa-music"></i></span> Songs</h2>
               <p><b>Total Songs: </b><span><?php echo countSongs($db) ?></span></p>
               <p><b>Total Active Requests: </b><span><?php echo countRequestsActive($db) ?></span></p>
               <p><b>Total Inactive Requests: </b><span><?php echo countRequestsInActive($db) ?></span></p>
 
               <hr>
 
-              <h2>Drinks</h2>
+              <h2><span><i class="fas fa-beer"></i></span> Drinks</h2>
               <p><b>Total Drinks: </b><span><?php echo countDrinks($db) ?></span></p>
 
               <hr>
 
-              <h2>Smart Things</h2>
+              <h2><span><i class="fas fa-plug"></i></span> Smart Things</h2>
               <p><b>Total Smart Things: </b><span><?php echo countSmart($db) ?></span></p>
             </div>
           </div>
