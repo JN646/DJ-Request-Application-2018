@@ -1,8 +1,8 @@
 <?php
-// PHP FUNCTION FILE.
+################ PHP FUNCTIONS #################################################
 // Keep all functions where possible in this file. Try and keep the code organised and easy to read.
 
-// GET VERSION NUMBER
+################ Get Version Number ############################################
 class ApplicationVersion
 {
     // Define version numbering
@@ -26,7 +26,7 @@ class ApplicationVersion
     // Usage: echo 'MyApplication ' . ApplicationVersion::get();
 }
 
-// CHECK ONLINE
+################ Check online function #########################################
 function is_connected()
 {
     $connected = @fsockopen("www.google.co.uk", 80);
@@ -46,7 +46,7 @@ function is_connected()
     }
 }
 
-// GENRE ARRAY
+################ Genre function ################################################
 function GenreArray()
 {
     // Genre Array.
@@ -58,7 +58,7 @@ function GenreArray()
     }
 }
 
-// DATE PURIFIER
+################ Date Function #################################################
 function nicetime($date)
 {
     if (empty($date)) {
@@ -97,7 +97,7 @@ function nicetime($date)
     return "$difference $periods[$j] {$tense}";
 }
 
-// Check if Song Pinned.
+################ Check Pinned function #########################################
 function isPinned($db, $RequestID) {
   // SELECT requests WHERE id = GET
   $check = "SELECT * FROM requests WHERE request_id = $RequestID";
@@ -115,7 +115,7 @@ function isPinned($db, $RequestID) {
   }
 }
 
-// Count if Song Active.
+################ Check Song Active function ####################################
 function countRequestsActive($db) {
   // SELECT requests WHERE id = GET
   $query = "SELECT COUNT(*) FROM requests WHERE request_active = 1";
@@ -125,7 +125,7 @@ function countRequestsActive($db) {
   return $rows[0];
 }
 
-// Count if Song InActive.
+################ Count Request Inactive function ###############################
 function countRequestsInActive($db) {
   // SELECT requests WHERE id = GET
   $query = "SELECT COUNT(*) FROM requests WHERE request_active = 0";
@@ -135,7 +135,7 @@ function countRequestsInActive($db) {
   return $rows[0];
 }
 
-// Count Songs.
+################ Count Song function ###########################################
 function countSongs($db) {
   // SELECT requests WHERE id = GET
   $query = "SELECT COUNT(*) FROM crud";
@@ -145,7 +145,7 @@ function countSongs($db) {
   return $rows[0];
 }
 
-// Get Collection Name.
+################ Collection Name function ######################################
 function getCollectionName($db, $collectionNum) {
   // Run SQL
   $check = "SELECT * FROM collections WHERE collection_id = $collectionNum";
@@ -164,7 +164,7 @@ function getCollectionName($db, $collectionNum) {
   return $collectionName;
 }
 
-// Name Limiter
+################ Name Limiter function #########################################
 function NameLimiter($SongName) {
   $name_lim = 20; //string length limit
   if (strlen($SongName) > $name_lim) {
@@ -174,7 +174,7 @@ function NameLimiter($SongName) {
   }
 }
 
-// Artist Limiter
+################ Arist Limiter function ########################################
 function ArtistLimiter($SongArtist) {
   $name_lim = 20; //string length limit
   if (strlen($SongArtist) > $name_lim) {
@@ -184,7 +184,7 @@ function ArtistLimiter($SongArtist) {
   }
 }
 
-################ pagination function #########################################
+################ pagination function ###########################################
 function paginate_function($item_per_page, $current_page, $total_records, $total_pages)
 {
     $pagination = '';
@@ -232,7 +232,8 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
     return $pagination; //return pagination links
 }
 
-// GLOBAL FUNCTIONS
+################ GLOBAL FUNCTIONS ##############################################
+################ SQL ERROR function ############################################
 function SQLError($sql, $mysqli)
 {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);

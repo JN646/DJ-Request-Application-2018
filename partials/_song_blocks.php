@@ -57,10 +57,10 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
                     <div class="col-md-9">
 
                       <!-- Song Name -->
-                      <?php echo "<h5 class='card-text'>" . $SongName . "</h5>"; ?>
+                      <?php echo "<h5 class='card-text'>" . NameLimiter($SongName) . "</h5>"; ?>
 
                       <!-- Song Artist -->
-                      <?php echo "<h6 class='card-text'>" . $SongArtist . "</h6>"; ?>
+                      <?php echo "<h6 class='card-text'>" . ArtistLimiter($SongArtist) . "</h6>"; ?>
 
                     </div>
 
