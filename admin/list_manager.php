@@ -26,6 +26,7 @@
                   $n = mysqli_fetch_array($record);
                   $name = $n['name'];
                   $artist = $n['artist'];
+                  $album = $n['album'];
                   $genre = $n['genre'];
                   $year = $n['year'];
                   $collectionID = $n['collec_id'];
@@ -59,6 +60,7 @@
                   <tr>
                     <th class='text-center'>Name</th>
                     <th class='text-center'>Artist</th>
+                    <th class='text-center'>Album</th>
                     <th class='text-center'>Genre</th>
                     <th class='text-center'>Year</th>
                     <th class='text-center'>Collection</th>
@@ -73,6 +75,7 @@
                   <tr>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['artist']; ?></td>
+                    <td><?php echo $row['album']; ?></td>
                     <td class='text-center'><span class='colourCell<?php echo $row['genre']; ?>'><?php echo $row['genre']; ?></span></td>
                     <td class='text-center'><?php echo $row['year']; ?></td>
                     <td class='text-center'><?php echo getCollectionName($db, $collectionNum); ?></td>
@@ -115,6 +118,15 @@
                   <div class="form-group">
                     <label>Artist</label><br>
                     <input type="text" class="form-control" name="artist" value="<?php echo $artist; ?>">
+                  </div>
+                </div>
+
+
+                <!-- Album -->
+                <div class="col">
+                  <div class="form-group">
+                    <label>Album</label><br>
+                    <input type="text" class="form-control" name="album" value="<?php echo $album; ?>">
                   </div>
                 </div>
               </div>
