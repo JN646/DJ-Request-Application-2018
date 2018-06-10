@@ -23,6 +23,7 @@
         <span><a class="nav-link-small font-button minus" style="cursor: pointer;"><i class="fas fa-search-minus"></i></a></span>
       </li>
       <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>functions/exportData.php"><i class="fas fa-download"></i> Export Song List</a></li>
+      <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/index.php?deleterequests=true"><i class="fas fa-trash"></i> Delete All Requests</a></li>
     </ul>
   </div>
 </div>

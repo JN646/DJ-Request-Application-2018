@@ -89,16 +89,34 @@ if (isset($_GET['del'])) {
     }
 }
 
-################ Song Request ##################################################
-if (isset($_POST['request'])) {
-    $id = $_POST['id'];
+################ Request Song ##################################################
+if (isset($_GET['request_song'])) {
+    // Get song ID.
+    $song_request_ID_number = $_GET['request_song'];
 
-    if(mysqli_query($db, "UPDATE crud SET active='1' WHERE id=$id")) {
-      $_SESSION['message'] = "Request updated!";
+    // Select song from database.
+    $songrequestSQL = "SELECT * FROM crud WHERE id = $song_request_ID_number";
+    $songrequestResult = mysqli_query($mysqli, $songrequestSQL);
+
+    // Get Results.
+    $sr = mysqli_fetch_array($songrequestResult);
+
+    // Set Variables
+    $song_name = $sr['name'];
+    $song_artist = $sr['artist'];
+    $song_album = $sr['album'];
+    $song_genre = $sr['genre'];
+    $song_year = $sr['year'];
+
+    // Insert into database
+    if($song_insert = mysqli_query($db, "INSERT INTO requests (request_s_name, request_s_artist, request_s_album, request_s_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')")) {
+      // Message
+      $_SESSION['message'] = "<div class='alert alert-success'>Song Requested!</div>";
       header('location: index.php');
     } else {
+      // Message
       $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: ../admin/list_manager.php');
+      header('location: index.php');
     }
 }
 
@@ -133,34 +151,6 @@ if (isset($_GET['collection'])) {
     $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC LIMIT $SongLimit";
 }
 
-################ Request Song ##################################################
-if (isset($_GET['request_song'])) {
-    // Get song ID.
-    $song_request_ID_number = $_GET['request_song'];
-
-    // Select song from database.
-    $songrequestSQL = "SELECT * FROM crud WHERE id = $song_request_ID_number";
-    $songrequestResult = mysqli_query($mysqli, $songrequestSQL);
-
-    // Get Results.
-    $sr = mysqli_fetch_array($songrequestResult);
-
-    // Set Variables
-    $song_name = $sr['name'];
-    $song_artist = $sr['artist'];
-    $song_genre = $sr['genre'];
-    $song_year = $sr['year'];
-
-    // Insert into database
-    $song_insert = mysqli_query($db, "INSERT INTO requests (request_s_name, request_s_artist, request_s_genre) VALUES ('$song_name', '$song_artist', '$song_genre')");
-
-    // Message
-    $_SESSION['message'] = "Request Sent!";
-
-    // Reload Page
-    header('location: index.php');
-}
-
 ################ DJ ADMIN ######################################################
 ################ Clear Song ####################################################
 if (isset($_GET['clear_song'])) {
@@ -174,7 +164,7 @@ if (isset($_GET['clear_song'])) {
       // Reload Page
       header('location: index.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong.</div>";
+      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
     }
 }
 
@@ -205,10 +195,30 @@ if (isset($_GET['pin_song'])) {
   	}
 
   	// Write variable to the database
-  	mysqli_query($db, "UPDATE requests SET request_pinned = $togpin WHERE request_id = $song_request_ID_number");
+  	if(mysqli_query($db, "UPDATE requests SET request_pinned = $togpin WHERE request_id = $song_request_ID_number")) {
+      // Message
+      $_SESSION['message'] = "<div class='alert alert-success'>Song Pinned!</div>";
+      header('location: index.php');
+    } else {
+      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+      header('location: index.php');
+    }
+}
 
-    // Reload Page
-    header('location: index.php');
+################ Delete Requests ###############################################
+if (isset($_GET['deleterequests'])) {
+    // Get song ID.
+    $deleteallrequests = $_GET['deleterequests'];
+
+    // Run SQL
+    if(mysqli_query($db, "DELETE FROM requests")) {
+      // Message
+      $_SESSION['message'] = "<div class='alert alert-success'>Requests Deleted!</div>";
+      header('location: index.php');
+    } else {
+      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+      header('location: index.php');
+    }
 }
 
 ################ Search ########################################################
