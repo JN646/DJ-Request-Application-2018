@@ -53,7 +53,7 @@ if (isset($_POST['save'])) {
       $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
       header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong.</div>";
+      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
       header('location: ../admin/list_manager.php');
     }
 }
@@ -68,12 +68,11 @@ if (isset($_POST['update'])) {
     $year = test_input($_POST['year']);
     $collectionID = test_input($_POST['collec_id']);
 
-    if(mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', album='$album', genre='$genre', collec_id='$collectionID', year='$year
-      ' WHERE id=$id")) {
+    if(mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', album='$album', genre='$genre', collec_id='$collectionID', year='$year' WHERE id='$id'")) {
       $_SESSION['message'] = "<div class='alert alert-success'>Song updated</div>";
       header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong.</div>";
+      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
       header('location: ../admin/list_manager.php');
     }
 }
@@ -85,7 +84,7 @@ if (isset($_GET['del'])) {
       $_SESSION['message'] = "<div class='alert alert-success'>Song deleted</div>";
       header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong.</div>";
+      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
       header('location: ../admin/list_manager.php');
     }
 }
@@ -98,8 +97,8 @@ if (isset($_POST['request'])) {
       $_SESSION['message'] = "Request updated!";
       header('location: index.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong.</div>";
-      header('location: ../admin/list_manager.php');      
+      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+      header('location: ../admin/list_manager.php');
     }
 }
 
