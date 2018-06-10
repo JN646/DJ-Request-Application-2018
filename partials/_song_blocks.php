@@ -5,6 +5,7 @@
 require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/server.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");
 
 // Variables
 $coverArtMode = 1;
@@ -32,9 +33,9 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     $page_position = (($page_number-1) * $item_per_page);
 
     //Limit our results within a specified range.
-    $results = $mysqli->prepare("SELECT id, name, artist, genre FROM crud ORDER BY id ASC LIMIT $page_position, $item_per_page");
+    $results = $mysqli->prepare("SELECT id, name, artist, album, genre FROM crud ORDER BY id ASC LIMIT $page_position, $item_per_page");
     $results->execute(); //Execute prepared Query
-    $results->bind_result($id, $SongName, $SongArtist, $SongGenre); //bind variables to prepared statement
+    $results->bind_result($id, $SongName, $SongArtist, $SongAlbum, $SongGenre); //bind variables to prepared statement
 
     //Display records fetched from database.
     while ($results->fetch()) { //fetch values
@@ -45,9 +46,9 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
                 <!-- Song Top Image -->
                 <?php if ($coverArtMode == 1) { ?>
                   <?php
-                  // echo "<img class='headerimage' onerror=this.src='img/img.svg' src='img/spinner.gif' data-src=\"";
-                  //       echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
-                  //       echo "\"></a>"; ?>
+                  echo "<img class='headerimage' onerror=this.src='img/img.svg' src=\"";
+                        echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
+                        echo "\"></a>"; ?>
                 <?php } ?>
 
                 <!-- Song Body -->
@@ -81,3 +82,4 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
 
     exit;
 }
+?>
