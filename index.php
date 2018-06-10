@@ -44,13 +44,8 @@
 
           <!-- Row -->
           <div class="row">
-            <?php
-            // if ($appRunning == 1) {
-            //   include 'Prototypes/fetch_pages.php';
-            // }
-            ?>
-            <div class="loading-div"><img src="ajax-loader.gif" ></div>
-            <div id="results"><!-- content will be loaded here --></div>
+            <div class="loading-div"><img src="img/ajax-loader.gif" ></div>
+            <div id="results"></div>
           </div>
 
         </div>
