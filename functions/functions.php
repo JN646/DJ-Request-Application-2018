@@ -184,6 +184,15 @@ function ArtistLimiter($SongArtist) {
   }
 }
 
+################ Clean Inputs ##################################################
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 ################ pagination function ###########################################
 function paginate_function($item_per_page, $current_page, $total_records, $total_pages)
 {

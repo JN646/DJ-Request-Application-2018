@@ -1,13 +1,12 @@
 <?php
-// DJ APPLICATION SERVER FILE.
-
-// Start Session
+################ DJ SERVER FILE ################################################
+################ Start Session #################################################
 session_start();
 
-// Connect to DB.
+################ Database Connection ###########################################
 $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 
-// initialise variables
+################ Variables #####################################################
 $name = $artist = $genre = $year = "";
 $collectionID = $id = 0;
 $update = false;
@@ -17,16 +16,7 @@ $collectionIDNum = 0;
 $collection_name = "";
 $SongLimit = 25;
 
-// CLEAN Database
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-// Collection ID ARRAY - NOT WORKING
+################ Collection ID Array ###########################################
 function CollectionArray()
 {
     $collecionSQL = "SELECT DISTINCT * FROM collections";
@@ -41,7 +31,8 @@ function CollectionArray()
     }
 }
 
-// Add Records
+################ SONG CRUD #####################################################
+################ Add Record ####################################################
 if (isset($_POST['save'])) {
     $name = test_input($_POST['name']);
     $artist = test_input($_POST['artist']);
@@ -54,7 +45,7 @@ if (isset($_POST['save'])) {
     header('location: ../admin/list_manager.php');
 }
 
-// Update Records
+################ Update Record #################################################
 if (isset($_POST['update'])) {
     $id = test_input($_POST['id']);
     $name = test_input($_POST['name']);
@@ -69,7 +60,7 @@ if (isset($_POST['update'])) {
     header('location: ../admin/list_manager.php');
 }
 
-// Delete Records
+################ Delete Record #################################################
 if (isset($_GET['del'])) {
     $id = $_GET['del'];
     mysqli_query($db, "DELETE FROM crud WHERE id=$id");
@@ -77,7 +68,7 @@ if (isset($_GET['del'])) {
     header('location: ../admin/list_manager.php');
 }
 
-// Request Records
+################ Song Request ##################################################
 if (isset($_POST['request'])) {
     $id = $_POST['id'];
 
@@ -86,10 +77,10 @@ if (isset($_POST['request'])) {
     header('location: index.php');
 }
 
-// Get Results
+################ Get Results ###################################################
 $results = mysqli_query($db, "SELECT * FROM crud");
 
-// Collection Values
+################ Collection Values #############################################
 if (isset($_GET['collection'])) {
     $CollectionIDTitle = $_GET['collection'];
     $CollectionID = $_GET['collection'];
@@ -117,7 +108,7 @@ if (isset($_GET['collection'])) {
     $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC LIMIT $SongLimit";
 }
 
-// Request Song
+################ Request Song ##################################################
 if (isset($_GET['request_song'])) {
     // Get song ID.
     $song_request_ID_number = $_GET['request_song'];
@@ -145,7 +136,8 @@ if (isset($_GET['request_song'])) {
     header('location: index.php');
 }
 
-// Clear Song
+################ DJ ADMIN ######################################################
+################ Clear Song ####################################################
 if (isset($_GET['clear_song'])) {
     // Get song ID.
     $song_request_ID_number = $_GET['clear_song'];
@@ -162,7 +154,7 @@ if (isset($_GET['clear_song'])) {
     header('location: index.php');
 }
 
-// Pin Song
+################ Pin Song ######################################################
 if (isset($_GET['pin_song'])) {
     // Get song ID.
     $song_request_ID_number = $_GET['pin_song'];
@@ -195,7 +187,7 @@ if (isset($_GET['pin_song'])) {
     header('location: index.php');
 }
 
-// Search
+################ Search ########################################################
 if (isset($_GET['search_val'])) {
     $SongSearchVal = $_GET['search_val'];
 
