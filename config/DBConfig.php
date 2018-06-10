@@ -22,4 +22,11 @@ $appRunning = 1;
 
 // CoverArt Mode.
 $coverArtMode = 1;
+
+// Song Limit
+$SongLimit = 50;
+
+// Paginatation
+// Number per page.
+$item_per_page 		= 20;
 ?>

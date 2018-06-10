@@ -1,59 +1,85 @@
 <?php
-  if ($result = mysqli_query($mysqli, $songblock_sql)) {
-      if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_array($result)) {
+// FETCH PAGES.
 
-        // Sets variables
-              $SongID = $row['id'];
-              $SongName = $row['name'];
-              $SongArtist = $row['artist'];
-              $SongAlbum = $row['album'];
-              $SongGenre = $row['genre']; ?>
+// Additional Files.
+require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/server.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");
 
-        <!-- Song Blocks -->
-        <div class="card song_block <?php echo 'colour' . $SongGenre ?>" style="width: 18rem;">
+// Variables
+$coverArtMode = 1;
 
-          <!-- Song Top Image -->
-          <?php if ($coverArtMode == 1) { ?>
-            <?php
-            echo "<img class='headerimage' onerror=this.src='img/img.svg' src='img/spinner.gif' data-src=\"";
-                  echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
-                  echo "\"></a>"; ?>
-          <?php } ?>
+//continue only if $_POST is set and it is a Ajax request
+if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+    require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");
+    //Get page number from Ajax POST
+    if (isset($_POST["page"])) {
+        $page_number = filter_var($_POST["page"], FILTER_SANITIZE_NUMBER_INT, FILTER_FLAG_STRIP_HIGH); //filter number
+        if (!is_numeric($page_number)) {
+            die('Invalid page number!');
+        } //incase of invalid page number
+    } else {
+        $page_number = 1; //if there's no page number, set it to 1
+    }
 
-          <!-- Song Body -->
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-9">
+    //get total number of records from database for pagination
+    $results = $mysqli->query("SELECT COUNT(*) FROM crud");
+    $get_total_rows = $results->fetch_row(); //hold total records in variable
+    //break records into pages
+    $total_pages = ceil($get_total_rows[0]/$item_per_page);
 
-                <!-- Song Name -->
-                <?php echo "<h5 class='card-text'>" . NameLimiter($SongName) . "</h5>"; ?>
+    //get starting position to fetch the records
+    $page_position = (($page_number-1) * $item_per_page);
 
-                <!-- Song Artist -->
-                <?php echo "<h6 class='card-text'>" . NameLimiter($SongArtist) . "</h6>"; ?>
+    //Limit our results within a specified range.
+    $results = $mysqli->prepare("SELECT id, name, artist, album, genre FROM crud ORDER BY id ASC LIMIT $page_position, $item_per_page");
+    $results->execute(); //Execute prepared Query
+    $results->bind_result($id, $SongName, $SongArtist, $SongAlbum, $SongGenre); //bind variables to prepared statement
 
+    //Display records fetched from database.
+    while ($results->fetch()) { //fetch values
+      ?>
+              <!-- Song Blocks -->
+              <div class="card song_block <?php echo 'colour' . $SongGenre ?>" style="width: 18rem;">
+
+                <!-- Song Top Image -->
+                <?php if ($coverArtMode == 1) { ?>
+                  <?php
+                  echo "<img class='headerimage' onerror=this.src='img/img.svg' src=\"";
+                        echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
+                        echo "\"></a>"; ?>
+                <?php } ?>
+
+                <!-- Song Body -->
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-9">
+
+                      <!-- Song Name -->
+                      <?php echo "<h5 class='card-text'>" . NameLimiter($SongName) . "</h5>"; ?>
+
+                      <!-- Song Artist -->
+                      <?php echo "<h6 class='card-text'>" . ArtistLimiter($SongArtist) . "</h6>"; ?>
+
+                    </div>
+
+                    <!-- Request Button -->
+                    <div class="col-md-3">
+                      <a href="index.php?request_song=<?php echo $id ?>" class="" ><i class="far fa-thumbs-up fa-2x"></i></a>
+                    </div>
+
+                  </div>
+                </div>
               </div>
+              <?php
+    }
 
-              <!-- Request Button -->
-              <div class="col-md-3">
-                <a href="index.php?request_song=<?php echo $row['id']; ?>" class="" ><i class="far fa-thumbs-up fa-2x"></i></a>
-              </div>
+    echo "</div>";
+    echo "<div class='row'>";
+      echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
+    echo '</div>';
 
-            </div>
-          </div>
-        </div>
-        <?php
-          }
-      }
-  }
-         ?>
-         <script>
-         window.addEventListener('load', function(){
-             var allimages= document.getElementsByTagName('img');
-             for (var i=0; i<allimages.length; i++) {
-                 if (allimages[i].getAttribute('data-src')) {
-                     allimages[i].setAttribute('src', allimages[i].getAttribute('data-src'));
-                 }
-             }
-         }, false)
-         </script>
+    exit;
+}
+?>

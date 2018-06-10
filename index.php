@@ -44,10 +44,28 @@
 
           <!-- Row -->
           <div class="row">
-            <?php if ($appRunning == 1) { include 'partials/_song_blocks.php'; } ?>
+            <div class="loading-div"><img src="img/ajax-loader.gif" ></div>
+            <div id="results"></div>
           </div>
 
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+    	$("#results" ).load( "partials/_song_blocks.php"); //load initial records
+
+    	//executes code below when user click on pagination links
+    	$("#results").on( "click", ".pagination a", function (e){
+    		e.preventDefault();
+    		$(".loading-div").show(); //show loading element
+    		var page = $(this).attr("data-page"); //get page number from link
+    		$("#results").load("partials/_song_blocks.php",{"page":page}, function(){ //get content from PHP page
+    			$(".loading-div").hide(); //once done, hide loading element
+    		});
+
+    	});
+    });
+    </script>
 <?php include 'partials/_footer.php'; ?>

@@ -7,7 +7,7 @@ $sql = "SELECT * FROM collections";
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
-          <p class='card-text'>All Songs</p>
+          <p class='card-text'><span><i class="fas fa-music"></i></span> All Songs</p>
         </div>
       </a>
     </div>
@@ -16,7 +16,7 @@ $sql = "SELECT * FROM collections";
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
-          <p class='card-text'>Drinks</p>
+          <p class='card-text'><span><i class="fas fa-beer"></i></span> Drinks</p>
         </div>
       </a>
     </div>
@@ -25,7 +25,7 @@ $sql = "SELECT * FROM collections";
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
-          <p class='card-text'>Smart Things</p>
+          <p class='card-text'><span><i class="fas fa-plug"></i></span> Smart Things</p>
         </div>
       </a>
     </div>

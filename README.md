@@ -14,3 +14,5 @@ The core concepts of this application is:
 ## Additional Features
 In addition to the core concepts listed above, this application will be able to:
 * Ability to lock the applications when not in use.
+* Export song list.
+* Import songs (Coming Soon).
