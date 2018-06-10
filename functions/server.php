@@ -7,14 +7,13 @@ session_start();
 $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 
 ################ Variables #####################################################
-$name = $artist = $genre = $year = "";
+$name = $artist = $album = $genre = $year = "";
 $collectionID = $id = 0;
 $update = false;
 
 // Other Variables
 $collectionIDNum = 0;
 $collection_name = "";
-$SongLimit = 25;
 
 ################ Clean Inputs ##################################################
 function test_input($data)
@@ -45,11 +44,12 @@ function CollectionArray()
 if (isset($_POST['save'])) {
     $name = test_input($_POST['name']);
     $artist = test_input($_POST['artist']);
+    $album = test_input($_POST['album']);
     $genre = test_input($_POST['genre']);
     $year = test_input($_POST['year']);
     $collectionID = test_input($_POST['collectionID']);
 
-    if(mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$genre', '$year', '$collectionID')")) {
+    if(mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$album', '$genre', '$year', '$collectionID')")) {
       $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
       header('location: ../admin/list_manager.php');
     } else {

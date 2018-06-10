@@ -66,7 +66,7 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
 
                     <!-- Request Button -->
                     <div class="col-md-3">
-                      <a href="index.php?request_song=<?php echo $row['id']; ?>" class="" ><i class="far fa-thumbs-up fa-2x"></i></a>
+                      <a href="index.php?request_song=<?php echo $id ?>" class="" ><i class="far fa-thumbs-up fa-2x"></i></a>
                     </div>
 
                   </div>
