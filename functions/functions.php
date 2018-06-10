@@ -168,7 +168,8 @@ function getCollectionName($db, $collectionNum) {
 function NameLimiter($SongName) {
   $name_lim = 20; //string length limit
   if (strlen($SongName) > $name_lim) {
-    return substr($SongName, 0, $name_lim-3);
+    $output = substr($SongName, 0, $name_lim-3) . "...";
+    return $output;
   } else {
     return $SongName;
   }
@@ -178,7 +179,8 @@ function NameLimiter($SongName) {
 function ArtistLimiter($SongArtist) {
   $name_lim = 20; //string length limit
   if (strlen($SongArtist) > $name_lim) {
-    return substr($SongArtist, 0, $name_lim-3);
+    $output = substr($SongArtist, 0, $name_lim-3) . "...";
+    return $output;
   } else {
     return $SongArtist;
   }

@@ -33,7 +33,7 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     $page_position = (($page_number-1) * $item_per_page);
 
     //Limit our results within a specified range.
-    $results = $mysqli->prepare("SELECT id, name, artist, album, genre FROM crud WHERE collec_num = $collectionNum ORDER BY id ASC LIMIT $page_position, $item_per_page");
+    $results = $mysqli->prepare("SELECT id, name, artist, album, genre FROM crud ORDER BY id ASC LIMIT $page_position, $item_per_page");
     $results->execute(); //Execute prepared Query
     $results->bind_result($id, $SongName, $SongArtist, $SongAlbum, $SongGenre); //bind variables to prepared statement
 
