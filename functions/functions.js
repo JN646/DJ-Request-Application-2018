@@ -1,3 +1,5 @@
+//############## JS FUNCTIONS ##################################################
+//############## Clock #########################################################
 function startTime() {
   var today = new Date();
   var h = today.getHours();
@@ -10,6 +12,7 @@ function startTime() {
   var t = setTimeout(startTime, 500);
 }
 
+//############## Check Time ####################################################
 function checkTime(i) {
   if (i < 10) {
     i = "0" + i
