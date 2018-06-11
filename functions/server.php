@@ -8,6 +8,7 @@ $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 
 ################ Variables #####################################################
 $name = $artist = $album = $genre = $year = "";
+$name = $category = $quantity = $measurment = $cost = "";
 $collectionID = $id = 0;
 $update = false;
 

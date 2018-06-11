@@ -106,6 +106,9 @@
                   <div class="form-group">
                     <label>Name</label><br>
                     <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      Enter the drink name.
+                    </small>
                   </div>
                 </div>
 
@@ -114,6 +117,9 @@
                   <div class="form-group">
                     <label>Category</label><br>
                     <input type="text" class="form-control" name="category" value="<?php echo $category; ?>">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      Enter the drink category.
+                    </small>
                   </div>
                 </div>
 
@@ -122,6 +128,9 @@
                   <div class="form-group">
                     <label>Quantity</label><br>
                     <input type="text" class="form-control" name="quantity" value="<?php echo $quantity; ?>">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      Enter the drink quantity.
+                    </small>
                   </div>
                 </div>
               </div>
@@ -133,6 +142,9 @@
                   <select class="form-control" name="measurement" value="<?php echo $measurement; ?>">
                     <?php DrinkMeasurementArray() ?>
                   </select>
+                  <small id="nameHelpBlock" class="form-text text-muted">
+                    Choose the meaurement amount name.
+                  </small>
                 </div>
 
 
@@ -140,6 +152,9 @@
                 <div class="col">
                   <label>Cost</label><br>
                   <input type="text" class="form-control" name="cost" value="<?php echo $cost; ?>">
+                  <small id="nameHelpBlock" class="form-text text-muted">
+                    Enter the drink cost. Do not include the £ sign.
+                  </small>
                 </div>
               </div>
 

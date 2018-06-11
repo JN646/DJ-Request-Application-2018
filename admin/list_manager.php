@@ -110,6 +110,9 @@
                   <div class="form-group">
                     <label>Name</label><br>
                     <input type="text" class="form-control" name="name" value="<?php echo $name; ?>">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      Enter the song name.
+                    </small>
                   </div>
                 </div>
 
@@ -118,6 +121,9 @@
                   <div class="form-group">
                     <label>Artist</label><br>
                     <input type="text" class="form-control" name="artist" value="<?php echo $artist; ?>">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      Enter the artist name.
+                    </small>
                   </div>
                 </div>
 
@@ -127,6 +133,9 @@
                   <div class="form-group">
                     <label>Album</label><br>
                     <input type="text" class="form-control" name="album" value="<?php echo $album; ?>">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      Enter the album name (optional - but required for the cover art).
+                    </small>
                   </div>
                 </div>
               </div>
@@ -138,18 +147,27 @@
                   <select class="form-control" name="genre" value="<?php echo $genre; ?>">
                     <?php GenreArray() ?>
                   </select>
+                  <small id="nameHelpBlock" class="form-text text-muted">
+                    Choose the genre.
+                  </small>
                 </div>
 
                 <!-- Year -->
                 <div class="col">
                   <label>Year</label><br>
                   <input type="text" class="form-control" name="year" value="<?php echo $year; ?>">
+                  <small id="nameHelpBlock" class="form-text text-muted">
+                    Enter the song year.
+                  </small>
                 </div>
 
                 <!-- Colelction ID -->
                 <div class="col">
                   <label>Collection ID</label><br>
                   <input type="text" class="form-control" name="collectionID" value="<?php echo $collectionID; ?>">
+                  <small id="nameHelpBlock" class="form-text text-muted">
+                    Choose a colelction to be part of.
+                  </small>
                 </div>
               </div>
 
