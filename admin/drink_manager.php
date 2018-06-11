@@ -72,9 +72,9 @@
                   <tr>
                     <td><?php echo $row['drink_name']; ?></td>
                     <td><?php echo $row['drink_category']; ?></td>
-                    <td><?php echo $row['drink_quantity']; ?></td>
+                    <td class='text-center'><?php echo $row['drink_quantity']; ?></td>
                     <td><?php echo $row['drink_measurement']; ?></td>
-                    <td><?php echo $row['drink_cost']; ?></td>
+                    <td><?php echo '£' . $row['drink_cost']; ?></td>
                     <td class='text-center'>
                       <a href="../admin/list_manager.php?drink_edit=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>
                     </td>
