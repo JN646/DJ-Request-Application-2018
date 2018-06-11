@@ -28,5 +28,10 @@ $SongLimit = 50;
 
 // Paginatation
 // Number per page.
-$item_per_page 		= 20;
+$item_per_page = 20;
+
+
+// ADDONS
+// Checks to see what addons have been activated.
+$addon_drinks = TRUE;
 ?>

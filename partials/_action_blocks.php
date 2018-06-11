@@ -30,6 +30,7 @@
 </div>
 
 <!-- Drinks -->
+<?php if($addon_drinks == TRUE) { ?>
 <div class="card action_block">
   <div class="card">
     <div class="card-header text-center">
@@ -40,3 +41,4 @@
     </ul>
   </div>
 </div>
+<?php } ?>
