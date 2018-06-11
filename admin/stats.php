@@ -34,20 +34,92 @@
                 </div>
               <?php endif ?>
 
-              <h2><span><i class="fas fa-music"></i></span> Songs</h2>
-              <p><b>Total Songs: </b><span><?php echo countSongs($db) ?></span></p>
-              <p><b>Total Active Requests: </b><span><?php echo countRequestsActive($db) ?></span></p>
-              <p><b>Total Inactive Requests: </b><span><?php echo countRequestsInActive($db) ?></span></p>
+              <h1><span><i class="fas fa-music"></i></span> Songs</h1>
+              <div class="row">
 
-              <hr>
+                <!-- Block 1 -->
+                <div class="col-md-4">
+                  <div class="col-md-12 border">
+                    <!-- Top Row -->
+                    <div class="row">
+                      <h1 class='display-4'><?php echo countSongs($db) ?></h1>
+                    </div>
+                    <!-- Bottom Row -->
+                    <div class="row">
+                      <p>Total Songs</p>
+                    </div>
+                  </div>
+                </div>
 
-              <h2><span><i class="fas fa-beer"></i></span> Drinks</h2>
-              <p><b>Total Drinks: </b><span><?php echo countDrinks($db) ?></span></p>
+                <!-- Block 2 -->
+                <div class="col-md-4">
+                  <div class="col-md-12 border">
+                    <!-- Top Row -->
+                    <div class="row">
+                      <h1 class='display-4'><?php echo countRequestsActive($db) ?></h1>
+                    </div>
+                    <!-- Bottom Row -->
+                    <div class="row">
+                      <p>Total Active Requests</p>
+                    </div>
+                  </div>
+                </div>
 
-              <hr>
+                <!-- Block 3 -->
+                <div class="col-md-4">
+                  <div class="col-md-12 border">
+                    <!-- Top Row -->
+                    <div class="row">
+                      <h1 class='display-4'><?php echo countRequestsInActive($db) ?></h1>
+                    </div>
+                    <!-- Bottom Row -->
+                    <div class="row">
+                      <p>Total Inactive Requests</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-              <h2><span><i class="fas fa-plug"></i></span> Smart Things</h2>
-              <p><b>Total Smart Things: </b><span><?php echo countSmart($db) ?></span></p>
+              <br>
+
+              <h1><span><i class="fas fa-beer"></i></span> Drinks</h1>
+              <div class="row">
+
+                <!-- Block 1 -->
+                <div class="col-md-4">
+                  <div class="col-md-12 border">
+                    <!-- Top Row -->
+                    <div class="row">
+                      <h1 class='display-4'><?php echo countDrinks($db) ?></h1>
+                    </div>
+                    <!-- Bottom Row -->
+                    <div class="row">
+                      <p>Total Drinks</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <br>
+
+              <h1><span><i class="fas fa-plug"></i></span> Smart Things</h1>
+              <div class="row">
+
+                <!-- Block 1 -->
+                <div class="col-md-4">
+                  <div class="col-md-12 border">
+                    <!-- Top Row -->
+                    <div class="row">
+                      <h1 class='display-4'><?php echo countSmart($db) ?></h1>
+                    </div>
+                    <!-- Bottom Row -->
+                    <div class="row">
+                      <p>Total Drinks</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
