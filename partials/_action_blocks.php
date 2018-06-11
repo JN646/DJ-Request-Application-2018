@@ -28,3 +28,15 @@
     </ul>
   </div>
 </div>
+
+<!-- Drinks -->
+<div class="card action_block">
+  <div class="card">
+    <div class="card-header text-center">
+      <h5>Drinks</h5>
+    </div>
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="<?php echo $environment; ?>admin/drink_manager.php"><i class="fas fa-beer"></i> Drink Manager</a></li>
+    </ul>
+  </div>
+</div>

@@ -58,6 +58,19 @@ function GenreArray()
     }
 }
 
+################ Drink function ################################################
+function DrinkMeasurementArray()
+{
+    // Genre Array.
+    $drinkMeasurementList = ['Other', 'Pint', 'Half-Pint', 'Single', 'Double', 'Half-Bottle', 'Bottle'];
+
+    // Loop Through Genre Array.
+    for ($i=0; $i < count($drinkMeasurementList); $i++) {
+        echo "<option value='" . $drinkMeasurementList[$i] ."'>" . $drinkMeasurementList[$i] ."</option>";
+    }
+}
+
+
 ################ Date Function #################################################
 function nicetime($date)
 {
