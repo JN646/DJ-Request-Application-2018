@@ -35,10 +35,11 @@
               <?php endif ?>
 
               <h1><span><i class="fas fa-music"></i></span> Songs</h1>
+              <p>Information relating to the song system.</p>
               <div class="row">
 
                 <!-- Block 1 -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="col-md-12 border">
                     <!-- Top Row -->
                     <div class="row">
@@ -52,7 +53,7 @@
                 </div>
 
                 <!-- Block 2 -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="col-md-12 border">
                     <!-- Top Row -->
                     <div class="row">
@@ -66,7 +67,7 @@
                 </div>
 
                 <!-- Block 3 -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="col-md-12 border">
                     <!-- Top Row -->
                     <div class="row">
@@ -83,10 +84,11 @@
               <br>
 
               <h1><span><i class="fas fa-beer"></i></span> Drinks</h1>
+              <p>Information relating to the drinks system.</p>
               <div class="row">
 
                 <!-- Block 1 -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="col-md-12 border">
                     <!-- Top Row -->
                     <div class="row">
@@ -103,10 +105,11 @@
               <br>
 
               <h1><span><i class="fas fa-plug"></i></span> Smart Things</h1>
+              <p>Information about smart objects connected to this installation.</p>
               <div class="row">
 
                 <!-- Block 1 -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <div class="col-md-12 border">
                     <!-- Top Row -->
                     <div class="row">

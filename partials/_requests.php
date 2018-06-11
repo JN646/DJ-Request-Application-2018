@@ -53,7 +53,7 @@ if($result = mysqli_query($mysqli, $activesql)){
 <br>
 
 <!-- Inactive Request Header -->
-<h3>Inactive Requests - <span class="badge badge-secondary"><?php echo countRequestsInActive($db); ?></span></h3>
+<h3 id=countRequestsInactiveHeader>Inactive Requests - <span id='countRequestsInactiveBadge' class="badge badge-secondary"><?php echo countRequestsInActive($db); ?></span></h3>
 
 <?php
 // Close connection
