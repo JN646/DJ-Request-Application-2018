@@ -1,19 +1,14 @@
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php"); ?>
       <!-- Row -->
       <div class="row">
-
         <!-- Small Side -->
         <div id='collectionWin' class="col-md-2">
-
           <!-- Actions -->
           <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_action_blocks.php"); ?>
-
             <br>
         </div>
-
         <!-- Main Window -->
         <div id='mainWin' class="col-md-10">
-
           <div class="row">
             <div class="col-md-12">
             <?php
@@ -33,14 +28,11 @@
                 }
               }
             ?>
-
             <div id='CRUDWindow'>
-
             <!-- Head -->
             <h1>Song Management - <span class="badge badge-secondary"><?php echo countSongs($db); ?></span></h1>
             <p>Use this screen to add and edit songs in your library.</p>
             <br>
-
               <!-- Message Blocks -->
               <?php if (isset($_SESSION['message'])): ?>
                 <div class="msg">
@@ -50,9 +42,7 @@
                   ?>
                 </div>
               <?php endif ?>
-
             <?php $results = mysqli_query($db, "SELECT * FROM crud ORDER BY name ASC"); ?>
-
             <!-- Result Table -->
             <div class="ResultTable">
               <table id='myTable2' class='table table-bordered'>
@@ -67,7 +57,6 @@
                     <th colspan="2" class='text-center'>Action</th>
                   </tr>
                 </thead>
-
                 <!-- Get Results -->
                 <?php while ($row = mysqli_fetch_array($results)) {
                   $collectionNum = $row['collec_id'];
@@ -89,10 +78,8 @@
                 <?php } ?>
               </table>
             </div>
-
             <br>
             <br>
-
             <!-- New Content -->
             <form method="post" class="form-group col-md-12 border" action="../functions/server.php" >
               <!-- Form Header -->
@@ -101,9 +88,7 @@
               <?php else: ?>
                 <h2>Add New</h2>
               <?php endif ?>
-
               <input type="hidden" name="id" value="<?php echo $id; ?>">
-
               <div class="row">
                 <div class="col">
                   <!-- Name -->
@@ -115,7 +100,6 @@
                     </small>
                   </div>
                 </div>
-
                 <!-- Artist -->
                 <div class="col">
                   <div class="form-group">
@@ -126,8 +110,6 @@
                     </small>
                   </div>
                 </div>
-
-
                 <!-- Album -->
                 <div class="col">
                   <div class="form-group">
@@ -139,7 +121,6 @@
                   </div>
                 </div>
               </div>
-
               <!-- Genre -->
               <div class="row">
                 <div class="col">
@@ -151,7 +132,6 @@
                     Choose the genre.
                   </small>
                 </div>
-
                 <!-- Year -->
                 <div class="col">
                   <label>Year</label><br>
@@ -160,7 +140,6 @@
                     Enter the song year.
                   </small>
                 </div>
-
                 <!-- Colelction ID -->
                 <div class="col">
                   <label>Collection ID</label><br>
@@ -170,9 +149,7 @@
                   </small>
                 </div>
               </div>
-
               <br>
-
               <!-- Submit Buttons -->
               <div class="row">
                 <div class="col">
@@ -183,20 +160,14 @@
                   <?php endif ?>
                 </div>
               </div>
-
               <br>
-
             </form>
-
             </div>
           </div>
-
         </div>
-
       </div>
       <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php"); ?>
     </div>
-
 <script type="text/javascript">
   // Size changing
   $(function () {
@@ -213,7 +184,7 @@
       $('table').css("font-size", size);
     });
   });
-  
+
   //############## Table Sorting #################################################
   function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;

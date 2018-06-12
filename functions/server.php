@@ -53,12 +53,12 @@ if (isset($_POST['save'])) {
     $year = test_input($_POST['year']);
     $collectionID = test_input($_POST['collectionID']);
 
-    if(mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$album', '$genre', '$year', '$collectionID')")) {
-      $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
-      header('location: ../admin/list_manager.php');
+    if (mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$album', '$genre', '$year', '$collectionID')")) {
+        $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
+        header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: ../admin/list_manager.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: ../admin/list_manager.php');
     }
 }
 
@@ -72,24 +72,24 @@ if (isset($_POST['update'])) {
     $year = test_input($_POST['year']);
     $collectionID = test_input($_POST['collectionID']);
 
-    if(mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', album='$album', genre='$genre', collec_id='$collectionID', year='$year' WHERE id='$id'")) {
-      $_SESSION['message'] = "<div class='alert alert-success'>Song updated</div>";
-      header('location: ../admin/list_manager.php');
+    if (mysqli_query($db, "UPDATE crud SET name='$name', artist='$artist', album='$album', genre='$genre', collec_id='$collectionID', year='$year' WHERE id='$id'")) {
+        $_SESSION['message'] = "<div class='alert alert-success'>Song updated</div>";
+        header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: ../admin/list_manager.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: ../admin/list_manager.php');
     }
 }
 
 ################ Delete Record #################################################
 if (isset($_GET['del'])) {
     $id = $_GET['del'];
-    if(mysqli_query($db, "DELETE FROM crud WHERE id=$id")) {
-      $_SESSION['message'] = "<div class='alert alert-success'>Song deleted</div>";
-      header('location: ../admin/list_manager.php');
+    if (mysqli_query($db, "DELETE FROM crud WHERE id=$id")) {
+        $_SESSION['message'] = "<div class='alert alert-success'>Song deleted</div>";
+        header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: ../admin/list_manager.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: ../admin/list_manager.php');
     }
 }
 
@@ -113,14 +113,14 @@ if (isset($_GET['request_song'])) {
     $song_year = $sr['year'];
 
     // Insert into database
-    if($song_insert = mysqli_query($db, "INSERT INTO requests (request_s_name, request_s_artist, request_s_album, request_s_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')")) {
-      // Message
-      $_SESSION['message'] = "<div class='alert alert-success'>Song Requested!</div>";
-      header('location: index.php');
+    if ($song_insert = mysqli_query($db, "INSERT INTO requests (request_s_name, request_s_artist, request_s_album, request_s_genre) VALUES ('$song_name', '$song_artist', '$song_album', '$song_genre')")) {
+        // Message
+        $_SESSION['message'] = "<div class='alert alert-success'>Song Requested!</div>";
+        header('location: index.php');
     } else {
-      // Message
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: index.php');
+        // Message
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: index.php');
     }
 }
 
@@ -162,13 +162,13 @@ if (isset($_GET['clear_song'])) {
     $song_request_ID_number = $_GET['clear_song'];
 
     // Run SQL
-    if(mysqli_query($db, "UPDATE requests SET request_active=0 WHERE request_id=$song_request_ID_number")) {
-      // Message
-      $_SESSION['message'] = "<div class='alert alert-success'>Request Cleared!</div>";
-      // Reload Page
-      header('location: index.php');
+    if (mysqli_query($db, "UPDATE requests SET request_active=0 WHERE request_id=$song_request_ID_number")) {
+        // Message
+        $_SESSION['message'] = "<div class='alert alert-success'>Request Cleared!</div>";
+        // Reload Page
+        header('location: index.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
     }
 }
 
@@ -178,34 +178,34 @@ if (isset($_GET['pin_song'])) {
     $song_request_ID_number = $_GET['pin_song'];
 
     // SELECT requests WHERE id = GET
-  	$check = "SELECT * FROM requests WHERE request_id = $song_request_ID_number";
+    $check = "SELECT * FROM requests WHERE request_id = $song_request_ID_number";
 
-  	// Store pin value as a variable
-  	$result = mysqli_query($db, $check);
-  	$rs = mysqli_fetch_array($result);
+    // Store pin value as a variable
+    $result = mysqli_query($db, $check);
+    $rs = mysqli_fetch_array($result);
 
-  	$value = $rs['request_pinned'];
-  	$togpin = $value;
+    $value = $rs['request_pinned'];
+    $togpin = $value;
 
-  	//Execute the Query
-  	if(mysqli_query($db, $check))  {
-  		// Check and save as another variable
-  		if($value == 1) {
-  			$togpin = 0;
-  		}
-  		if($value == 0) {
-  			$togpin = 1;
-  		}
-  	}
+    //Execute the Query
+    if (mysqli_query($db, $check)) {
+        // Check and save as another variable
+        if ($value == 1) {
+            $togpin = 0;
+        }
+        if ($value == 0) {
+            $togpin = 1;
+        }
+    }
 
-  	// Write variable to the database
-  	if(mysqli_query($db, "UPDATE requests SET request_pinned = $togpin WHERE request_id = $song_request_ID_number")) {
-      // Message
-      $_SESSION['message'] = "<div class='alert alert-success'>Song Pinned!</div>";
-      header('location: index.php');
+    // Write variable to the database
+    if (mysqli_query($db, "UPDATE requests SET request_pinned = $togpin WHERE request_id = $song_request_ID_number")) {
+        // Message
+        $_SESSION['message'] = "<div class='alert alert-success'>Song Pinned!</div>";
+        header('location: index.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: index.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: index.php');
     }
 }
 
@@ -215,13 +215,13 @@ if (isset($_GET['deleterequests'])) {
     $deleteallrequests = $_GET['deleterequests'];
 
     // Run SQL
-    if(mysqli_query($db, "DELETE FROM requests")) {
-      // Message
-      $_SESSION['message'] = "<div class='alert alert-success'>Requests Deleted!</div>";
-      header('location: index.php');
+    if (mysqli_query($db, "DELETE FROM requests")) {
+        // Message
+        $_SESSION['message'] = "<div class='alert alert-success'>Requests Deleted!</div>";
+        header('location: index.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: index.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: index.php');
     }
 }
 
@@ -242,12 +242,12 @@ if (isset($_POST['drink_save'])) {
     $measurement = test_input($_POST['drink_measurement']);
     $cost = test_input($_POST['drink_cost']);
 
-    if(mysqli_query($db, "INSERT INTO drinks (drink_name, drink_category, drink_quantity, drink_measurement, drink_cost) VALUES ('$name', '$category', '$quantity', '$measurement', '$cost')")) {
-      $_SESSION['message'] = "<div class='alert alert-success'>Drink saved</div>";
-      header('location: ../admin/list_manager.php');
+    if (mysqli_query($db, "INSERT INTO drinks (drink_name, drink_category, drink_quantity, drink_measurement, drink_cost) VALUES ('$name', '$category', '$quantity', '$measurement', '$cost')")) {
+        $_SESSION['message'] = "<div class='alert alert-success'>Drink saved</div>";
+        header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: ../admin/drink_manager.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: ../admin/drink_manager.php');
     }
 }
 
@@ -260,23 +260,23 @@ if (isset($_POST['drink_update'])) {
     $measurement = test_input($_POST['drink_measurement']);
     $cost = test_input($_POST['drink_cost']);
 
-    if(mysqli_query($db, "UPDATE drinks SET drink_name='$name', drink_category='$category', drink_quantity='$quantity', drink_measurement='$measurement', drink_cost='$cost' WHERE drink_id='$id'")) {
-      $_SESSION['message'] = "<div class='alert alert-success'>Drink updated</div>";
-      header('location: ../admin/list_manager.php');
+    if (mysqli_query($db, "UPDATE drinks SET drink_name='$name', drink_category='$category', drink_quantity='$quantity', drink_measurement='$measurement', drink_cost='$cost' WHERE drink_id='$id'")) {
+        $_SESSION['message'] = "<div class='alert alert-success'>Drink updated</div>";
+        header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: ../admin/drink_manager.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: ../admin/drink_manager.php');
     }
 }
 
 ################ Delete Record #################################################
 if (isset($_GET['drink_del'])) {
     $id = $_GET['del'];
-    if(mysqli_query($db, "DELETE FROM drinks WHERE drink_id=$id")) {
-      $_SESSION['message'] = "<div class='alert alert-success'>Drink deleted</div>";
-      header('location: ../admin/list_manager.php');
+    if (mysqli_query($db, "DELETE FROM drinks WHERE drink_id=$id")) {
+        $_SESSION['message'] = "<div class='alert alert-success'>Drink deleted</div>";
+        header('location: ../admin/list_manager.php');
     } else {
-      $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
-      header('location: ../admin/drink_manager.php');
+        $_SESSION['message'] = "<div class='alert alert-danger'>Something Went Wrong. " . mysqli_error($db) . "</div>";
+        header('location: ../admin/drink_manager.php');
     }
 }
