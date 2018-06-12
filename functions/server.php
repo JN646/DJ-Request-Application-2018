@@ -16,6 +16,9 @@ $update = false;
 $collectionIDNum = 0;
 $collection_name = "";
 
+// Song Limit
+$SongLimit = 50;
+
 ################ Clean Inputs ##################################################
 function test_input($data)
 {

@@ -17,8 +17,8 @@
           <div class="row">
             <div class="col-md-12">
             <?php
-              if (isset($_GET['edit'])) {
-                $id = $_GET['edit'];
+              if (isset($_GET['drink_edit'])) {
+                $id = $_GET['drink_edit'];
                 $update = true;
                 $record = mysqli_query($db, "SELECT * FROM drinks WHERE drink_id=$id");
 
@@ -76,10 +76,10 @@
                     <td><?php echo $row['drink_measurement']; ?></td>
                     <td><?php echo '£' . $row['drink_cost']; ?></td>
                     <td class='text-center'>
-                      <a href="../admin/list_manager.php?drink_edit=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>
+                      <a href="../admin/drink_manager.php?drink_edit=<?php echo $row['drink_id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>
                     </td>
                     <td class='text-center'>
-                      <a href="../functions/server.php?drink_del=<?php echo $row['id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
+                      <a href="../functions/server.php?drink_del=<?php echo $row['drink_id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
                     </td>
                   </tr>
                 <?php } ?>
@@ -143,7 +143,7 @@
                     <?php DrinkMeasurementArray() ?>
                   </select>
                   <small id="nameHelpBlock" class="form-text text-muted">
-                    Choose the meaurement amount name.
+                    Choose the measurement amount name.
                   </small>
                 </div>
 
@@ -153,7 +153,7 @@
                   <label>Cost</label><br>
                   <input type="text" class="form-control" name="cost" value="<?php echo $cost; ?>">
                   <small id="nameHelpBlock" class="form-text text-muted">
-                    Enter the drink cost. Do not include the £ sign.
+                    Enter the drink cost. Do not include the '£' sign.
                   </small>
                 </div>
               </div>
