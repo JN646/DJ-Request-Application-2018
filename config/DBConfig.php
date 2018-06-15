@@ -30,5 +30,6 @@ $item_per_page = 20;
 
 // ADDONS
 // Checks to see what addons have been activated.
-$addon_drinks = TRUE;
+$addon_drinks = FALSE;
+$addon_smartthings = FALSE;
 ?>
