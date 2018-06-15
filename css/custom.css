@@ -25,10 +25,6 @@ a:hover {
   background-color: #eee;
 }
 
-#results {
-  width: 85%;
-}
-
 .collection_block {
   margin: 10px;
   background-color: #002b36;
@@ -58,6 +54,11 @@ a:hover {
 
 .headerimage {
   width: 100%;
+}
+
+.paginateButtons {
+  display: block;
+  margin: 0 auto;
 }
 
 #mainWin {

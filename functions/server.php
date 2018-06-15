@@ -142,19 +142,6 @@ if (isset($_GET['collection'])) {
     $collection_name = $rs['collection_name'];
 }
 
-// Checks to see if collection exists in URL.
-if (isset($_GET['collection'])) {
-    // Get Collection Name
-    $collectionIDNum = $_GET['collection'];
-    // Set Collection SQL.
-    $songblock_sql = "SELECT DISTINCT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC LIMIT $SongLimit";
-} else {
-    // Set Collection ID to 0.
-    $collectionIDNum = 0;
-    //  Set Collection SQL.
-    $songblock_sql = "SELECT DISTINCT * FROM crud ORDER BY name ASC LIMIT $SongLimit";
-}
-
 ################ DJ ADMIN ######################################################
 ################ Clear Song ####################################################
 if (isset($_GET['clear_song'])) {

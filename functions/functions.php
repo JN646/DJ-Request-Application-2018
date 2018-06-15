@@ -276,6 +276,12 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
     return $pagination; //return pagination links
 }
 
+// Collection Filtering
+if (isset($_GET['collection'])) {
+    // Get Collection Name
+    $collectionIDNum = $_GET['collection'];
+}
+
 ################ GLOBAL FUNCTIONS ##############################################
 ################ SQL ERROR function ############################################
 function SQLError($sql, $mysqli)
