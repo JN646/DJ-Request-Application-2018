@@ -66,7 +66,6 @@
               } else {
                 SQLError($mysqli);
               }
-              
               ?>
               <br>
               <br>

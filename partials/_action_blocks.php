@@ -17,7 +17,7 @@
       <h5>Songs</h5>
     </div>
     <ul class="list-group list-group-flush">
-      <li class='list-group-item'>
+      <li id='magnifyRow' class='list-group-item'>
         <span><a class="font-button plus" style="cursor: pointer;"><i class="fas fa-search-plus"></i></a></span>
         <span><a class="font-button normal" style="cursor: pointer;"><i class="fas fa-search"></i></a></span>
         <span><a class="font-button minus" style="cursor: pointer;"><i class="fas fa-search-minus"></i></a></span>
