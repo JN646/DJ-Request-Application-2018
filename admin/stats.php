@@ -83,6 +83,7 @@
 
               <br>
 
+            <?php if($addon_drinks == TRUE) { ?>
               <h1><span><i class="fas fa-beer"></i></span> Drinks</h1>
               <p>Information relating to the drinks system.</p>
               <div class="row">
@@ -101,9 +102,11 @@
                   </div>
                 </div>
               </div>
+            <?php } ?>
 
               <br>
 
+            <?php if($addon_smartthings == TRUE) { ?>
               <h1><span><i class="fas fa-plug"></i></span> Smart Things</h1>
               <p>Information about smart objects connected to this installation.</p>
               <div class="row">
@@ -122,6 +125,7 @@
                   </div>
                 </div>
               </div>
+            <?php } ?>
 
             </div>
           </div>
