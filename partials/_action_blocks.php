@@ -24,6 +24,7 @@
       <li class="list-group-item"><a class="" href="<?php echo $environment; ?>admin/index.php"><i class="fas fa-list"></i> Requests <span class="badge badge-secondary"><?php echo countRequestsActive($db); ?></span></a></li>
       <li class="list-group-item"><a class="" href="<?php echo $environment; ?>admin/list_manager.php"><i class="fas fa-tachometer-alt"></i> Song Manager</a></li>
       <li class="list-group-item"><a class="" href="<?php echo $environment; ?>functions/exportData.php"><i class="fas fa-download"></i> Export Song List</a></li>
+      <li class="list-group-item"><a class="" href="<?php echo $environment; ?>functions/exportRequests.php"><i class="fas fa-download"></i> Export Request List</a></li>
       <li class="list-group-item"><a class="text-danger" href="<?php echo $environment; ?>admin/index.php?deleterequests=true"><i class="fas fa-trash"></i> Delete All Requests</a></li>
     </ul>
   </div>
