@@ -32,12 +32,19 @@
     $(".font-button").bind("click", function () {
       var size = parseInt($('table').css("font-size"));
       if ($(this).hasClass("plus")) {
+        // Increase font size.
         size = size + 2;
-      } else {
+      } else if ($(this).hasClass("minus")) {
+        // Decrease font size.
         size = size - 2;
+        
+        // Prevent fontsize getting less than 10.
         if (size <= 10) {
           size = 10;
         }
+      } else if ($(this).hasClass("normal")) {
+        //  Set font size to 14.
+        size = 14;        
       }
       $('table').css("font-size", size);
     });
