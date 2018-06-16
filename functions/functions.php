@@ -257,11 +257,11 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
 
         if ($current_page > 1) {
             $previous_link = ($previous==0)? 1: $previous;
-            $pagination .= '<li class="first page-item"><a href="#" data-page="1" title="First">&laquo;</a></li>'; //first link
-            $pagination .= '<li><a href="#" data-page="'.$previous_link.'" title="Previous">&lt;</a></li>'; //previous link
+            $pagination .= '<li class="first page-item"><a class="page-link" href="#" data-page="1" title="First">&laquo;</a></li>'; //first link
+            $pagination .= '<li class="page-item"><a class="page-link" href="#" data-page="'.$previous_link.'" title="Previous">&lt;</a></li>'; //previous link
                 for ($i = ($current_page-2); $i < $current_page; $i++) { //Create left-hand side links
                     if ($i > 0) {
-                        $pagination .= '<li><a href="#" data-page="'.$i.'" title="Page'.$i.'">'.$i.'</a></li>';
+                        $pagination .= '<li class="page-item">><a class="page-link" href="#" data-page="'.$i.'" title="Page'.$i.'">'.$i.'</a></li>';
                     }
                 }
             $first_link = false; //set first link to false
