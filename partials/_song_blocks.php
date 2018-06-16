@@ -1,5 +1,10 @@
 <?php
-// FETCH PAGES.
+################ DJ APP 2018 ###################################################
+// Author: Josh Ginn
+// Copyright: 2018
+################################################################################
+
+################ SONG BLOCKS ###################################################
 
 // Additional Files.
 require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");
@@ -33,10 +38,11 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     $page_position = (($page_number-1) * $item_per_page);
 
     //Limit our results within a specified range.
-    $results = $mysqli->prepare("SELECT id, name, artist, album, genre, collec_id FROM crud WHERE collec_id = $collectionIDNum ORDER BY id ASC LIMIT $page_position, $item_per_page");
+    $results = $mysqli->prepare("SELECT id, name, artist, album, genre, collec_id FROM crud WHERE collec_id = $collectionIDNum ORDER BY name ASC LIMIT $page_position, $item_per_page");
     $results->execute(); //Execute prepared Query
     $results->bind_result($id, $SongName, $SongArtist, $SongAlbum, $SongGenre, $collec_id); //bind variables to prepared statement
 
+    // Pagination Link Block
     echo "<div class='row paginateButtons'>";
       echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
     echo '</div>';

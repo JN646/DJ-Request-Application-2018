@@ -1,4 +1,9 @@
 <?php
+################ DJ APP 2018 ###################################################
+// Author: Josh Ginn
+// Copyright: 2018
+################################################################################
+
 //include database configuration file
 $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 

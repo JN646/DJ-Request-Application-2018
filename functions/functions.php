@@ -1,4 +1,9 @@
 <?php
+################ DJ APP 2018 ###################################################
+// Author: Josh Ginn
+// Copyright: 2018
+################################################################################
+
 ################ PHP FUNCTIONS #################################################
 // Keep all functions where possible in this file. Try and keep the code organised and easy to read.
 
