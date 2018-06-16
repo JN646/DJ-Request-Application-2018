@@ -19,8 +19,3 @@ function checkTime(i) {
   }; // add zero in front of numbers < 10
   return i;
 }
-
-//############## Check Magnify #################################################
-if (!document.getElementById('myTable2') {
-  document.getElementById('magnifyRow').style.display = 'none';
-}

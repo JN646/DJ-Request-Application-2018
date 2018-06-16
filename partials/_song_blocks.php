@@ -41,14 +41,14 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     echo "<div class='row paginateButtons'>";
       echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
     echo '</div>';
-    
+
     echo "</br>";
 
     //Display records fetched from database.
     while ($results->fetch()) { //fetch values
       ?>
               <!-- Song Blocks -->
-              <div class="card song_block <?php echo 'colour' . $SongGenre ?>" style="width: 18rem;">
+              <div class="col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>" style="min-width: 250px; padding-left: 5px; padding-right: 5px;">
 
                 <!-- Song Top Image -->
                 <?php if ($coverArtMode == 1) { ?>
