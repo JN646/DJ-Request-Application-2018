@@ -30,18 +30,24 @@ $SongLimit = 50;
 ################ Clean Inputs ##################################################
 function test_input($data)
 {
+    // Variables
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
+
+    // Return Data.
     return $data;
 }
 
 ################ Collection ID Array ###########################################
 function CollectionArray()
 {
+    // Run Query.
     $collecionSQL = "SELECT DISTINCT * FROM collections";
     $collectionResult = mysqli_query($mysqli, $collecionSQL);
     $rs = mysqli_fetch_array($collectionResult);
+
+    // Variables
     $collection_id = $rs['collection_id'];
     $collection_name = $rs['collection_name'];
 
@@ -55,6 +61,7 @@ function CollectionArray()
 ################ Add Record ####################################################
 if (isset($_POST['save']))
 {
+    // Variables
     $name = test_input($_POST['name']);
     $artist = test_input($_POST['artist']);
     $album = test_input($_POST['album']);
@@ -62,6 +69,7 @@ if (isset($_POST['save']))
     $year = test_input($_POST['year']);
     $collectionID = test_input($_POST['collectionID']);
 
+    // Insert to database.
     if (mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$album', '$genre', '$year', '$collectionID')")) {
         $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
         header('location: ../admin/list_manager.php');
@@ -74,6 +82,7 @@ if (isset($_POST['save']))
 ################ Update Record #################################################
 if (isset($_POST['update']))
 {
+    // Variables
     $id = test_input($_POST['id']);
     $name = test_input($_POST['name']);
     $artist = test_input($_POST['artist']);
@@ -96,6 +105,7 @@ if (isset($_POST['update']))
 ################ Delete Record #################################################
 if (isset($_GET['del']))
 {
+    // Variables
     $id = $_GET['del'];
 
     // Delete Records
