@@ -13,6 +13,7 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="<?php echo $environment; ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $environment; ?>css/custom.css">
+    <link rel="stylesheet" href="<?php echo $environment; ?>css/venue.css">
     <link rel="stylesheet" href="<?php echo $environment; ?>css/fontawesome-all.css">
     <!-- Remote JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
