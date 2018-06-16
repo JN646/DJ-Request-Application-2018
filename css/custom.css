@@ -1,8 +1,8 @@
 /* Custom CSS File */
 
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 * {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
