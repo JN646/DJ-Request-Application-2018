@@ -41,8 +41,10 @@ function is_connected()
     // Displays Icon based on connected status
     if ($is_conn == true) {
         echo "<i class='fas fa-wifi' title='Connected'></i>";
+        $coverArtMode = 1;
     } else {
         echo "<i class='fas fa-ban' title='Not Connected'></i>";
+        $coverArtMode = 0;
     }
 }
 

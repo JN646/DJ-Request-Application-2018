@@ -8,7 +8,6 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");
 
 // Variables
-$coverArtMode = 1;
 $collectionIDNum = 0;
 
 //continue only if $_POST is set and it is a Ajax request
