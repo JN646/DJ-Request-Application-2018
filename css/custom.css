@@ -276,3 +276,8 @@ input#searchForm {
 	background: #F0F0F0;
 	color: #333;
 }
+
+.spinningLoader {
+  width: 200%;
+  height: 200%;
+}

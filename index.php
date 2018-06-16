@@ -39,12 +39,22 @@
               </div>
             <?php endif ?>
 
-            <h1><?php echo $collection_name ?></h1>
+            <h1>
+              <?php
+              // Check to see if collection name is empty.
+              if (empty($collection_name)) {
+                // Set value to "All Songs".
+                $collection_name = "All Songs";
+              }
+                // Output Collection Name.
+                echo $collection_name;
+              ?>
+            </h1>
           </div>
 
           <!-- Row -->
           <div class="row">
-            <div id='spinningLoader' class="loading-div"><img src="img/ajax-loader.gif" ></div>
+            <div id='spinningLoader' class="loading-div"><img src="img/ajax-loader.gif"></div>
             <div id="results"></div>
           </div>
 
