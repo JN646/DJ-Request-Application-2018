@@ -13,6 +13,7 @@ $sql = "SELECT * FROM collections";
     </div>
 
     <!-- Show Drinks Block -->
+    <?php if($addon_drinks == TRUE) { ?>
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
@@ -20,8 +21,10 @@ $sql = "SELECT * FROM collections";
         </div>
       </a>
     </div>
+    <?php } ?>
 
     <!-- Show Smart Things Block -->
+    <?php if($addon_smartthings == TRUE) { ?>
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
@@ -29,6 +32,7 @@ $sql = "SELECT * FROM collections";
         </div>
       </a>
     </div>
+    <?php } ?>
 
 <hr>
 

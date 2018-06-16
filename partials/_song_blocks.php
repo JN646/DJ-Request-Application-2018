@@ -8,7 +8,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");
 require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");
 
 // Variables
-$coverArtMode = 1;
+$collectionIDNum = 0;
 
 //continue only if $_POST is set and it is a Ajax request
 if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
@@ -24,7 +24,7 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     }
 
     //get total number of records from database for pagination
-    $results = $mysqli->query("SELECT COUNT(*) FROM crud");
+    $results = $mysqli->query("SELECT COUNT(*) FROM crud WHERE collec_id = $collectionIDNum");
     $get_total_rows = $results->fetch_row(); //hold total records in variable
     //break records into pages
     $total_pages = ceil($get_total_rows[0]/$item_per_page);
@@ -33,15 +33,21 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     $page_position = (($page_number-1) * $item_per_page);
 
     //Limit our results within a specified range.
-    $results = $mysqli->prepare("SELECT id, name, artist, album, genre FROM crud ORDER BY id ASC LIMIT $page_position, $item_per_page");
+    $results = $mysqli->prepare("SELECT id, name, artist, album, genre, collec_id FROM crud WHERE collec_id = $collectionIDNum ORDER BY id ASC LIMIT $page_position, $item_per_page");
     $results->execute(); //Execute prepared Query
-    $results->bind_result($id, $SongName, $SongArtist, $SongAlbum, $SongGenre); //bind variables to prepared statement
+    $results->bind_result($id, $SongName, $SongArtist, $SongAlbum, $SongGenre, $collec_id); //bind variables to prepared statement
+
+    echo "<div class='row paginateButtons'>";
+      echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
+    echo '</div>';
+
+    echo "</br>";
 
     //Display records fetched from database.
     while ($results->fetch()) { //fetch values
       ?>
               <!-- Song Blocks -->
-              <div class="card song_block <?php echo 'colour' . $SongGenre ?>" style="width: 18rem;">
+              <div class="col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>" style="min-width: 250px; padding-left: 5px; padding-right: 5px;">
 
                 <!-- Song Top Image -->
                 <?php if ($coverArtMode == 1) { ?>
@@ -76,9 +82,6 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     }
 
     echo "</div>";
-    echo "<div class='row'>";
-      echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
-    echo '</div>';
 
     exit;
 }

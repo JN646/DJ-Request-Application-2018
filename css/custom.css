@@ -25,10 +25,6 @@ a:hover {
   background-color: #eee;
 }
 
-#results {
-  width: 85%;
-}
-
 .collection_block {
   margin: 10px;
   background-color: #002b36;
@@ -57,7 +53,14 @@ a:hover {
 }
 
 .headerimage {
+  object-fit: cover;
   width: 100%;
+  height: 60%;
+}
+
+.paginateButtons {
+  display: block;
+  margin: 0 auto;
 }
 
 #mainWin {
@@ -272,4 +275,9 @@ input#searchForm {
 .pagination li.active{
 	background: #F0F0F0;
 	color: #333;
+}
+
+.spinningLoader {
+  width: 200%;
+  height: 200%;
 }

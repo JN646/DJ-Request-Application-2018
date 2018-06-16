@@ -7,13 +7,13 @@
 
           <!-- Is the app running? -->
           <?php if ($appRunning == 1) { ?>
-            <h3>Collection</h3>
+            <h3 id='collectionHeader'>Collection</h3>
 
             <!-- Search Form -->
-            <div class="center-block">
+            <div id='searchFormBox' class="center-block">
               <form class="form-inline my-2 my-lg-0" action="index.php" method="get">
-                <input class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" value="search" type="submit"><i class="fas fa-search"></i></button>
+                <input id='searchFormInput' class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
+                <button id='searchFormButton' class="btn btn-outline-success my-2 my-sm-0" value="search" type="submit"><i class="fas fa-search"></i></button>
               </form>
             </div>
 
@@ -39,12 +39,22 @@
               </div>
             <?php endif ?>
 
-            <h1><?php echo $collection_name ?></h1>
+            <h1>
+              <?php
+              // Check to see if collection name is empty.
+              if (empty($collection_name)) {
+                // Set value to "All Songs".
+                $collection_name = "All Songs";
+              }
+                // Output Collection Name.
+                echo $collection_name;
+              ?>
+            </h1>
           </div>
 
           <!-- Row -->
           <div class="row">
-            <div class="loading-div"><img src="img/ajax-loader.gif" ></div>
+            <div id='spinningLoader' class="loading-div"><img src="img/ajax-loader.gif"></div>
             <div id="results"></div>
           </div>
 

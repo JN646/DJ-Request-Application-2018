@@ -41,8 +41,10 @@ function is_connected()
     // Displays Icon based on connected status
     if ($is_conn == true) {
         echo "<i class='fas fa-wifi' title='Connected'></i>";
+        $coverArtMode = 1;
     } else {
         echo "<i class='fas fa-ban' title='Not Connected'></i>";
+        $coverArtMode = 0;
     }
 }
 
@@ -57,6 +59,19 @@ function GenreArray()
         echo "<option value='" . $genreList[$i] ."'>" . $genreList[$i] ."</option>";
     }
 }
+
+################ Drink function ################################################
+function DrinkMeasurementArray()
+{
+    // Genre Array.
+    $drinkMeasurementList = ['Other', 'Pint', 'Half-Pint', 'Single', 'Double', 'Half-Bottle', 'Bottle'];
+
+    // Loop Through Genre Array.
+    for ($i=0; $i < count($drinkMeasurementList); $i++) {
+        echo "<option value='" . $drinkMeasurementList[$i] ."'>" . $drinkMeasurementList[$i] ."</option>";
+    }
+}
+
 
 ################ Date Function #################################################
 function nicetime($date)
@@ -98,112 +113,121 @@ function nicetime($date)
 }
 
 ################ Check Pinned function #########################################
-function isPinned($db, $RequestID) {
-  // SELECT requests WHERE id = GET
-  $check = "SELECT * FROM requests WHERE request_id = $RequestID";
+function isPinned($db, $RequestID)
+{
+    // SELECT requests WHERE id = GET
+    $check = "SELECT * FROM requests WHERE request_id = $RequestID";
 
-  // Store pin value as a variable
-  $result = mysqli_query($db, $check);
-  $rs = mysqli_fetch_array($result);
+    // Store pin value as a variable
+    $result = mysqli_query($db, $check);
+    $rs = mysqli_fetch_array($result);
 
-  $value = $rs['request_pinned'];
+    $value = $rs['request_pinned'];
 
-  if ($value == 1) {
-    return "<i class='fas fa-thumbtack'></i>";
-  } else if ($value == 0) {
-    return "Pin";
-  }
+    if ($value == 1) {
+        return "<i class='fas fa-thumbtack'></i>";
+    } elseif ($value == 0) {
+        return "Pin";
+    }
 }
 
 ################ Check Song Active function ####################################
-function countRequestsActive($db) {
-  // SELECT requests WHERE id = GET
-  $query = "SELECT COUNT(*) FROM requests WHERE request_active = 1";
-  $result = mysqli_query($db, $query);
-  $rows = mysqli_fetch_row($result);
+function countRequestsActive($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT COUNT(*) FROM requests WHERE request_active = 1";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
 
-  return $rows[0];
+    return $rows[0];
 }
 
 ################ Count Request Inactive function ###############################
-function countRequestsInActive($db) {
-  // SELECT requests WHERE id = GET
-  $query = "SELECT COUNT(*) FROM requests WHERE request_active = 0";
-  $result = mysqli_query($db, $query);
-  $rows = mysqli_fetch_row($result);
+function countRequestsInActive($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT COUNT(*) FROM requests WHERE request_active = 0";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
 
-  return $rows[0];
+    return $rows[0];
 }
 
 ################ Count Song function ###########################################
-function countSongs($db) {
-  // SELECT requests WHERE id = GET
-  $query = "SELECT COUNT(*) FROM crud";
-  $result = mysqli_query($db, $query);
-  $rows = mysqli_fetch_row($result);
+function countSongs($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT COUNT(*) FROM crud";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
 
-  return $rows[0];
+    return $rows[0];
 }
 
 ################ Count Drinks function #########################################
-function countDrinks($db) {
-  // SELECT requests WHERE id = GET
-  $query = "SELECT COUNT(*) FROM drinks";
-  $result = mysqli_query($db, $query);
-  $rows = mysqli_fetch_row($result);
+function countDrinks($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT COUNT(*) FROM drinks";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
 
-  return $rows[0];
+    return $rows[0];
 }
 
 ################ Count Smart Things function ###################################
-function countSmart($db) {
-  // SELECT requests WHERE id = GET
-  $query = "SELECT COUNT(*) FROM smart";
-  $result = mysqli_query($db, $query);
-  $rows = mysqli_fetch_row($result);
+function countSmart($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT COUNT(*) FROM smart";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
 
-  return $rows[0];
+    return $rows[0];
 }
 
 ################ Collection Name function ######################################
-function getCollectionName($db, $collectionNum) {
-  // Run SQL
-  $check = "SELECT * FROM collections WHERE collection_id = $collectionNum";
-  $result = mysqli_query($db, $check);
-  $rs = mysqli_fetch_array($result);
+function getCollectionName($db, $collectionNum)
+{
+    // Run SQL
+    $check = "SELECT * FROM collections WHERE collection_id = $collectionNum";
+    $result = mysqli_query($db, $check);
+    $rs = mysqli_fetch_array($result);
 
-  // Store Collection Name as Variable.
-  $collectionName = $rs['collection_name'];
+    // Store Collection Name as Variable.
+    $collectionName = $rs['collection_name'];
 
-  // Contains No Collection Name.
-  if ($collectionName == "") {
-    $collectionName = "N/A";
-  }
+    // Contains No Collection Name.
+    if ($collectionName == "") {
+        $collectionName = "N/A";
+    }
 
-  // Return Value.
-  return $collectionName;
+    // Return Value.
+    return $collectionName;
 }
 
 ################ Name Limiter function #########################################
-function NameLimiter($SongName) {
-  $name_lim = 20; //string length limit
-  if (strlen($SongName) > $name_lim) {
-    $output = substr($SongName, 0, $name_lim-3) . "...";
-    return $output;
-  } else {
-    return $SongName;
-  }
+function NameLimiter($SongName)
+{
+    $name_lim = 20; //string length limit
+    if (strlen($SongName) > $name_lim) {
+        $output = substr($SongName, 0, $name_lim-3) . "...";
+        return $output;
+    } else {
+        return $SongName;
+    }
 }
 
 ################ Arist Limiter function ########################################
-function ArtistLimiter($SongArtist) {
-  $name_lim = 20; //string length limit
-  if (strlen($SongArtist) > $name_lim) {
-    $output = substr($SongArtist, 0, $name_lim-3) . "...";
-    return $output;
-  } else {
-    return $SongArtist;
-  }
+function ArtistLimiter($SongArtist)
+{
+    $name_lim = 20; //string length limit
+    if (strlen($SongArtist) > $name_lim) {
+        $output = substr($SongArtist, 0, $name_lim-3) . "...";
+        return $output;
+    } else {
+        return $SongArtist;
+    }
 }
 
 ################ pagination function ###########################################
@@ -211,7 +235,7 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
 {
     $pagination = '';
     if ($total_pages > 0 && $total_pages != 1 && $current_page <= $total_pages) { //verify total pages and current page number
-        $pagination .= '<ul class="pagination">';
+        $pagination .= '<ul class="pagination pagination-lg justify-content-center">';
 
         $right_links    = $current_page + 3;
         $previous       = $current_page - 3; //previous link
@@ -252,6 +276,12 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
         $pagination .= '</ul>';
     }
     return $pagination; //return pagination links
+}
+
+// Collection Filtering
+if (isset($_GET['collection'])) {
+    // Get Collection Name
+    $collectionIDNum = $_GET['collection'];
 }
 
 ################ GLOBAL FUNCTIONS ##############################################
