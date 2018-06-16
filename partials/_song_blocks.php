@@ -53,7 +53,7 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
     while ($results->fetch()) { //fetch values
       ?>
               <!-- Song Blocks -->
-              <div class="col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>" style="min-width: 250px; padding-left: 5px; padding-right: 5px;">
+              <div class="col-sm-4 col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>" style="padding-left: 0px; padding-right: 0px;">
 
                 <!-- Song Top Image -->
                 <?php if ($coverArtMode == 1) { ?>
@@ -77,8 +77,8 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
                     </div>
 
                     <!-- Request Button -->
-                    <div class="col-md-3">
-                      <a href="index.php?request_song=<?php echo $id ?>" class="" ><i class="far fa-thumbs-up fa-2x"></i></a>
+                    <div id='requestButtonDiv' class="col-md-3">
+                      <a href="index.php?request_song=<?php echo $id ?>"><i class="far fa-thumbs-up fa-2x"></i></a>
                     </div>
 
                   </div>

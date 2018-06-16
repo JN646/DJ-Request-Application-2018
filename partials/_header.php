@@ -35,25 +35,25 @@
     <!-- Start Clock -->
     <body onload="startTime()">
 
+    <!-- Top Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a title="<?php echo 'Version ' . ApplicationVersion::get(); ?>" class="navbar-brand" href="<?php echo $environment; ?>index.php">DJ Request 2018</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo $environment; ?>admin/index.php"><i class="fas fa-unlock-alt"></i></a>
+          </li>
+        </ul>
+        <span id='txt' class="navbar-text"></span>
+        <span>&nbsp;</span>
+        <span class="navbar-text">
+          <?php is_connected(); ?>
+        </span>
+      </div>
+    </nav>
+
     <!-- Container -->
     <div class="container-fluid">
-
-      <!-- Top Bar -->
-      <div class='row' id='topBar'>
-          <div class="col-md-4">
-            <p title="<?php echo 'Version ' . ApplicationVersion::get(); ?>">
-              <i class="fas fa-headphones"></i>
-              <span>DJRS 2018</span>
-            </p>
-          </div>
-          <div class="col-md-4 text-center">
-            <p class='footerLink'><a href="<?php echo $environment; ?>admin/index.php"><i class="fas fa-unlock-alt"></i></a></p>
-            <p class='footerLink'><a href="<?php echo $environment; ?>index.php"><i class="fas fa-home"></i></a></p>
-          </div>
-          <div class="col-md-4">
-            <p class="text-right">
-              <span id="txt"></span>
-              <span><?php is_connected(); ?></span>
-            </p>
-          </div>
-      </div>

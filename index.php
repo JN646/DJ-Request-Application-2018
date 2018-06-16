@@ -39,7 +39,7 @@
               </div>
             <?php endif ?>
 
-            <h1>
+            <h1 class='headerCollection'>
               <?php
               // Check to see if collection name is empty.
               if (empty($collection_name)) {
