@@ -114,6 +114,7 @@ function nicetime($date)
         $periods[$j].= "s";
     }
 
+    // Return Value.
     return "$difference $periods[$j] {$tense}";
 }
 
@@ -121,14 +122,16 @@ function nicetime($date)
 function isPinned($db, $RequestID)
 {
     // SELECT requests WHERE id = GET
-    $check = "SELECT * FROM requests WHERE request_id = $RequestID";
+    $check = "SELECT * FROM crud WHERE id = $RequestID";
 
     // Store pin value as a variable
     $result = mysqli_query($db, $check);
     $rs = mysqli_fetch_array($result);
 
+    // Get Value.
     $value = $rs['request_pinned'];
 
+    // Check to see if pinned.
     if ($value == 1) {
         return "<i class='fas fa-thumbtack'></i>";
     } elseif ($value == 0) {
@@ -140,10 +143,11 @@ function isPinned($db, $RequestID)
 function countRequestsActive($db)
 {
     // SELECT requests WHERE id = GET
-    $query = "SELECT COUNT(*) FROM requests WHERE request_active = 1";
+    $query = "SELECT COUNT(*) FROM crud WHERE request_active = 1";
     $result = mysqli_query($db, $query);
     $rows = mysqli_fetch_row($result);
 
+    // Return Value.
     return $rows[0];
 }
 
@@ -151,10 +155,11 @@ function countRequestsActive($db)
 function countRequestsInActive($db)
 {
     // SELECT requests WHERE id = GET
-    $query = "SELECT COUNT(*) FROM requests WHERE request_active = 0";
+    $query = "SELECT COUNT(*) FROM crud WHERE request_active = 0";
     $result = mysqli_query($db, $query);
     $rows = mysqli_fetch_row($result);
 
+    // Return Value.
     return $rows[0];
 }
 
@@ -166,6 +171,7 @@ function countSongs($db)
     $result = mysqli_query($db, $query);
     $rows = mysqli_fetch_row($result);
 
+    // Return Value.
     return $rows[0];
 }
 
@@ -177,6 +183,7 @@ function countDrinks($db)
     $result = mysqli_query($db, $query);
     $rows = mysqli_fetch_row($result);
 
+    // Return Value.
     return $rows[0];
 }
 
@@ -188,6 +195,7 @@ function countSmart($db)
     $result = mysqli_query($db, $query);
     $rows = mysqli_fetch_row($result);
 
+    // Return Value.
     return $rows[0];
 }
 
