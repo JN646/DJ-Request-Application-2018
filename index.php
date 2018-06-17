@@ -1,4 +1,7 @@
 <?php include 'partials/_header.php'; ?>
+
+      <?php session_start() ?>
+
       <!-- Row -->
       <div class="row">
 

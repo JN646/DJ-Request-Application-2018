@@ -1,4 +1,7 @@
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php"); ?>
+
+      <?php session_start() ?>
+
       <!-- Row -->
       <div class="row">
 
