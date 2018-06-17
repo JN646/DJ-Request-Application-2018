@@ -194,7 +194,7 @@ if (isset($_GET['pin_song']))
     $song_request_ID_number = $_GET['pin_song'];
 
     // SELECT requests WHERE id = GET
-    $check = "SELECT * FROM requests WHERE request_id = $song_request_ID_number";
+    $check = "SELECT * FROM crud WHERE id = $song_request_ID_number";
 
     // Store pin value as a variable
     $result = mysqli_query($db, $check);
@@ -215,7 +215,7 @@ if (isset($_GET['pin_song']))
     }
 
     // Write variable to the database
-    if (mysqli_query($db, "UPDATE requests SET request_pinned = $togpin WHERE request_id = $song_request_ID_number")) {
+    if (mysqli_query($db, "UPDATE crud SET request_pinned = $togpin WHERE id = $song_request_ID_number")) {
         // Message
         $_SESSION['message'] = "<div class='alert alert-success'>Song Pinned!</div>";
         header('location: index.php');
@@ -232,7 +232,7 @@ if (isset($_GET['deleterequests']))
     $deleteallrequests = $_GET['deleterequests'];
 
     // Run SQL
-    if (mysqli_query($db, "DELETE FROM requests")) {
+    if (mysqli_query($db, "UPDATE crud SET request_active = 0 WHERE id = $song_request_ID_number")) {
         // Message
         $_SESSION['message'] = "<div class='alert alert-success'>Requests Deleted!</div>";
         header('location: index.php');
