@@ -48,46 +48,33 @@
 
                 <!-- Block 1 -->
                 <div class="col-md-3">
-                  <div class="col-md-12 border">
-                    <!-- Top Row -->
-                    <div class="row">
-                      <h1 class='display-4'><?php echo countSongs($db) ?></h1>
-                    </div>
-                    <!-- Bottom Row -->
-                    <div class="row">
-                      <p>Total Songs</p>
+                  <div class="card col-md-12">
+                    <div class="card-body text-center">
+                      <h1 class="card-title"><?php echo countSongs($db) ?></h1>
+                      <h6 class="card-subtitle mb-2">Total Songs</h6>
                     </div>
                   </div>
                 </div>
 
                 <!-- Block 2 -->
                 <div class="col-md-3">
-                  <div class="col-md-12 border">
-                    <!-- Top Row -->
-                    <div class="row">
-                      <h1 class='display-4'><?php echo countRequestsActive($db) ?></h1>
-                    </div>
-                    <!-- Bottom Row -->
-                    <div class="row">
-                      <p>Total Active Requests</p>
+                  <div class="card col-md-12">
+                    <div class="card-body text-center">
+                      <h1 class="card-title"><?php echo countRequestsActive($db) ?></h1>
+                      <h6 class="card-subtitle mb-2">Total Requests Active</h6>
                     </div>
                   </div>
                 </div>
 
                 <!-- Block 3 -->
                 <div class="col-md-3">
-                  <div class="col-md-12 border">
-                    <!-- Top Row -->
-                    <div class="row">
-                      <h1 class='display-4'><?php echo countRequestsInActive($db) ?></h1>
-                    </div>
-                    <!-- Bottom Row -->
-                    <div class="row">
-                      <p>Total Inactive Requests</p>
+                  <div class="card col-md-12">
+                    <div class="card-body text-center">
+                      <h1 class="card-title"><?php echo countRequestsInActive($db) ?></h1>
+                      <h6 class="card-subtitle mb-2">Total Requests Inactive</h6>
                     </div>
                   </div>
                 </div>
-              </div>
 
               <br>
 
@@ -98,17 +85,14 @@
 
                 <!-- Block 1 -->
                 <div class="col-md-3">
-                  <div class="col-md-12 border">
-                    <!-- Top Row -->
-                    <div class="row">
-                      <h1 class='display-4'><?php echo countDrinks($db) ?></h1>
-                    </div>
-                    <!-- Bottom Row -->
-                    <div class="row">
-                      <p>Total Drinks</p>
+                  <div class="card col-md-12">
+                    <div class="card-body text-center">
+                      <h1 class="card-title"><?php echo countDrinks($db) ?></h1>
+                      <h6 class="card-subtitle mb-2">Total Drinks</h6>
                     </div>
                   </div>
                 </div>
+
               </div>
             <?php } ?>
 
@@ -121,17 +105,14 @@
 
                 <!-- Block 1 -->
                 <div class="col-md-3">
-                  <div class="col-md-12 border">
-                    <!-- Top Row -->
-                    <div class="row">
-                      <h1 class='display-4'><?php echo countSmart($db) ?></h1>
-                    </div>
-                    <!-- Bottom Row -->
-                    <div class="row">
-                      <p>Total Drinks</p>
+                  <div class="card col-md-12">
+                    <div class="card-body text-center">
+                      <h1 class="card-title"><?php echo countDrinks($db) ?></h1>
+                      <h6 class="card-subtitle mb-2">Total Smart Things</h6>
                     </div>
                   </div>
                 </div>
+
               </div>
             <?php } ?>
 
@@ -141,5 +122,5 @@
         </div>
 
       </div>
-      <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php"); ?>
     </div>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_footer.php"); ?>
