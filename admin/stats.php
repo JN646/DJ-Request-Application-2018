@@ -1,6 +1,11 @@
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php"); ?>
 
-      <?php session_start() ?>
+      <?php
+      // Start session if one not running.
+      if(!isset($_SESSION)){
+         session_start();
+      }
+      ?>
 
       <!-- Row -->
       <div class="row">
@@ -23,7 +28,7 @@
             <div id='CRUDWindow'>
 
             <!-- Head -->
-            <h1>Stats</h1>
+            <h1 class='display-4'>Stats</h1>
             <p>See all the stats of your installation.</p>
             <br>
 

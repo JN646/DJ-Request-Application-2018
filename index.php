@@ -1,6 +1,11 @@
 <?php include 'partials/_header.php'; ?>
 
-      <?php session_start() ?>
+      <?php
+      // Start session if one not running.
+      if(!isset($_SESSION)){
+         session_start();
+      }
+      ?>
 
       <!-- Row -->
       <div class="row">
