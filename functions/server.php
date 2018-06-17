@@ -70,7 +70,7 @@ if (isset($_POST['save']))
     $collectionID = test_input($_POST['collectionID']);
 
     // Insert to database.
-    if (mysqli_query($db, "INSERT INTO crud (name, artist, genre, year, collec_id) VALUES ('$name', '$artist', '$album', '$genre', '$year', '$collectionID')")) {
+    if (mysqli_query($db, "INSERT INTO crud (name, artist, album, genre, year, collec_id) VALUES ('$name', '$artist', '$album', '$genre', '$year', '$collectionID')")) {
         $_SESSION['message'] = "<div class='alert alert-success'>Song saved</div>";
         header('location: ../admin/list_manager.php');
     } else {

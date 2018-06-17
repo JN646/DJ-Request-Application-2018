@@ -31,13 +31,13 @@
                     <!-- Draw Table -->
                       <table id='myTable2' style='font-size: 120%;' class='table table-hover'>
                           <tr>
-                              <th class='text-center'>Name</th>
-                              <th class='text-center'>Artist</th>
-                              <th class='text-center'>Album</th>
-                              <th class='text-center'>Genres</th>
-                              <th class='text-center'>Last Request</th>
-                              <th class='text-center'># Requests</th>
-                              <th class='text-center'>Pin</th>
+                              <th onclick="sortTable(0)" class='text-center'>Name</th>
+                              <th onclick="sortTable(1)" class='text-center'>Artist</th>
+                              <th onclick="sortTable(2)" class='text-center'>Album</th>
+                              <th onclick="sortTable(3)" class='text-center'>Genres</th>
+                              <th onclick="sortTable(4)" class='text-center'>Last Request</th>
+                              <th onclick="sortTable(5)" class='text-center'># Requests</th>
+                              <th  class='text-center'>Pin</th>
                               <th class='text-center'>Clear</th>
                           </tr>
                   <?php
@@ -110,6 +110,78 @@
       $('table').css("font-size", size);
     });
   });
+
+  // Size changing
+  $(function () {
+    $(".font-button").bind("click", function () {
+      var size = parseInt($('table').css("font-size"));
+      if ($(this).hasClass("plus")) {
+        size = size + 2;
+      } else {
+        size = size - 2;
+        if (size <= 10) {
+          size = 10;
+        }
+      }
+      $('table').css("font-size", size);
+    });
+  });
+
+  //############## Table Sorting #################################################
+  function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable2");
+    switching = true;
+    // Set the sorting direction to ascending:
+    dir = "asc";
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+      // Start by saying: no switching is done:
+      switching = false;
+      rows = table.getElementsByTagName("TR");
+      /* Loop through all table rows (except the
+      first, which contains table headers): */
+      for (i = 1; i < (rows.length - 1); i++) {
+        // Start by saying there should be no switching:
+        shouldSwitch = false;
+        /* Get the two elements you want to compare,
+        one from current row and one from the next: */
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /* Check if the two rows should switch place,
+        based on the direction, asc or desc: */
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            // If so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /* If a switch has been marked, make the switch
+        and mark that a switch has been done: */
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        // Each time a switch is done, increase this count by 1:
+        switchcount ++;
+      } else {
+        /* If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again. */
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
 </script>
 
 <?php
