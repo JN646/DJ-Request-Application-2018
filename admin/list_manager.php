@@ -60,13 +60,14 @@
                 <!-- Get Results -->
                 <?php while ($row = mysqli_fetch_array($results)) {
                   $collectionNum = $row['collec_id'];
+                  $songYear = $row['year'];
                   ?>
                   <tr>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['artist']; ?></td>
                     <td><?php echo $row['album']; ?></td>
                     <td class='text-center'><span class='colourCell<?php echo $row['genre']; ?>'><?php echo $row['genre']; ?></span></td>
-                    <td class='text-center'><?php echo $row['year']; ?></td>
+                    <td class='text-center'><?php echo yearNull($songYear); ?></td>
                     <td class='text-center'><?php echo getCollectionName($db, $collectionNum); ?></td>
                     <td class='text-center'>
                       <a href="../admin/list_manager.php?edit=<?php echo $row['id']; ?>" class="edit_btn" ><i class="far fa-edit"></i></a>

@@ -119,6 +119,20 @@ function nicetime($date)
     return "$difference $periods[$j] {$tense}";
 }
 
+################ Year Null function ############################################
+function yearNull($songYear)
+{
+  if ($songYear == 0) {
+    // Check to see if the year is 0.
+
+    // Set the year to blank.
+    return $songYear = "";
+  }
+
+  // Return year.
+  return $songYear;
+}
+
 ################ Check Pinned function #########################################
 function isPinned($db, $RequestID)
 {
@@ -213,7 +227,7 @@ function getCollectionName($db, $collectionNum)
 
     // Contains No Collection Name.
     if ($collectionName == "") {
-        $collectionName = "N/A";
+        $collectionName = "";
     }
 
     // Return Value.
