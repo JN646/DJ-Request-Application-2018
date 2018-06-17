@@ -53,32 +53,6 @@ function is_connected()
     }
 }
 
-################ Genre function ################################################
-function GenreArray()
-{
-    // Genre Array.
-    $genreList = array('', 'Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap', 'Dance');
-    sort($genreList);
-
-    // Loop Through Genre Array.
-    for ($i=0; $i < count($genreList); $i++) {
-        echo "<option value='" . $genreList[$i] ."'>" . $genreList[$i] ."</option>";
-    }
-}
-
-################ Drink function ################################################
-function DrinkMeasurementArray()
-{
-    // Genre Array.
-    $drinkMeasurementList = ['Other', 'Pint', 'Half-Pint', 'Single', 'Double', 'Half-Bottle', 'Bottle'];
-
-    // Loop Through Genre Array.
-    for ($i=0; $i < count($drinkMeasurementList); $i++) {
-        echo "<option value='" . $drinkMeasurementList[$i] ."'>" . $drinkMeasurementList[$i] ."</option>";
-    }
-}
-
-
 ################ Date Function #################################################
 function nicetime($date)
 {
@@ -119,6 +93,20 @@ function nicetime($date)
     return "$difference $periods[$j] {$tense}";
 }
 
+################ SONG FUNCTIONS ################################################
+################ Genre function ################################################
+function GenreArray()
+{
+    // Genre Array.
+    $genreList = array('', 'Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap', 'Dance');
+    sort($genreList);
+
+    // Loop Through Genre Array.
+    for ($i=0; $i < count($genreList); $i++) {
+        echo "<option value='" . $genreList[$i] ."'>" . $genreList[$i] ."</option>";
+    }
+}
+
 ################ Year Null function ############################################
 function yearNull($songYear)
 {
@@ -154,7 +142,7 @@ function isPinned($db, $RequestID)
     }
 }
 
-################ Check Song Active function ####################################
+################ Count Song Active function ####################################
 function countRequestsActive($db)
 {
     // SELECT requests WHERE id = GET
@@ -190,30 +178,6 @@ function countSongs($db)
     return $rows[0];
 }
 
-################ Count Drinks function #########################################
-function countDrinks($db)
-{
-    // SELECT requests WHERE id = GET
-    $query = "SELECT COUNT(*) FROM drinks";
-    $result = mysqli_query($db, $query);
-    $rows = mysqli_fetch_row($result);
-
-    // Return Value.
-    return $rows[0];
-}
-
-################ Count Smart Things function ###################################
-function countSmart($db)
-{
-    // SELECT requests WHERE id = GET
-    $query = "SELECT COUNT(*) FROM smart";
-    $result = mysqli_query($db, $query);
-    $rows = mysqli_fetch_row($result);
-
-    // Return Value.
-    return $rows[0];
-}
-
 ################ Collection Name function ######################################
 function getCollectionName($db, $collectionNum)
 {
@@ -234,6 +198,7 @@ function getCollectionName($db, $collectionNum)
     return $collectionName;
 }
 
+################ TEXT LIMITERS #################################################
 ################ Name Limiter function #########################################
 function NameLimiter($SongName)
 {
@@ -310,6 +275,44 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
 if (isset($_GET['collection'])) {
     // Get Collection Name
     $collectionIDNum = $_GET['collection'];
+}
+
+################ DRINK ADDON ###################################################
+################ Drink function ################################################
+function DrinkMeasurementArray()
+{
+    // Genre Array.
+    $drinkMeasurementList = ['Other', 'Pint', 'Half-Pint', 'Single', 'Double', 'Half-Bottle', 'Bottle'];
+
+    // Loop Through Genre Array.
+    for ($i=0; $i < count($drinkMeasurementList); $i++) {
+        echo "<option value='" . $drinkMeasurementList[$i] ."'>" . $drinkMeasurementList[$i] ."</option>";
+    }
+}
+
+################ Count Drinks function #########################################
+function countDrinks($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT COUNT(*) FROM drinks";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
+
+    // Return Value.
+    return $rows[0];
+}
+
+################ SMART ADDON ###################################################
+################ Count Smart Things function ###################################
+function countSmart($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT COUNT(*) FROM smart";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
+
+    // Return Value.
+    return $rows[0];
 }
 
 ################ GLOBAL FUNCTIONS ##############################################
