@@ -57,7 +57,8 @@ function is_connected()
 function GenreArray()
 {
     // Genre Array.
-    $genreList = ['Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap'];
+    $genreList = array('', 'Other', 'Pop', 'Rock', 'RnB', 'Hip-Hop', 'Classical', 'Rap', 'Dance');
+    sort($genreList);
 
     // Loop Through Genre Array.
     for ($i=0; $i < count($genreList); $i++) {

@@ -1,5 +1,10 @@
 <?php include($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/partials/_header.php"); ?>
 
+      <!-- Autorefresh page. -->
+      <head>
+       <meta http-equiv="refresh" content="5">
+      </head>
+
       <?php
       // Start session if one not running.
       if(!isset($_SESSION)){
