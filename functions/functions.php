@@ -228,7 +228,7 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
 {
     $pagination = '';
     if ($total_pages > 0 && $total_pages != 1 && $current_page <= $total_pages) { //verify total pages and current page number
-        $pagination .= '<ul class="pagination pagination-lg justify-content-center">';
+        $pagination .= '<ul class="pagination justify-content-center">';
 
         $right_links    = $current_page + 3;
         $previous       = $current_page - 3; //previous link
@@ -257,13 +257,13 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
 
         for ($i = $current_page+1; $i < $right_links ; $i++) { //create right-hand side links
             if ($i<=$total_pages) {
-                $pagination .= '<li><a href="#" data-page="'.$i.'" title="Page '.$i.'">'.$i.'</a></li>';
+                $pagination .= '<li class="page-item"><a class="page-link" href="#" data-page="'.$i.'" title="Page '.$i.'">'.$i.'</a></li>';
             }
         }
         if ($current_page < $total_pages) {
             $next_link = ($i > $total_pages) ? $total_pages : $i;
-            $pagination .= '<li><a href="#" data-page="'.$next_link.'" title="Next">&gt;</a></li>'; //next link
-                $pagination .= '<li class="last"><a href="#" data-page="'.$total_pages.'" title="Last">&raquo;</a></li>'; //last link
+            $pagination .= '<li class="page-item"><a class="page-link" href="#" data-page="'.$next_link.'" title="Next">&gt;</a></li>'; //next link
+                $pagination .= '<li class="last page-item"><a class="page-link" href="#" data-page="'.$total_pages.'" title="Last">&raquo;</a></li>'; //last link
         }
 
         $pagination .= '</ul>';
