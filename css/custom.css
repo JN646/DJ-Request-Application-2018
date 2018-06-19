@@ -15,6 +15,10 @@ a:hover {
   color: #dc332f;
 }
 
+body {
+  background-color: #002b36;
+}
+
 .card {
   color: black;
 }
@@ -98,6 +102,11 @@ a:hover {
 #CRUDWindow {
   height: 100vh;
   overflow-y: auto;
+}
+
+#staticWin {
+  height: 100vh;
+  color: #fdf6e3;
 }
 
 .bg-dark {
