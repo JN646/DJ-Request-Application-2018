@@ -248,11 +248,11 @@ function paginate_function($item_per_page, $current_page, $total_records, $total
         }
 
         if ($first_link) { //if current active page is first link
-            $pagination .= '<li class="first active page-item">'.$current_page.'</li>';
+            $pagination .= '<li class="first active page-item"><span class="page-link">'.$current_page.'</span></li>';
         } elseif ($current_page == $total_pages) { //if it's the last active link
-            $pagination .= '<li class="last active page-item">'.$current_page.'</li>';
+            $pagination .= '<li class="last active page-item"><span class="page-link">'.$current_page.'</span></li>';
         } else { //regular current link
-            $pagination .= '<li class="active page-item">'.$current_page.'</li>';
+            $pagination .= '<li class="active page-item"><span class="page-link">'.$current_page.'</span></li>';
         }
 
         for ($i = $current_page+1; $i < $right_links ; $i++) { //create right-hand side links
