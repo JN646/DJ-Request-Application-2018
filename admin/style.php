@@ -29,11 +29,15 @@
             <!-- Main Window -->
             <div id='CRUDWindow'>
 
+              <?php $myfile = fopen("../css/venue.css", "r") or die("Unable to open file!"); ?>
+
               <!-- Title -->
               <h1>Style</h1>
-              <p>Edit and customise your system's style.</p>
+              <h3>../css/venue.css</h3>
+              <p>Edit and customise your system's style. Use the blocks below to add and edit your custom css file.</p>
 
-              <?php $myfile = fopen("../css/venue.css", "r") or die("Unable to open file!"); ?>
+              <!-- Custom CSS -->
+              <h2>Custom CSS</h2>
 
               <!-- Form -->
               <form class="form-group" action="index.html" method="post">

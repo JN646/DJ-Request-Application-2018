@@ -142,6 +142,7 @@ function isPinned($db, $RequestID)
     }
 }
 
+################ COUNTING THINGS ###############################################
 ################ Count Song Active function ####################################
 function countRequestsActive($db)
 {
@@ -178,6 +179,18 @@ function countSongs($db)
     return $rows[0];
 }
 
+################ Count Total Requests function #################################
+function countTotalRequests($db)
+{
+    // SELECT requests WHERE id = GET
+    $query = "SELECT SUM(number_requests) from crud";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_row($result);
+
+    // Return Value.
+    return $rows[0];
+}
+
 ################ Collection Name function ######################################
 function getCollectionName($db, $collectionNum)
 {
@@ -196,6 +209,17 @@ function getCollectionName($db, $collectionNum)
 
     // Return Value.
     return $collectionName;
+}
+
+################ Default Collection Name #######################################
+function setDefaultCollectionName($collectionName) {
+  // Check to see if collection name is empty.
+  if (empty($collection_name)) {
+    // Set value to "All Songs".
+    $collection_name = "All Songs";
+  }
+    // Output Collection Name.
+    echo $collection_name;
 }
 
 ################ TEXT LIMITERS #################################################

@@ -48,15 +48,7 @@
             <?php endif ?>
 
             <h1 class='headerCollection display-4'>
-              <?php
-              // Check to see if collection name is empty.
-              if (empty($collection_name)) {
-                // Set value to "All Songs".
-                $collection_name = "All Songs";
-              }
-                // Output Collection Name.
-                echo $collection_name;
-              ?>
+              <?php setDefaultCollectionName($collection_name); ?>
             </h1>
           </div>
 
@@ -71,19 +63,23 @@
     </div>
 
     <script type="text/javascript">
-    $(document).ready(function() {
-    	$("#results" ).load( "partials/_song_blocks.php"); //load initial records
+    getPaginatedResults();
 
-    	//executes code below when user click on pagination links
-    	$("#results").on( "click", ".pagination a", function (e){
-    		e.preventDefault();
-    		$(".loading-div").show(); //show loading element
-    		var page = $(this).attr("data-page"); //get page number from link
-    		$("#results").load("partials/_song_blocks.php",{"page":page}, function(){ //get content from PHP page
-    			$(".loading-div").hide(); //once done, hide loading element
-    		});
+    function getPaginatedResults() {
+      $(document).ready(function() {
+      	$("#results" ).load( "partials/_song_blocks.php"); //load initial records
 
-    	});
-    });
+      	//executes code below when user click on pagination links
+      	$("#results").on( "click", ".pagination a", function (e){
+      		e.preventDefault();
+      		$(".loading-div").show(); //show loading element
+      		var page = $(this).attr("data-page"); //get page number from link
+      		$("#results").load("partials/_song_blocks.php",{"page":page}, function(){ //get content from PHP page
+      			$(".loading-div").hide(); //once done, hide loading element
+      		});
+
+      	});
+      });
+    }
     </script>
 <?php include 'partials/_footer.php'; ?>

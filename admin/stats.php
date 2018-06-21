@@ -47,6 +47,7 @@
               <div class="row">
 
                 <!-- Block 1 -->
+                <!-- Count Songs -->
                 <div class="col-md-3">
                   <div class="card col-md-12">
                     <div class="card-body text-center">
@@ -57,6 +58,7 @@
                 </div>
 
                 <!-- Block 2 -->
+                <!-- Count Active -->
                 <div class="col-md-3">
                   <div class="card col-md-12">
                     <div class="card-body text-center">
@@ -67,6 +69,7 @@
                 </div>
 
                 <!-- Block 3 -->
+                <!-- Count Inactive -->
                 <div class="col-md-3">
                   <div class="card col-md-12">
                     <div class="card-body text-center">
@@ -76,14 +79,27 @@
                   </div>
                 </div>
 
+                <!-- Block 4 -->
+                <!-- Count Total Made -->
+                <div class="col-md-3">
+                  <div class="card col-md-12">
+                    <div class="card-body text-center">
+                      <h1 class="card-title"><?php echo countTotalRequests($db) ?></h1>
+                      <h6 class="card-subtitle mb-2">Total Requests Made</h6>
+                    </div>
+                  </div>
+                </div>
+
               <br>
 
             <?php if($addon_drinks == TRUE) { ?>
+              <!-- Drinks Block -->
               <h1><span><i class="fas fa-beer"></i></span> Drinks</h1>
               <p>Information relating to the drinks system.</p>
               <div class="row">
 
                 <!-- Block 1 -->
+                <!-- Count Drinks -->
                 <div class="col-md-3">
                   <div class="card col-md-12">
                     <div class="card-body text-center">
@@ -99,11 +115,13 @@
               <br>
 
             <?php if($addon_smartthings == TRUE) { ?>
+              <!-- Smart Things Block -->
               <h1><span><i class="fas fa-plug"></i></span> Smart Things</h1>
               <p>Information about smart objects connected to this installation.</p>
               <div class="row">
 
                 <!-- Block 1 -->
+                <!-- Count Smart -->
                 <div class="col-md-3">
                   <div class="card col-md-12">
                     <div class="card-body text-center">
