@@ -24,6 +24,18 @@
       </li>
       <li id='songLinkRequests' class="list-group-item"><a href="<?php echo $environment; ?>admin/index.php"><i class="fas fa-list"></i> Requests <span class="badge badge-secondary"><?php echo countRequestsActive($db); ?></span></a></li>
       <li id='songLinkListManager' class="list-group-item"><a href="<?php echo $environment; ?>admin/list_manager.php"><i class="fas fa-tachometer-alt"></i> Song Manager</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- Admin -->
+<div class="card action_block">
+  <div class="card">
+    <div class="card-header text-center">
+      <h5 id='headerActions'>Admin</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li id='actionsLinkStats' class="list-group-item"><a class="" href="<?php echo $environment; ?>admin/style.php"><i class="fas fa-paint-brush"></i> Style</a></li>
       <li id='songLinkExportList' class="list-group-item"><a href="<?php echo $environment; ?>functions/exportData.php"><i class="fas fa-download"></i> Export Song List</a></li>
       <li id='songLinkExportRequests' class="list-group-item"><a href="<?php echo $environment; ?>functions/exportRequests.php"><i class="fas fa-download"></i> Export Request List</a></li>
       <li id='songLinkDeleteRequests' class="list-group-item"><a class="text-danger" href="<?php echo $environment; ?>admin/index.php?deleterequests=true"><i class="fas fa-trash"></i> Delete All Requests</a></li>
