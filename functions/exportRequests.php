@@ -10,7 +10,7 @@ $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 //get records from database
 $query = $db->query("SELECT * FROM requests ORDER BY request_id DESC");
 
-if($query->num_rows > 0){
+if ($query->num_rows > 0) {
     $delimiter = ",";
     $filename = "requests_" . date('Y-m-d') . ".csv";
 
@@ -22,7 +22,7 @@ if($query->num_rows > 0){
     fputcsv($f, $fields, $delimiter);
 
     //output each row of the data, format line as csv and write to file pointer
-    while($row = $query->fetch_assoc()){
+    while ($row = $query->fetch_assoc()) {
         $lineData = array($row['request_id'], $row['request_s_name'], $row['request_s_artist'], $row['request_s_album'], $row['request_s_genre'], $row['request_time']);
         fputcsv($f, $lineData, $delimiter);
     }
@@ -38,5 +38,3 @@ if($query->num_rows > 0){
     fpassthru($f);
 }
 exit;
-
-?>

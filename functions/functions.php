@@ -110,15 +110,15 @@ function GenreArray()
 ################ Year Null function ############################################
 function yearNull($songYear)
 {
-  if ($songYear == 0) {
-    // Check to see if the year is 0.
+    if ($songYear == 0) {
+        // Check to see if the year is 0.
 
-    // Set the year to blank.
-    return $songYear = "";
-  }
+        // Set the year to blank.
+        return $songYear = "";
+    }
 
-  // Return year.
-  return $songYear;
+    // Return year.
+    return $songYear;
 }
 
 ################ Check Pinned function #########################################
@@ -212,12 +212,13 @@ function getCollectionName($db, $collectionNum)
 }
 
 ################ Default Collection Name #######################################
-function setDefaultCollectionName($collectionName) {
-  // Check to see if collection name is empty.
-  if (empty($collection_name)) {
-    // Set value to "All Songs".
-    $collection_name = "All Songs";
-  }
+function setDefaultCollectionName($collectionName)
+{
+    // Check to see if collection name is empty.
+    if (empty($collection_name)) {
+        // Set value to "All Songs".
+        $collection_name = "All Songs";
+    }
     // Output Collection Name.
     echo $collection_name;
 }

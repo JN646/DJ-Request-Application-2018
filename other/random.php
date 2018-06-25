@@ -57,32 +57,33 @@ $song_count = count($resultArray);
 
     // Generate Random Number.
 
-    // Check to see if numeric
-    if (is_numeric($min) && is_numeric($max)) {
+      // Check to see if numeric
+      if (is_numeric($min) && is_numeric($max)) {
 
       // Set floors
-      $result = rand($min,$max);
+          $result = rand($min, $max);
 
-      // Result Output
-      $resultOutput = $resultArray[$result];
-    } else {
-      // Init Variable.
-      $result = "";
+          // Result Output
+          $resultOutput = $resultArray[$result];
+      } else {
+          // Init Variable.
+          $result = "";
 
-      // Error Message.
-      echo "Values are not numbers.";
-    }
+          // Error Message.
+          echo "Values are not numbers.";
+      }
   }
    ?>
 
   <h2><?php echo $resultArray[$result] ?></h2>
 
   <?php
-    function ArrayLoop($resultArray) {
-      // Loop Through Array.
-      for ($i=0; $i < count($resultArray); $i++) {
-          echo "<option value='" . $i ."'>" . $i ."</option>";
-      }
+    function ArrayLoop($resultArray)
+    {
+        // Loop Through Array.
+        for ($i=0; $i < count($resultArray); $i++) {
+            echo "<option value='" . $i ."'>" . $i ."</option>";
+        }
     }
    ?>
 </div>

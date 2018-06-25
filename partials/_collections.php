@@ -13,7 +13,8 @@ $sql = "SELECT * FROM collections";
     </div>
 
     <!-- Show Drinks Block -->
-    <?php if($addon_drinks == TRUE) { ?>
+    <?php if ($addon_drinks == true) {
+    ?>
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
@@ -21,10 +22,12 @@ $sql = "SELECT * FROM collections";
         </div>
       </a>
     </div>
-    <?php } ?>
+    <?php
+} ?>
 
     <!-- Show Smart Things Block -->
-    <?php if($addon_smartthings == TRUE) { ?>
+    <?php if ($addon_smartthings == true) {
+        ?>
     <div id="" class="card collection_block">
       <a href='index.php'>
         <div class="card-body">
@@ -32,7 +35,8 @@ $sql = "SELECT * FROM collections";
         </div>
       </a>
     </div>
-    <?php } ?>
+    <?php
+    } ?>
 
 <hr>
 
@@ -42,8 +46,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             $CollectionID = $row['collection_id'];
-            $CollectionName = $row['collection_name'];
-            ?>
+            $CollectionName = $row['collection_name']; ?>
 
           <!-- Generate a Collection Block -->
           <div id="" class="card collection_block">
@@ -53,7 +56,8 @@ if ($result = mysqli_query($mysqli, $sql)) {
               </div>
             </a>
           </div>
-<?php }
+<?php
+        }
         // Free result set
         mysqli_free_result($result);
     } else {

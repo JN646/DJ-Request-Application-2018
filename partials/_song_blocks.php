@@ -22,21 +22,22 @@ $orderType = 'artist';
 
     //Display records fetched from database.
     while ($row = mysqli_fetch_array($songblock_sql)) {
-            $SongGenre = $row['genre'];
-            $SongName = $row['name'];
-            $SongArtist = $row['artist'];
-            $SongAlbum = $row['album'];
-      ?>
+        $SongGenre = $row['genre'];
+        $SongName = $row['name'];
+        $SongArtist = $row['artist'];
+        $SongAlbum = $row['album']; ?>
               <!-- Song Blocks -->
               <div class="col-sm-4 col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>" style="padding-left: 0px; padding-right: 0px;">
 
                 <!-- Song Top Image -->
-                <?php if ($coverArtMode == 1) { ?>
+                <?php if ($coverArtMode == 1) {
+            ?>
                   <?php
                   echo "<img class='headerimage' onerror=this.src='img/img1.svg' src=\"";
-                        echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
-                        echo "\"></a>"; ?>
-                <?php } ?>
+            echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
+            echo "\"></a>"; ?>
+                <?php
+        } ?>
 
                 <!-- Song Body -->
                 <div class="card-body">

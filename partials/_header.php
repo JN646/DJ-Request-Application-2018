@@ -10,7 +10,7 @@
     <!-- Function Files -->
     <?php require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/server.php");?>
     <?php
-    if ($addon_drinks == TRUE):
+    if ($addon_drinks == true):
       require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/drinks_server.php");
     endif;
     ?>

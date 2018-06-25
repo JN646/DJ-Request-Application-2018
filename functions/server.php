@@ -59,8 +59,7 @@ function CollectionArray()
 
 ################ SONG CRUD #####################################################
 ################ Add Record ####################################################
-if (isset($_POST['save']))
-{
+if (isset($_POST['save'])) {
     // Variables
     $name = test_input($_POST['name']);
     $artist = test_input($_POST['artist']);
@@ -80,8 +79,7 @@ if (isset($_POST['save']))
 }
 
 ################ Update Record #################################################
-if (isset($_POST['update']))
-{
+if (isset($_POST['update'])) {
     // Variables
     $id = test_input($_POST['id']);
     $name = test_input($_POST['name']);
@@ -103,8 +101,7 @@ if (isset($_POST['update']))
 }
 
 ################ Delete Record #################################################
-if (isset($_GET['del']))
-{
+if (isset($_GET['del'])) {
     // Variables
     $id = $_GET['del'];
 
@@ -120,8 +117,7 @@ if (isset($_GET['del']))
 }
 
 ################ Request Song ##################################################
-if (isset($_GET['request_song']))
-{
+if (isset($_GET['request_song'])) {
     // Get song ID.
     $song_request_ID_number = $_GET['request_song'];
 
@@ -171,8 +167,7 @@ if (isset($_GET['collection'])) {
 
 ################ DJ ADMIN ######################################################
 ################ Clear Song ####################################################
-if (isset($_GET['clear_song']))
-{
+if (isset($_GET['clear_song'])) {
     // Get song ID.
     $song_request_ID_number = $_GET['clear_song'];
 
@@ -188,8 +183,7 @@ if (isset($_GET['clear_song']))
 }
 
 ################ Pin Song ######################################################
-if (isset($_GET['pin_song']))
-{
+if (isset($_GET['pin_song'])) {
     // Get song ID.
     $song_request_ID_number = $_GET['pin_song'];
 
@@ -226,8 +220,7 @@ if (isset($_GET['pin_song']))
 }
 
 ################ Delete Requests ###############################################
-if (isset($_GET['deleterequests']))
-{
+if (isset($_GET['deleterequests'])) {
     // Get song ID.
     $deleteallrequests = $_GET['deleterequests'];
 
@@ -243,8 +236,7 @@ if (isset($_GET['deleterequests']))
 }
 
 ################ Search ########################################################
-if (isset($_GET['search_val']))
-{
+if (isset($_GET['search_val'])) {
     $SongSearchVal = $_GET['search_val'];
 
     // Song Search SQL

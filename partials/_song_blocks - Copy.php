@@ -45,7 +45,7 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
 
     // Pagination Link Block
     echo "<div class='row paginateButtons'>";
-      echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
+    echo paginate_function($item_per_page, $page_number, $get_total_rows[0], $total_pages);
     echo '</div>';
 
     echo "</br>";
@@ -57,12 +57,14 @@ if (isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SE
               <div class="col-sm-4 col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>" style="padding-left: 0px; padding-right: 0px;">
 
                 <!-- Song Top Image -->
-                <?php if ($coverArtMode == 1) { ?>
+                <?php if ($coverArtMode == 1) {
+          ?>
                   <?php
                   echo "<img class='headerimage' onerror=this.src='img/img1.svg' src=\"";
-                        echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
-                        echo "\"></a>"; ?>
-                <?php } ?>
+          echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
+          echo "\"></a>"; ?>
+                <?php
+      } ?>
 
                 <!-- Song Body -->
                 <div class="card-body">

@@ -13,17 +13,17 @@
             <div class="col-md-12">
             <?php
               if (isset($_GET['drink_edit'])) {
-                $id = $_GET['drink_edit'];
-                $update = true;
-                $record = mysqli_query($db, "SELECT * FROM drinks WHERE drink_id=$id");
-                if (count($record) == 1 ) {
-                  $n = mysqli_fetch_array($record);
-                  $name = $n['drink_name'];
-                  $category = $n['drink_category'];
-                  $quantity = $n['drink_quantity'];
-                  $measurement = $n['drink_measurement'];
-                  $cost = $n['drink_cost'];
-                }
+                  $id = $_GET['drink_edit'];
+                  $update = true;
+                  $record = mysqli_query($db, "SELECT * FROM drinks WHERE drink_id=$id");
+                  if (count($record) == 1) {
+                      $n = mysqli_fetch_array($record);
+                      $name = $n['drink_name'];
+                      $category = $n['drink_category'];
+                      $quantity = $n['drink_quantity'];
+                      $measurement = $n['drink_measurement'];
+                      $cost = $n['drink_cost'];
+                  }
               }
             ?>
             <div id='CRUDWindow'>
@@ -56,7 +56,7 @@
                 </thead>
                 <!-- Get Results -->
                 <?php while ($row = mysqli_fetch_array($results)) {
-                  ?>
+                      ?>
                   <tr>
                     <td><?php echo $row['drink_name']; ?></td>
                     <td><?php echo $row['drink_category']; ?></td>
@@ -70,7 +70,8 @@
                       <a href="../functions/server.php?drink_del=<?php echo $row['drink_id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
                     </td>
                   </tr>
-                <?php } ?>
+                <?php
+                  } ?>
               </table>
             </div>
             <br>

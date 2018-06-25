@@ -1,8 +1,8 @@
 /* Custom CSS File */
 
 /* Globals */
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 * {
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -110,11 +110,13 @@ body {
 }
 
 .bg-dark {
-    background-color: #000!important;
+  background-color: #000 !important;
 }
 
 /* STATS */
+
 /* Stat Block */
+
 .statBlock {
   text-align: center;
 }

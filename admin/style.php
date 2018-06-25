@@ -2,8 +2,8 @@
 
       <?php
       // Start session if one not running.
-      if(!isset($_SESSION)){
-         session_start();
+      if (!isset($_SESSION)) {
+          session_start();
       }
       ?>
 
@@ -44,7 +44,7 @@
 
                 <!-- Text Area -->
                 <textarea class='form-control' name="cssStyle" rows="20" cols="80">
-                  <?php echo fread($myfile,filesize("../css/venue.css")); ?>
+                  <?php echo fread($myfile, filesize("../css/venue.css")); ?>
                 </textarea>
 
                 <br>

@@ -2,8 +2,8 @@
 
       <?php
       // Start session if one not running.
-      if(!isset($_SESSION)){
-         session_start();
+      if (!isset($_SESSION)) {
+          session_start();
       }
       ?>
 
@@ -14,7 +14,8 @@
         <div id='collectionWin' class="col-md-2">
 
           <!-- Is the app running? -->
-          <?php if ($appRunning == 1) { ?>
+          <?php if ($appRunning == 1) {
+          ?>
             <h3 id='collectionHeader'>Collection</h3>
 
             <!-- Search Form -->
@@ -27,7 +28,8 @@
 
             <!-- Add Collection Blocks -->
             <?php include 'partials/_collections.php'; ?>
-          <?php } ?>
+          <?php
+      } ?>
 
         </div>
 

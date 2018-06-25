@@ -2,8 +2,8 @@
 
       <?php
       // Start session if one not running.
-      if(!isset($_SESSION)){
-         session_start();
+      if (!isset($_SESSION)) {
+          session_start();
       }
       ?>
 

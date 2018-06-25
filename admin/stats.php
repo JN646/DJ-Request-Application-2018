@@ -2,8 +2,8 @@
 
       <?php
       // Start session if one not running.
-      if(!isset($_SESSION)){
-         session_start();
+      if (!isset($_SESSION)) {
+          session_start();
       }
       ?>
 
@@ -92,7 +92,8 @@
 
               <br>
 
-            <?php if($addon_drinks == TRUE) { ?>
+            <?php if ($addon_drinks == true) {
+                      ?>
               <!-- Drinks Block -->
               <h1><span><i class="fas fa-beer"></i></span> Drinks</h1>
               <p>Information relating to the drinks system.</p>
@@ -110,11 +111,13 @@
                 </div>
 
               </div>
-            <?php } ?>
+            <?php
+                  } ?>
 
               <br>
 
-            <?php if($addon_smartthings == TRUE) { ?>
+            <?php if ($addon_smartthings == true) {
+                      ?>
               <!-- Smart Things Block -->
               <h1><span><i class="fas fa-plug"></i></span> Smart Things</h1>
               <p>Information about smart objects connected to this installation.</p>
@@ -132,7 +135,8 @@
                 </div>
 
               </div>
-            <?php } ?>
+            <?php
+                  } ?>
 
             </div>
           </div>

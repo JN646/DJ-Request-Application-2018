@@ -13,19 +13,19 @@
             <div class="col-md-12">
             <?php
               if (isset($_GET['edit'])) {
-                $id = $_GET['edit'];
-                $update = true;
-                $record = mysqli_query($db, "SELECT * FROM crud WHERE id=$id");
+                  $id = $_GET['edit'];
+                  $update = true;
+                  $record = mysqli_query($db, "SELECT * FROM crud WHERE id=$id");
 
-                if (count($record) == 1 ) {
-                  $n = mysqli_fetch_array($record);
-                  $name = $n['name'];
-                  $artist = $n['artist'];
-                  $album = $n['album'];
-                  $genre = $n['genre'];
-                  $year = $n['year'];
-                  $collectionID = $n['collec_id'];
-                }
+                  if (count($record) == 1) {
+                      $n = mysqli_fetch_array($record);
+                      $name = $n['name'];
+                      $artist = $n['artist'];
+                      $album = $n['album'];
+                      $genre = $n['genre'];
+                      $year = $n['year'];
+                      $collectionID = $n['collec_id'];
+                  }
               }
             ?>
             <div id='CRUDWindow'>
@@ -59,9 +59,8 @@
                 </thead>
                 <!-- Get Results -->
                 <?php while ($row = mysqli_fetch_array($results)) {
-                  $collectionNum = $row['collec_id'];
-                  $songYear = $row['year'];
-                  ?>
+                      $collectionNum = $row['collec_id'];
+                      $songYear = $row['year']; ?>
                   <tr>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['artist']; ?></td>
@@ -76,7 +75,8 @@
                       <a href="../functions/server.php?del=<?php echo $row['id']; ?>" class="del_btn"><i class="far fa-trash-alt"></i></a>
                     </td>
                   </tr>
-                <?php } ?>
+                <?php
+                  } ?>
               </table>
             </div>
             <br>

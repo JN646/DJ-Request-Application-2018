@@ -65,4 +65,3 @@ if (isset($_GET['drink_del'])) {
         header('location: ../admin/drink_manager.php');
     }
 }
-  ?>
