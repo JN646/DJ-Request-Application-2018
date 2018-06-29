@@ -14,6 +14,7 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");
 
 // Variables
 // $collectionIDNum = 0;
+// Cover Art Mode. 0 Small, 1 Normal, 2 List.
 $coverArtMode = 1;
 $orderType = 'artist';
 $coverArtStyle = coverArtStyleMode($coverArtMode);
@@ -28,17 +29,14 @@ $coverArtStyle = coverArtStyleMode($coverArtMode);
         $SongArtist = $row['artist'];
         $SongAlbum = $row['album']; ?>
               <!-- Song Blocks -->
-              <div class="col-sm-4 col-md-2 card <?php echo 'colour' . $SongGenre . ' ' . $coverArtStyle ?>" style="padding-left: 0px; padding-right: 0px;">
+              <div class="col-sm-4 col-md-2 card <?php echo 'colour' . $SongGenre . ' ' . $coverArtStyle ?>" style="padding: 0px;">
 
                 <!-- Song Top Image -->
                 <?php if ($coverArtMode == 1) {
-            ?>
-                  <?php
                   echo "<img class='headerimage' onerror=this.src='img/img1.svg' src=\"";
-            echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
-            echo "\"></a>"; ?>
-                <?php
-        } ?>
+                  echo LastFMArtwork::getArtwork($SongArtist, $SongAlbum, true, "large");
+                  echo "\"></a>";
+                } ?>
 
                 <!-- Song Body -->
                 <div class="card-body">
@@ -46,10 +44,10 @@ $coverArtStyle = coverArtStyleMode($coverArtMode);
                     <div class="col-md-9">
 
                       <!-- Song Name -->
-                      <?php echo "<h5 class='card-text'>" . NameLimiter($SongName) . "</h5>"; ?>
+                      <?php echo "<h5 class='card-text' title='" . $SongName . "'>" . NameLimiter($SongName) . "</h5>"; ?>
 
                       <!-- Song Artist -->
-                      <?php echo "<h6 class='card-text'>" . ArtistLimiter($SongArtist) . "</h6>"; ?>
+                      <?php echo "<h6 class='card-text' title='" . $SongArtist . "'>" . ArtistLimiter($SongArtist) . "</h6>"; ?>
 
                     </div>
 
