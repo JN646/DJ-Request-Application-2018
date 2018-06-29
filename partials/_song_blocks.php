@@ -14,8 +14,9 @@ require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/lib/lastfm.php");
 
 // Variables
 // $collectionIDNum = 0;
-$coverArtMode = 0;
+$coverArtMode = 1;
 $orderType = 'artist';
+$coverArtStyle = coverArtStyleMode($coverArtMode);
 
     //get total number of records from database for pagination
     $songblock_sql = mysqli_query($db, "SELECT * FROM crud WHERE collec_id = $collectionIDNum ORDER BY $orderType ASC LIMIT 20");
@@ -27,7 +28,7 @@ $orderType = 'artist';
         $SongArtist = $row['artist'];
         $SongAlbum = $row['album']; ?>
               <!-- Song Blocks -->
-              <div class="col-sm-4 col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>" style="padding-left: 0px; padding-right: 0px;">
+              <div class="col-sm-4 col-md-2 card <?php echo 'colour' . $SongGenre . ' ' . $coverArtStyle ?>" style="padding-left: 0px; padding-right: 0px;">
 
                 <!-- Song Top Image -->
                 <?php if ($coverArtMode == 1) {

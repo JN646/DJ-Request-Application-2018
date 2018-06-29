@@ -211,6 +211,18 @@ function getCollectionName($db, $collectionNum)
     return $collectionName;
 }
 
+################ Cover Art Style ###############################################
+function coverArtStyleMode($coverArtMode)
+{
+    if ($coverArtMode == 0) {
+        return $coverArtStyle = "song_block_small";
+    } elseif ($coverArtMode == 1) {
+        return $coverArtStyle = "song_block";
+    } elseif ($coverArtMode == 2) {
+        return $coverArtStyle = "song_block_list";
+    }
+}
+
 ################ Default Collection Name #######################################
 function setDefaultCollectionName($collectionName)
 {
