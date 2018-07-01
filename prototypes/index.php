@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>AJAX Database</title>
-  </head>
-  <body>
-    Name: <input type="text" id='name' name="" value="">
+<?php include '../partials/_header.php'; ?>
+    <label>Name:</label>
+    <input type="text" id='name' name="" value="">
     <input type="submit" id='name-submit' name="" value="Grab">
     <div id="name-data"></div>
 
