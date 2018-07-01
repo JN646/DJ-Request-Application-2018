@@ -19,11 +19,9 @@
             <h3 id='collectionHeader'>Collection</h3>
 
             <!-- Search Form -->
-            <div id='searchFormBox' class="center-block">
-              <form class="form-inline my-2 my-lg-0" action="index.php" method="get">
-                <input id='searchFormInput' class="form-control mr-sm-2" name="search_val" type="text" placeholder="Search" class="form-control" aria-label="Search">
-                <button id='searchFormButton' class="btn btn-outline-success my-2 my-sm-0" value="search" type="submit"><i class="fas fa-search"></i></button>
-              </form>
+            <div id='searchFormBox' class="center-block form-inline">
+                <input class="form-control mr-sm-2" id='name' type="text" class="form-control">
+                <input class='btn btn-outline-success my-2 my-sm-0' type="submit" id='name-submit' value="Grab">
             </div>
 
             <!-- Add Collection Blocks -->
@@ -57,31 +55,10 @@
           <!-- Row -->
           <div class="row">
             <div id='spinningLoader' class="loading-div"><img src="img/ajax-loader.gif"></div>
-            <div id="results" class='col-md-12'></div>
+            <div class='col-md-12' id="name-data"></div>
           </div>
 
         </div>
       </div>
     </div>
-
-    <script type="text/javascript">
-    getPaginatedResults();
-
-    function getPaginatedResults() {
-      $(document).ready(function() {
-      	$("#results" ).load( "partials/_song_blocks.php"); //load initial records
-
-      	//executes code below when user click on pagination links
-      	$("#results").on( "click", ".pagination a", function (e){
-      		e.preventDefault();
-      		$(".loading-div").show(); //show loading element
-      		var page = $(this).attr("data-page"); //get page number from link
-      		$("#results").load("partials/_song_blocks.php",{"page":page}, function(){ //get content from PHP page
-      			$(".loading-div").hide(); //once done, hide loading element
-      		});
-
-      	});
-      });
-    }
-    </script>
 <?php include 'partials/_footer.php'; ?>

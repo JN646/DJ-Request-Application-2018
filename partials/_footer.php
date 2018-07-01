@@ -11,5 +11,6 @@
 
     <!-- Custom JS -->
     <script src="<?php echo $environment; ?>functions/functions.js"></script>
+    <script src="<?php echo $environment; ?>functions/global.js"></script>
   </body>
 </html>

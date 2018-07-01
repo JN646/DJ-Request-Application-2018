@@ -1,9 +1,9 @@
 <?php
 if (isset($_POST['name']) === true && empty($_POST['name']) === false) {
 
-require_once '../../config/DBConfig.php';
+require_once '../config/DBConfig.php';
 
-  $name = $_POST['name'];
+  $name = trim($_POST['name']);
 
   $songblock_sql = mysqli_query($mysqli, "SELECT * FROM crud WHERE name LIKE '%$name%' OR artist LIKE '%$name%' OR album LIKE '%$name%'");
   mysqli_error($mysqli);
@@ -15,7 +15,7 @@ require_once '../../config/DBConfig.php';
       $SongAlbum = $row['album'];
 ?>
       <!-- Song Blocks -->
-      <div class="col-sm-4 col-md-2 card song_block" style="padding: 0px;">
+      <div class="col-sm-4 col-md-2 card song_block <?php echo 'colour' . $SongGenre ?>">
 
         <!-- Song Body -->
         <div class="card-body">
