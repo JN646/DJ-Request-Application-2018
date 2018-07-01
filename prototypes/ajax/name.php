@@ -5,7 +5,8 @@ require_once '../../config/DBConfig.php';
 
   $name = $_POST['name'];
 
-  $songblock_sql = mysqli_query($mysqli, "SELECT * FROM crud WHERE name LIKE '%$name%'");
+  $songblock_sql = mysqli_query($mysqli, "SELECT * FROM crud WHERE name LIKE '%$name%' OR artist LIKE '%$name%' OR album LIKE '%$name%'");
+  mysqli_error($mysqli);
 
   while ($row = mysqli_fetch_array($songblock_sql)) {
       $SongGenre = $row['genre'];
