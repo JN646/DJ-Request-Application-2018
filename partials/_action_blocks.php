@@ -36,8 +36,7 @@
     </div>
     <ul class="list-group list-group-flush">
       <li id='actionsLinkStats' class="list-group-item"><a class="" href="<?php echo $environment; ?>admin/style.php"><i class="fas fa-paint-brush"></i> Style</a></li>
-      <li id='songLinkExportList' class="list-group-item"><a href="<?php echo $environment; ?>functions/exportData.php"><i class="fas fa-download"></i> Export Song List</a></li>
-      <li id='songLinkExportRequests' class="list-group-item"><a href="<?php echo $environment; ?>functions/exportRequests.php"><i class="fas fa-download"></i> Export Request List</a></li>
+      <li id='songLinkExportRequests' class="list-group-item"><a href="<?php echo $environment; ?>admin/exports.php"><i class="fas fa-download"></i> Exports</a></li>
       <li id='songLinkDeleteRequests' class="list-group-item"><a class="text-danger" href="<?php echo $environment; ?>admin/index.php?deleterequests=true"><i class="fas fa-trash"></i> Delete All Requests</a></li>
     </ul>
   </div>
