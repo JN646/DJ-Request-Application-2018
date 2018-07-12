@@ -8,7 +8,7 @@
 $db = mysqli_connect('localhost', 'root', '', 'djapp2');
 
 //get records from database
-$query = $db->query("SELECT * FROM requests ORDER BY request_id DESC");
+$query = $db->query("SELECT * FROM crud WHERE number_requests > 0 ORDER BY id DESC");
 
 if ($query->num_rows > 0) {
     $delimiter = ",";
@@ -18,12 +18,12 @@ if ($query->num_rows > 0) {
     $f = fopen('php://memory', 'w');
 
     //set column headers
-    $fields = array('ID', 'Name', 'Artist', 'Album', 'Genre', 'Year');
+    $fields = array('ID', 'Name', 'Artist', 'Album', 'Genre', 'Year', 'Number of Requests','Request Time');
     fputcsv($f, $fields, $delimiter);
 
     //output each row of the data, format line as csv and write to file pointer
     while ($row = $query->fetch_assoc()) {
-        $lineData = array($row['request_id'], $row['request_s_name'], $row['request_s_artist'], $row['request_s_album'], $row['request_s_genre'], $row['request_time']);
+        $lineData = array($row['id'], $row['name'], $row['artist'], $row['album'], $row['genre'], $row['year'], $row['number_requests'], $row['request_time']);
         fputcsv($f, $lineData, $delimiter);
     }
 

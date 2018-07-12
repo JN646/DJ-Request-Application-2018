@@ -32,9 +32,10 @@
             <div class="col-md-12">
               <!-- Title -->
               <h1>Export</h1>
+              <p>This page has been designed to allow for easy exporting of data from your session.</p>
               <ul>
                   <li id='songLinkExportRequests' class=""><a href="<?php echo $environment; ?>functions/exportRequests.php"><i class="fas fa-download"></i> Export Request List</a></li>
-                  <li id='songLinkExportList' class=""><a href="<?php echo $environment; ?>../functions/exportData.php"><i class="fas fa-download"></i> Export Song List</a></li>
+                  <li id='songLinkExportList' class=""><a href="<?php echo $environment; ?>functions/exportData.php"><i class="fas fa-download"></i> Export Song List</a></li>
               </ul>
               <br>
 
