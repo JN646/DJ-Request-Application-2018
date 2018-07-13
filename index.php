@@ -55,7 +55,9 @@
           <!-- Row -->
           <div class="row">
             <div id='spinningLoader' class="loading-div"><img src="img/ajax-loader.gif"></div>
-            <div class='col-md-12' id="name-data"></div>
+            <div class='col-md-12' id="name-data">
+
+            </div>
           </div>
 
         </div>
