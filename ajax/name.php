@@ -2,13 +2,15 @@
 if (isset($_POST['name']) === true && empty($_POST['name']) === false) {
 
 // Connect to database
-require_once '../config/DBConfig.php';
+require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/config/DBConfig.php");
+require_once($_SERVER["DOCUMENT_ROOT"] . "/dj-app2/functions/functions.php");
 
   // Trim input.
   $name = trim($_POST['name']);
 
-  // Run Query.
+  // Run SQL
   $songblock_sql = mysqli_query($mysqli, "SELECT * FROM crud WHERE name LIKE '%$name%' OR artist LIKE '%$name%' OR album LIKE '%$name%'");
+
   // Catch any errors.
   mysqli_error($mysqli);
 
@@ -30,10 +32,10 @@ require_once '../config/DBConfig.php';
             <div class="col-md-9">
 
               <!-- Song Name -->
-              <?php echo "<h5 class='card-text' title='" . $SongName . "'>" . $SongName . "</h5>"; ?>
+              <?php echo "<h5 class='card-text' title='" . $SongName . "'>" . NameLimiter($SongName) . "</h5>"; ?>
 
               <!-- Song Artist -->
-              <?php echo "<h6 class='card-text' title='" . $SongArtist . "'>" . $SongArtist . "</h6>"; ?>
+              <?php echo "<h6 class='card-text' title='" . $SongArtist . "'>" . ArtistLimiter($SongArtist) . "</h6>"; ?>
 
             </div>
 

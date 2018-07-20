@@ -1,3 +1,7 @@
+$("select#sort").change(function() {
+  alert("Handler for .change() called.");
+});
+
 $('input#name-submit').on('click', function() {
   var name = $('input#name').val();
 

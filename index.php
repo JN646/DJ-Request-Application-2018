@@ -14,8 +14,7 @@
         <div id='collectionWin' class="col-md-2">
 
           <!-- Is the app running? -->
-          <?php if ($appRunning == 1) {
-          ?>
+          <?php if ($appRunning == 1) { ?>
             <h3 id='collectionHeader'>Collection</h3>
 
             <!-- Search Form -->
@@ -54,6 +53,14 @@
 
           <!-- Row -->
           <div class="row">
+            <select id='sort' class="" name="">
+              <option value="Asc">Asc</option>
+              <option value="Desc">Desc</option>
+            </select>
+          </div>
+
+
+          <div class="row">
             <div id='spinningLoader' class="loading-div"><img src="img/ajax-loader.gif"></div>
             <div class='col-md-12' id="name-data">
 
@@ -63,4 +70,8 @@
         </div>
       </div>
     </div>
+
+    <script type="text/javascript">
+
+    </script>
 <?php include 'partials/_footer.php'; ?>
