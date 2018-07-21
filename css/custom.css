@@ -143,11 +143,6 @@ body {
   display: block;
 }
 
-.ResultTable {
-  height: 20vw;
-  overflow-y: scroll;
-}
-
 .footerLink {
   float: left;
   margin: 10px;
