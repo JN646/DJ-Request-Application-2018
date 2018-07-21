@@ -57,6 +57,8 @@
               <option value="Asc">Asc</option>
               <option value="Desc">Desc</option>
             </select>
+
+            <input class='' type="submit" id='name-all' value="all">
           </div>
 
 

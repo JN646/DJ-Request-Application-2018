@@ -18,6 +18,15 @@ $('input#name-submit').on('click', function() {
   }
 });
 
+// All Button
+$('input#name-all').on('click', function() {
+
+  // Run AJAX
+    $.post('ajax/songs.php', {name: name}, function(data) {
+      $('div#name-data').html(data);
+    });
+});
+
 //############## Hello World ###################################################
 console.log('global.js loaded successfully...');
 
