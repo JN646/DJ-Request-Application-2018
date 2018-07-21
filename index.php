@@ -53,7 +53,7 @@
 
           <!-- Row -->
           <div class="row">
-            <select id='sort' class="" name="">
+            <select id='sort' class="" name="songSort">
               <option value="Asc">Asc</option>
               <option value="Desc">Desc</option>
             </select>
