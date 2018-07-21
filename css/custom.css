@@ -102,14 +102,13 @@ body {
 
 #mainWin {
   background-color: #002b36;
-  height: 100vh;
   overflow-y: auto;
   color: #fdf6e3;
+  height: 90vh;
 }
 
 #collectionWin {
   background-color: #073642;
-  height: 100vh;
   padding-top: 10px;
   overflow-y: auto;
   color: #fdf6e3;
@@ -141,6 +140,8 @@ body {
   background-color: #000;
   color: #fdf6e3;
   display: block;
+  position:fixed;
+  bottom: 0;
 }
 
 .footerLink {
